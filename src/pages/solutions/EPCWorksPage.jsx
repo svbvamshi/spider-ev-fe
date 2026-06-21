@@ -6,6 +6,8 @@ import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import workplaceImg from "../../assets/solutions/WorkplaceCharging.png";
 import heroBg from "../../assets/home/hero-bg.png";
+import SEO from "../../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const epcPhases = [
   {
@@ -40,6 +42,18 @@ const whyPoints = [
   "5,000+ chargers deployed across India",
 ];
 
+const pageSchema = getServiceSchema({
+  name: "EV Charging EPC Services",
+  description: "End-to-end EV charging station installation with EPC services, construction support and infrastructure solutions for commercial and public spaces.",
+  url: "/ev-charging-epc-services",
+  serviceType: "EV Charging Station EPC (Engineering, Procurement, Construction)",
+});
+const pageBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Solutions", url: "https://www.spiderenergy.in/ev-charging-epc-services" },
+  { name: "EPC Works" },
+]);
+
 const EPCWorksPage = () => {
   return (
     <PageLayout>
@@ -47,6 +61,7 @@ const EPCWorksPage = () => {
         <title>EV Charging Station Installation Service in Telangana & Andhra Pradesh</title>
         <meta name="description" content="We provides EV charging station installation in Andhra Pradesh & Telangana with EPC services, construction support & infrastructure solutions for commercial and public spaces." />
       </Helmet>
+      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
       <HeroBanner
         title="EV Charging Station Installation Service in Telangana & Andhra Pradesh"
         subtitle="Engineering, Procurement, and Construction — end-to-end EV charging solutions designed, procured, and installed by our expert team."

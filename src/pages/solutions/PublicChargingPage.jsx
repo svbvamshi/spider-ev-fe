@@ -6,6 +6,8 @@ import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import publicImg from "../../assets/solutions/PublicCharging.png";
 import highwayImg from "../../assets/solutions/HighwayCharging.png";
+import SEO from "../../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const useCases = [
   { title: "City Charging Hubs", desc: "Multi-charger stations in commercial zones, government parking, and civic centers for daily urban EV users.", icon: "🏙️" },
@@ -22,6 +24,18 @@ const features = [
   "Automated maintenance scheduling",
 ];
 
+const pageSchema = getServiceSchema({
+  name: "Public EV Charging Stations",
+  description: "Spider Energy offers public EV charging stations across Andhra Pradesh and Telangana, delivering fast charging for cars with a strong and connected EV charging network.",
+  url: "/public-ev-charging-stations",
+  serviceType: "Public EV Charging Infrastructure",
+});
+const pageBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Solutions", url: "https://www.spiderenergy.in/public-ev-charging-stations" },
+  { name: "Public Charging" },
+]);
+
 const PublicChargingPage = () => {
   return (
     <PageLayout>
@@ -29,6 +43,7 @@ const PublicChargingPage = () => {
         <title>Public EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy offers Public EV Charging Stations in Andhra Pradesh and Telangana, Delivering Fast Charging for Cars with a Strong & Connected EV Charging Network." />
       </Helmet>
+      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
       <HeroBanner
         title="Public EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Deliver dependable service with our Charger Management System, ensuring seamless reliability for cities and highways."

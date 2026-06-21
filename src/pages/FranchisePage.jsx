@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import SEO from "../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import logo from "../assets/home/spider-ev-logo.png";
@@ -167,6 +169,17 @@ const STATES = [
   "Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura",
   "Uttar Pradesh","Uttarakhand","West Bengal",
 ];
+
+const franchiseSchema = getServiceSchema({
+  name: "EV Charging Station Franchise",
+  description: "Start your EV charging franchise in Andhra Pradesh and Telangana with dealership support, profitable franchise setup plans and trusted franchise company guidance.",
+  url: "/ev-charging-station-franchise",
+  serviceType: "EV Charging Franchise Opportunity",
+});
+const franchiseBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Franchise" },
+]);
 
 // ─── Small shared components ───────────────────────────────────────────────────
 
@@ -409,6 +422,7 @@ export default function FranchisePage() {
         <title>EV Charging Station Franchise in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Start your EV Charging Franchise in Andhra Pradesh and Telangana with Dealership Support, Profitable Franchise Setup Plans and Trusted Franchise Company Guidance." />
       </Helmet>
+      <SEO schema={franchiseSchema} breadcrumbs={franchiseBreadcrumbs} />
 
       {/* ═══════════════════════════════════════════
           NAVBAR

@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.png";
+import SEO from "../components/SEO";
+import { localBusinessSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 const contactDetails = [
   { icon: "✉️", label: "Email", value: "connect@spiderenergy.in", href: "mailto:connect@spiderenergy.in" },
@@ -11,6 +13,11 @@ const contactDetails = [
   { icon: "📍", label: "Address", value: "THub, Raidurgam, Hyderabad, India" },
   { icon: "🕐", label: "Support Hours", value: "Mon–Sun: 24x7" },
 ];
+
+const contactBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Contact Us" },
+]);
 
 const ContactUsPage = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -22,6 +29,7 @@ const ContactUsPage = () => {
         <title>EV Charging Station Installation Contact in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Contact Our EV Charging Experts in Andhra Pradesh and Telangana for Fast EV Charging Installation Support, Station Enquiries and Reliable Helpline Assistance." />
       </Helmet>
+      <SEO schema={localBusinessSchema} breadcrumbs={contactBreadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden py-20 sm:py-28" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />

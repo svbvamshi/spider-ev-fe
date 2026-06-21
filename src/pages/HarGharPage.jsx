@@ -5,12 +5,25 @@ import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import acImg from "../assets/home/AcCharger.jpeg";
 import heroBg from "../assets/home/hero-bg.png";
+import SEO from "../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 const steps = [
   { num: "01", title: "Register Your Interest", desc: "Fill out our quick form — name, location, and property type. No technical knowledge needed." },
   { num: "02", title: "Site Verification", desc: "Our team visits your property to assess electrical capacity and recommend the best charger for your space." },
   { num: "03", title: "Installation & Go Live", desc: "We install a compact SpiderEV charger at your location. Your station goes live on the SpiderEV app and you start earning." },
 ];
+
+const harGharSchema = getServiceSchema({
+  name: "Har Ghar Charger — Home EV Charging for Every Indian",
+  description: "SpiderEV's Har Ghar Charger initiative brings affordable home EV charging to every Indian household. Register your interest and earn from your own charging station.",
+  url: "/har-ghar",
+  serviceType: "Home EV Charging Program",
+});
+const harGharBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Har Ghar Charger" },
+]);
 
 const HarGharPage = () => {
   const [form, setForm] = useState({ name: "", phone: "", city: "", type: "" });
@@ -22,6 +35,7 @@ const HarGharPage = () => {
         <title>Har Ghar Charger — Home EV Charging for Every Indian | SpiderEV</title>
         <meta name="description" content="SpiderEV's Har Ghar Charger initiative brings affordable home EV charging to every Indian household. Register your interest and earn from your own charging station." />
       </Helmet>
+      <SEO schema={harGharSchema} breadcrumbs={harGharBreadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden py-24 sm:py-32" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />

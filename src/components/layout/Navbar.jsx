@@ -28,9 +28,9 @@ const navDropdowns = {
 
 const directLinks = [
   { label: "SpiderAtHome", href: "/har-ghar" },
-  { label: "Franchise", href: "/ev-charging-station-franchise", newTab: true },
+  { label: "Franchise", href: "/ev-charging-station-franchise" },
   { label: "BESS", href: "/bess-battery-backup-for-ev-charging-stations" },
-  { label: "ROI", href: "/ev-charging-station-roi-calculator", newTab: true },
+  { label: "ROI", href: "/ev-charging-station-roi-calculator" },
   { label: "Stations", href: "/ev-charging-station-locator" },
   // { label: "News", href: "/news" },
 ];

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 import BessHero from "../containers/Bess/BessHero";
 import BessIntro from "../containers/Bess/BessIntro";
 import BessPillars from "../containers/Bess/BessPillars";
@@ -13,6 +15,17 @@ import BessAppSection from "../containers/Bess/BessAppSection";
 import BessFAQ from "../containers/Bess/BessFAQ";
 import BessEnquiry from "../containers/Bess/BessEnquiry";
 import BessHowItWorks from "../containers/Bess/BessHowItWorks";
+
+const bessSchema = getServiceSchema({
+  name: "BESS — Battery Energy Storage for EV Charging Stations",
+  description: "Smart EV charging energy storage solutions with solar powered station setups, renewable charging and battery backup systems in Andhra Pradesh and Telangana.",
+  url: "/bess-battery-backup-for-ev-charging-stations",
+  serviceType: "Battery Energy Storage System (BESS)",
+});
+const bessBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "BESS" },
+]);
 
 const BESSPage = () => {
   const [activeSpecProduct, setActiveSpecProduct] = useState("spidervault-3");
@@ -30,6 +43,7 @@ const BESSPage = () => {
         <title>BESS EV Charging Station Solution in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Explore Smart EV Charging Energy Storage Solutions in Andhra Pradesh and Telangana with Solar Powered Station Setups, Renewable Charging & Battery Backup Systems." />
       </Helmet>
+      <SEO schema={bessSchema} breadcrumbs={bessBreadcrumbs} />
       <BessHero />
       <BessIntro />
       <BessPillars />
