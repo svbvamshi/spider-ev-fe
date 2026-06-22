@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import logo from "../assets/home/spider-ev-logo.png";
+import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 
 const chargerTypes = [
@@ -71,17 +71,11 @@ const ROIPage = () => {
   }, [charger, hoursPerDay, tariff, elecCost, expensePerKwh, subsidy]);
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-      {/* Minimal Navbar */}
+    <PageLayout>
       <Helmet>
         <title>EV Charging Station ROI Calculator in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Find Best Estimate EV Charging Business Profits in Andhra Pradesh and Telangana Using Smart Revenue and ROI Calculators for Accurate Charging Station Investment Planning." />
       </Helmet>
-      <nav className="bg-white border-b border-gray-100 px-4 sm:px-8 py-4 flex items-center justify-center sticky top-0 z-40 shadow-sm">
-        <Link to="/">
-          <img src={logo} alt="SpiderEV" className="h-10 w-auto" />
-        </Link>
-      </nav>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
@@ -299,7 +293,7 @@ const ROIPage = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </PageLayout>
   );
 };
 
