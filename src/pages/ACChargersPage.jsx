@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
 import HeroBanner from "../components/ui/HeroBanner";
 import Accordion from "../components/ui/Accordion";
 import AppDownloadCTA from "../components/ui/AppDownloadCTA";
+import { getFAQSchema, getItemListSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import acChargerImg from "../assets/home/AcCharger.jpeg";
 
@@ -69,12 +71,33 @@ const ProductCard = ({ product }) => (
   </motion.div>
 );
 
+const acProductList = [
+  { name: "Spider Mini — 3.3 kW AC EV Charger", url: "/products/ac/spider-mini" },
+  { name: "Spider Smart — 7.4 kW AC EV Charger", url: "/products/ac/spider-smart" },
+  { name: "Spider Blaze — 22 kW AC EV Charger", url: "/products/ac/spider-blaze" },
+  { name: "Spider Strike — 40 kW AC EV Charger", url: "/products/ac/spider-strike" },
+  { name: "Spider Dash — 80 kW AC EV Charger", url: "/products/ac/spider-dash" },
+];
+
+const acFAQSchema = getFAQSchema(faqItems);
+const acItemListSchema = getItemListSchema(acProductList, "SpiderEV AC Charger Range");
+const acBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "AC Chargers" },
+]);
+
 const ACChargersPage = () => {
   return (
     <PageLayout>
       <Helmet>
         <title>Electric Vehicle AC Charging Station in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Explore the Best EV AC Charging Stations in Andhra Pradesh (AP) and Telangana (TG) for Efficient Home EV Charging and Reliable Electric Car Charger Solutions." />
+      </Helmet>
+      <SEO schema={acFAQSchema} breadcrumbs={acBreadcrumbs} />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(acItemListSchema)}
+        </script>
       </Helmet>
       <HeroBanner
         title="Electric Vehicle AC Charging Station in Telangana & Andhra Pradesh"

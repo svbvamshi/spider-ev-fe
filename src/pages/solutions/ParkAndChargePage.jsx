@@ -5,6 +5,8 @@ import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import parkImg from "../../assets/solutions/ParkAndCharge.png";
+import SEO from "../../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const benefits = [
   { icon: "🚗", title: "Attract EV Drivers", desc: "Increase footfall and customer dwell time by offering reliable EV charging at your property. EV owners actively seek out charging-enabled destinations." },
@@ -14,6 +16,18 @@ const benefits = [
 
 const customers = ["Malls", "Hotels", "Office Parks", "Restaurants", "Hospitals", "Airports"];
 
+const pageSchema = getServiceSchema({
+  name: "Park and Charge EV Stations",
+  description: "Spider Energy provides park and charge electric vehicle stations in Andhra Pradesh and Telangana with easy installation and best parking solutions for EVs.",
+  url: "/park-and-charge-electric-vehicle-ev-charging-station",
+  serviceType: "Park and Charge EV Infrastructure",
+});
+const pageBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Solutions", url: "https://www.spiderenergy.in/park-and-charge-electric-vehicle-ev-charging-station" },
+  { name: "Park & Charge" },
+]);
+
 const ParkAndChargePage = () => {
   return (
     <PageLayout>
@@ -21,6 +35,7 @@ const ParkAndChargePage = () => {
         <title>Park and Charge EV Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Top Park & Charge Electric Vehicle Stations in Andhra Pradesh(AP) and Telangana(TG), with Easy Installation & Best Parking Solutions for EVs." />
       </Helmet>
+      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
       <HeroBanner
         title="Park and Charge EV Stations in Telangana & Andhra Pradesh"
         subtitle="Give your customers the gift of convenient EV charging while they shop, dine, or work."

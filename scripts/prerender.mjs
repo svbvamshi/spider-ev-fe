@@ -24,17 +24,54 @@ function e(str) {
   return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
+
+// Organization JSON-LD injected into every pre-rendered page (for non-JS crawlers)
+const ORG_JSONLD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      "name": "Spider Energy",
+      "url": BASE_URL,
+      "logo": { "@type": "ImageObject", "url": `${BASE_URL}/spider-ev-logo.png`, "width": 200, "height": 60 },
+      "description": "India's trusted EV charging infrastructure company — manufacturing and deploying AC & DC chargers across homes, businesses, and highways.",
+      "address": { "@type": "PostalAddress", "streetAddress": "THub, Raidurgam", "addressLocality": "Hyderabad", "addressRegion": "Telangana", "postalCode": "500081", "addressCountry": "IN" },
+      "contactPoint": [{ "@type": "ContactPoint", "telephone": "+91-9997776080", "contactType": "sales", "availableLanguage": ["English", "Hindi", "Telugu"], "areaServed": "IN" }],
+      "email": "connect@spiderenergy.in",
+      "sameAs": ["https://www.instagram.com/spider.ev/", "https://in.linkedin.com/company/spider-green-energy-solutions"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": BASE_URL,
+      "name": "Spider Energy",
+      "publisher": { "@id": `${BASE_URL}/#organization` },
+      "inLanguage": "en-IN"
+    }
+  ]
+});
+
 function buildMeta({ path, title, description }) {
   const url = `${BASE_URL}${path}`;
   return [
     `  <title>${e(title)}</title>`,
     `  <meta name="description" content="${e(description)}" />`,
+    `  <meta name="robots" content="index, follow" />`,
     `  <meta property="og:title" content="${e(title)}" />`,
     `  <meta property="og:description" content="${e(description)}" />`,
     `  <meta property="og:url" content="${url}" />`,
     `  <meta property="og:type" content="website" />`,
-    `  <meta property="og:site_name" content="SpiderEV" />`,
+    `  <meta property="og:site_name" content="Spider Energy" />`,
+    `  <meta property="og:image" content="${OG_IMAGE}" />`,
+    `  <meta property="og:locale" content="en_IN" />`,
+    `  <meta name="twitter:card" content="summary_large_image" />`,
+    `  <meta name="twitter:title" content="${e(title)}" />`,
+    `  <meta name="twitter:description" content="${e(description)}" />`,
+    `  <meta name="twitter:image" content="${OG_IMAGE}" />`,
     `  <link rel="canonical" href="${url}" />`,
+    `  <script type="application/ld+json">${ORG_JSONLD}</script>`,
   ].join("\n");
 }
 

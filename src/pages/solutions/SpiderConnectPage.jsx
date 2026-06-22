@@ -6,6 +6,8 @@ import AppDownloadCTA from "../../components/ui/AppDownloadCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import connectImg from "../../assets/home/SpiderConnect.png";
 import heroBg from "../../assets/home/hero-bg.png";
+import SEO from "../../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const features = [
   { icon: "📍", title: "Locate Stations", desc: "Find nearby charging stations on an interactive map — real-time availability and directions." },
@@ -22,6 +24,18 @@ const steps = [
   { num: "03", title: "Manage & Optimize", desc: "Set custom tariffs, manage schedules, control power usage, and receive maintenance alerts — all from one intelligent platform." },
 ];
 
+const pageSchema = getServiceSchema({
+  name: "Spider Connect — EV Charging Point Management System (CPMS)",
+  description: "Smart EV charging management platform for monitoring, remote diagnostics, dynamic pricing, and seamless network operations across Andhra Pradesh and Telangana.",
+  url: "/cpms-ev-charging-point-management-system",
+  serviceType: "EV Charging Point Management Software",
+});
+const pageBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Solutions", url: "https://www.spiderenergy.in/cpms-ev-charging-point-management-system" },
+  { name: "CPMS" },
+]);
+
 const SpiderConnectPage = () => {
   return (
     <PageLayout>
@@ -29,6 +43,7 @@ const SpiderConnectPage = () => {
         <title>EV Charging Management System in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Explore Smart EV Charging Solutions in Andhra Pradesh and Telangana with Advanced Platforms and Efficient Network Management for Seamless Charging Operations." />
       </Helmet>
+      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
       <HeroBanner
         title="EV Charging Management System in Andhra Pradesh & Telangana"
         subtitle="An advanced cloud-based platform to deploy, manage, and expand your EV charging network from anywhere."

@@ -4,6 +4,8 @@ import PageLayout from "../components/layout/PageLayout";
 import HeroBanner from "../components/ui/HeroBanner";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.png";
+import SEO from "../components/SEO";
+import { organizationSchema, getBreadcrumbSchema } from "../seo/schemas";
 import spiderEvLogo from "../assets/home/spider-ev-logo.png";
 import tataMotorsLogo from "../assets/brand-logos/Tata-Motors.png";
 import indianRailwayLogo from "../assets/brand-logos/Indian-Railway.png";
@@ -27,6 +29,11 @@ const partners = [
   { name: "BPCL", logo: bpclLogo },
 ];
 
+const aboutBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "About Us" },
+]);
+
 const AboutUsPage = () => {
   return (
     <PageLayout>
@@ -34,6 +41,7 @@ const AboutUsPage = () => {
         <title>EV Charger Manufacturing Company in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Discover EV Charging Systems Manufacturers in Andhra Pradesh and Telangana Offering Electric Car Chargers, EV Home Charger Installation & EV Charging Equipment." />
       </Helmet>
+      <SEO schema={organizationSchema} breadcrumbs={aboutBreadcrumbs} />
       <HeroBanner
         title="EV Charger Manufacturing Company in Telangana & Andhra Pradesh"
         bgImage={heroBg}

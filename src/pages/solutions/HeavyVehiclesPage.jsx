@@ -7,6 +7,8 @@ import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import fleetImg from "../../assets/solutions/FleetCharging.png";
 import dcImg from "../../assets/home/DcCharger.png";
+import SEO from "../../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const vehicles = [
   { label: "Electric Buses", icon: "🚌", desc: "High-power charging depots for city bus fleets, state transport corporations, and private bus operators." },
@@ -19,6 +21,18 @@ const featuredProducts = [
   { name: "Spider Ultra", power: "240 kW", id: "spider-ultra", desc: "India's most powerful charger — 4-gun system for ultra-rapid fleet depot charging." },
 ];
 
+const pageSchema = getServiceSchema({
+  name: "Heavy Duty EV Charging Stations",
+  description: "Spider Energy provides heavy duty EV charging stations for trucks, buses and fleets with EV charging infrastructure and electric vehicle charging solutions.",
+  url: "/heavy-duty-ev-charging-station",
+  serviceType: "Heavy Duty EV Charging Infrastructure",
+});
+const pageBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Solutions", url: "https://www.spiderenergy.in/heavy-duty-ev-charging-station" },
+  { name: "Heavy Vehicles" },
+]);
+
 const HeavyVehiclesPage = () => {
   return (
     <PageLayout>
@@ -26,6 +40,7 @@ const HeavyVehiclesPage = () => {
         <title>Heavy Duty EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Heavy Duty EV Charging Stations in AP & Telangana for Trucks, Buses & Fleets, with EV Charging Infrastructure & Electric Vehicle Charging Solutions." />
       </Helmet>
+      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
       <HeroBanner
         title="Heavy Duty EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Electrify your heavy-duty fleet with powerful charging systems built for optimal performance, rapid charging, and maximum efficiency."

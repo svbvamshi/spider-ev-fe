@@ -2,7 +2,9 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
 import AppDownloadCTA from "../components/ui/AppDownloadCTA";
+import { getProductSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import acImg from "../assets/home/AcCharger.jpeg";
 import dcImg from "../assets/home/DcCharger.png";
@@ -350,6 +352,15 @@ const ProductDetailPage = () => {
   }
 
   const typeLabel = category === "ac" ? "AC EV Charger" : "DC Fast EV Charger";
+  const productSchema = getProductSchema(product, category, productId);
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "https://www.spiderenergy.in" },
+    {
+      name: category === "ac" ? "AC Chargers" : "DC Chargers",
+      url: `https://www.spiderenergy.in/${category === "ac" ? "electric-vehicle-ev-ac-charger" : "electric-vehicle-ev-dc-charger"}`,
+    },
+    { name: product.name },
+  ]);
 
   return (
     <PageLayout>
@@ -357,6 +368,7 @@ const ProductDetailPage = () => {
         <title>{product.name} — {product.power} {typeLabel} | SpiderEV</title>
         <meta name="description" content={product.tagline} />
       </Helmet>
+      <SEO schema={productSchema} breadcrumbs={breadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden py-16 sm:py-24" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />

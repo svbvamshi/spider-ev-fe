@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
 import HeroBanner from "../components/ui/HeroBanner";
 import Accordion from "../components/ui/Accordion";
 import SpiderConnectCTA from "../components/ui/SpiderConnectCTA";
+import { getFAQSchema, getItemListSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import dcChargerImg from "../assets/home/DcCharger.png";
 import sparkDcImg from "../assets/chargers/spark.jpeg";
@@ -83,12 +85,35 @@ const ProductCard = ({ product }) => {
   );
 };
 
+const dcProductList = [
+  { name: "Spider Base — 3-12 kW DC EV Charger", url: "/products/dc/spider-base" },
+  { name: "Spider Fast — 30 kW DC Fast Charger", url: "/products/dc/spider-fast" },
+  { name: "Spider Spark — 60 kW DC Fast Charger", url: "/products/dc/spider-spark" },
+  { name: "Spider Falcon — 60 kW CCS2 DC Charger", url: "/products/dc/spider-falcon" },
+  { name: "Spider Ultra — 120 kW DC Fast Charger", url: "/products/dc/spider-ultra" },
+  { name: "Spider Surge — 180 kW DC Fast Charger", url: "/products/dc/spider-surge" },
+  { name: "Spider Hulk — 240 kW Ultra-Rapid DC Charger", url: "/products/dc/spider-hulk" },
+];
+
+const dcFAQSchema = getFAQSchema(faqItems);
+const dcItemListSchema = getItemListSchema(dcProductList, "SpiderEV DC Fast Charger Range");
+const dcBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "DC Chargers" },
+]);
+
 const DCChargersPage = () => {
   return (
     <PageLayout>
       <Helmet>
         <title>DC Fast EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Explore top DC Fast Electric Vehicle Chargers in Andhra Pradesh (AP) & Telangana (TG). Spider Energy Provides Reliable and Smart EV Charging Solutions for Vehicles." />
+      </Helmet>
+      <SEO schema={dcFAQSchema} breadcrumbs={dcBreadcrumbs} />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(dcItemListSchema)}
+        </script>
       </Helmet>
       <HeroBanner
         title="DC Fast EV Charging Stations in Telangana & Andhra Pradesh"
