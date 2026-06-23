@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import parkAndChargeImg from "../../assets/solutions/ParkAndCharge.png";
-import communityChargingImg from "../../assets/solutions/CommunityCharging.png";
-import publicChargingImg from "../../assets/solutions/PublicCharging.png";
-import fleetChargingImg from "../../assets/solutions/FleetCharging.png";
-import destinationChargingImg from "../../assets/solutions/Destination Charging.png";
-import highwayChargingImg from "../../assets/solutions/HighwayCharging.png";
-import workplaceChargingImg from "../../assets/solutions/WorkplaceCharging.png";
+import parkAndChargeImg from "../../assets/solutions/ParkAndCharge.webp";
+import communityChargingImg from "../../assets/solutions/CommunityCharging.webp";
+import publicChargingImg from "../../assets/solutions/PublicCharging.webp";
+import fleetChargingImg from "../../assets/solutions/FleetCharging.webp";
+import destinationChargingImg from "../../assets/solutions/Destination Charging.webp";
+import highwayChargingImg from "../../assets/solutions/HighwayCharging.webp";
+import workplaceChargingImg from "../../assets/solutions/WorkplaceCharging.webp";
 
 const AUTO_SLIDE_INTERVAL_MS = 5500;
 

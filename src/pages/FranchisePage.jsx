@@ -7,17 +7,17 @@ import SEO from "../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
-import acChargerImg from "../assets/home/AcCharger.jpeg";
-import dcChargerImg from "../assets/home/DcCharger.png";
-import webinarImg from "../assets/home/heroImage2.jpeg";
+import acChargerImg from "../assets/home/AcCharger.webp";
+import dcChargerImg from "../assets/home/DcCharger.webp";
+import webinarImg from "../assets/home/heroImage2.webp";
 
 // Brand partner logos
-import tataLogo from "../assets/brand-logos/Tata-Motors.png";
-import railwayLogo from "../assets/brand-logos/Indian-Railway.png";
-import metroLogo from "../assets/brand-logos/Delhi-Metro.png";
-import amazonLogo from "../assets/brand-logos/Amazon.png";
-import flipkartLogo from "../assets/brand-logos/flipkart.png";
-import bpclLogo from "../assets/brand-logos/BPCL.png";
+import tataLogo from "../assets/brand-logos/Tata-Motors.webp";
+import railwayLogo from "../assets/brand-logos/Indian-Railway.webp";
+import metroLogo from "../assets/brand-logos/Delhi-Metro.webp";
+import amazonLogo from "../assets/brand-logos/Amazon.webp";
+import flipkartLogo from "../assets/brand-logos/flipkart.webp";
+import bpclLogo from "../assets/brand-logos/BPCL.webp";
 
 // ─── Animation variants — match ChargeZone's Webflow-style scroll animations ─
 const fadeUp = {
@@ -612,7 +612,7 @@ export default function FranchisePage() {
                 <div className="bg-gray-900 relative overflow-hidden">
                   {/* Charger image — faded into the dark header */}
                   <div className="relative h-52">
-                    <img src={model.image} alt={model.name}
+                    <img loading="lazy" src={model.image} alt={model.name}
                       className="w-full h-full object-cover object-center"
                       style={{ filter: "brightness(0.45) saturate(0.8)" }} />
                     {/* Bottom gradient so text pops */}
@@ -686,7 +686,7 @@ export default function FranchisePage() {
             {/* Left — image */}
             <motion.div variants={fadeLeft} initial="hidden" whileInView="visible" viewport={vp}
               className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative">
-              <img src={webinarImg} alt="SpiderEV Franchise Webinar"
+              <img loading="lazy" src={webinarImg} alt="SpiderEV Franchise Webinar"
                 className="w-full h-full object-cover object-center" />
               {/* Subtle overlay for polish */}
               <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-transparent" />
@@ -744,7 +744,7 @@ export default function FranchisePage() {
             {brandPartners.map((p) => (
               <motion.div key={p.name} variants={fadeUp}
                 whileHover={{ scale: 1.08, transition: { duration: 0.15 } }}>
-                <img src={p.src} alt={p.name}
+                <img loading="lazy" src={p.src} alt={p.name}
                   className="h-9 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer" />
               </motion.div>
             ))}

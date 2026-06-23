@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 
 const partnerTypes = [
   { icon: "🏗️", title: "Site / Property Owners", desc: "Have land or property? Host a SpiderEV charging station and earn passive income with zero operational hassle." },

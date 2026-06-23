@@ -5,8 +5,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import fleetImg from "../../assets/solutions/FleetCharging.png";
-import dcImg from "../../assets/home/DcCharger.png";
+import fleetImg from "../../assets/solutions/FleetCharging.webp";
+import dcImg from "../../assets/home/DcCharger.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -79,7 +79,7 @@ const HeavyVehiclesPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-lg"
             >
-              <img src={fleetImg} alt="Fleet Charging" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={fleetImg} alt="Fleet Charging" className="w-full h-80 object-cover" />
             </motion.div>
           </div>
         </div>
@@ -147,7 +147,7 @@ const HeavyVehiclesPage = () => {
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 className="bg-gray-50 rounded-2xl p-8 border border-gray-100 flex gap-6 items-start"
               >
-                <img src={dcImg} alt={p.name} className="h-24 object-contain flex-shrink-0" />
+                <img loading="lazy" src={dcImg} alt={p.name} className="h-24 object-contain flex-shrink-0" />
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <h3 className="text-xl font-bold text-gray-900">{p.name}</h3>

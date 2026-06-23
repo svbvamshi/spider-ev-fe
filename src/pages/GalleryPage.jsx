@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 
 const galleryCategories = ["All", "Installations", "Products", "Events", "Partnerships"];
 

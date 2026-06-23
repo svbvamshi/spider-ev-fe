@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeLeft, fadeUp, staggerContainer, viewport } from "../../utils/animationConfig";
 import AppStoreButtons from "../../components/ui/AppStoreButtons";
-import heroBg from "../../assets/home/hero-bg.png";
+import heroBg from "../../assets/home/hero-bg.webp";
 
 const features = [
   "Real-time battery monitoring",

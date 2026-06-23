@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeUp, staggerContainer } from "../../utils/animationConfig";
-import spiderConnectImg from "../../assets/home/SpiderConnect.png";
-import spiderAppImg from "../../assets/home/SpiderApp.png";
+import spiderConnectImg from "../../assets/home/SpiderConnect.webp";
+import spiderAppImg from "../../assets/home/SpiderApp.webp";
 
 const platformCards = [
   {

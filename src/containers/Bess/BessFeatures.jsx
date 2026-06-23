@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import { bessFeatures } from "../../data/bessFeatures";
-import heroBg from "../../assets/home/hero-bg.png";
+import heroBg from "../../assets/home/hero-bg.webp";
 
 const BessFeatures = () => (
   <section

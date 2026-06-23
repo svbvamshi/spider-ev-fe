@@ -1,9 +1,9 @@
-import tataMotorsLogo from "../../assets/brand-logos/Tata-Motors.png";
-import indianRailwayLogo from "../../assets/brand-logos/Indian-Railway.png";
-import delhiMetroLogo from "../../assets/brand-logos/Delhi-Metro.png";
-import amazonLogo from "../../assets/brand-logos/Amazon.png";
-import flipkartLogo from "../../assets/brand-logos/flipkart.png";
-import bpclLogo from "../../assets/brand-logos/BPCL.png";
+import tataMotorsLogo from "../../assets/brand-logos/Tata-Motors.webp";
+import indianRailwayLogo from "../../assets/brand-logos/Indian-Railway.webp";
+import delhiMetroLogo from "../../assets/brand-logos/Delhi-Metro.webp";
+import amazonLogo from "../../assets/brand-logos/Amazon.webp";
+import flipkartLogo from "../../assets/brand-logos/flipkart.webp";
+import bpclLogo from "../../assets/brand-logos/BPCL.webp";
 
 const partnerBrands = [
   { name: "Tata Motors", logo: tataMotorsLogo },

@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 
 const categories = ["All", "Partnerships", "Awards", "Product Launches", "Government", "Expansions"];
 

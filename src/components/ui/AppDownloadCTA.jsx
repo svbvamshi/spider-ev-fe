@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { fadeRight, fadeUp, staggerContainer, viewport } from "../../utils/animationConfig";
 import AppStoreButtons from "./AppStoreButtons";
-import appImg from "../../assets/home/SpiderApp.png";
-import heroBg from "../../assets/home/hero-bg.png";
+import appImg from "../../assets/home/SpiderApp.webp";
+import heroBg from "../../assets/home/hero-bg.webp";
 
 const AppDownloadCTA = () => (
   <section className="relative overflow-hidden py-16 sm:py-20" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -49,7 +49,7 @@ const AppDownloadCTA = () => (
           viewport={viewport}
           className="rounded-2xl overflow-hidden shadow-2xl"
         >
-          <img src={appImg} alt="SpiderEV App" className="w-full h-52 sm:h-60 lg:h-72 object-cover" />
+          <img loading="lazy" src={appImg} alt="SpiderEV App" className="w-full h-52 sm:h-60 lg:h-72 object-cover" />
         </motion.div>
       </div>
     </div>

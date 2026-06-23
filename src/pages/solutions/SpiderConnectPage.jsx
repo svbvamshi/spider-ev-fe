@@ -4,8 +4,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import AppDownloadCTA from "../../components/ui/AppDownloadCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import connectImg from "../../assets/home/SpiderConnect.png";
-import heroBg from "../../assets/home/hero-bg.png";
+import connectImg from "../../assets/home/SpiderConnect.webp";
+import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -82,7 +82,7 @@ const SpiderConnectPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-xl"
             >
-              <img src={connectImg} alt="Spider Connect Dashboard" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={connectImg} alt="Spider Connect Dashboard" className="w-full h-80 object-cover" />
             </motion.div>
           </div>
         </div>

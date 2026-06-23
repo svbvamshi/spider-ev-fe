@@ -4,7 +4,7 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import parkImg from "../../assets/solutions/ParkAndCharge.png";
+import parkImg from "../../assets/solutions/ParkAndCharge.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -73,7 +73,7 @@ const ParkAndChargePage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-lg"
             >
-              <img src={parkImg} alt="Park & Charge" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={parkImg} alt="Park & Charge" className="w-full h-80 object-cover" />
             </motion.div>
           </div>
         </div>

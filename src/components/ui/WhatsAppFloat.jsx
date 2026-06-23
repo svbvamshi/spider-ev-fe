@@ -14,7 +14,7 @@ const WhatsAppFloat = () => {
     >
       {/* Button */}
       <span className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/40 hover:scale-110 transition-transform duration-200">
-        <img src={whatsappLogo} alt="WhatsApp" className="w-8 h-8 object-contain" />
+        <img loading="lazy" src={whatsappLogo} alt="WhatsApp" className="w-8 h-8 object-contain" />
       </span>
 
       {/* Tooltip */}

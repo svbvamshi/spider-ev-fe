@@ -4,8 +4,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import communityImg from "../../assets/solutions/CommunityCharging.png";
-import heroBg from "../../assets/home/hero-bg.png";
+import communityImg from "../../assets/solutions/CommunityCharging.webp";
+import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -76,7 +76,7 @@ const CommunityChargingPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-lg"
             >
-              <img src={communityImg} alt="Community Charging" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={communityImg} alt="Community Charging" className="w-full h-80 object-cover" />
             </motion.div>
             <motion.div
               variants={staggerContainer}

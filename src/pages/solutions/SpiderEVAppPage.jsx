@@ -4,8 +4,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import AppStoreButtons from "../../components/ui/AppStoreButtons";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import appImg from "../../assets/home/SpiderApp.png";
-import heroBg from "../../assets/home/hero-bg.png";
+import appImg from "../../assets/home/SpiderApp.webp";
+import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
 import { getSoftwareAppSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -82,7 +82,7 @@ const SpiderEVAppPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-2xl"
             >
-              <img src={appImg} alt="SpiderEV App" className="w-full h-[420px] object-cover" />
+              <img loading="lazy" src={appImg} alt="SpiderEV App" className="w-full h-[420px] object-cover" />
             </motion.div>
           </div>
         </div>
