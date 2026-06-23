@@ -6,12 +6,12 @@ import SEO from "../components/SEO";
 import AppDownloadCTA from "../components/ui/AppDownloadCTA";
 import { getProductSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import acImg from "../assets/home/AcCharger.jpeg";
-import dcImg from "../assets/home/DcCharger.png";
-import heroBg from "../assets/home/hero-bg.png";
-import sparkDcImg from "../assets/chargers/spark.jpeg";
-import surgeDcImg from "../assets/chargers/surge.jpeg";
-import ultraDcImg from "../assets/chargers/ultra.jpeg";
+import acImg from "../assets/home/AcCharger.webp";
+import dcImg from "../assets/home/DcCharger.webp";
+import heroBg from "../assets/home/hero-bg.webp";
+import sparkDcImg from "../assets/chargers/spark.webp";
+import surgeDcImg from "../assets/chargers/surge.webp";
+import ultraDcImg from "../assets/chargers/ultra.webp";
 
 // Per-product image overrides (DC only; AC all use acImg)
 const productImages = {
@@ -401,7 +401,7 @@ const ProductDetailPage = () => {
               className="flex justify-center"
             >
               <div className="bg-white/10 rounded-2xl p-10">
-                <img src={productImg} alt={product.name} className="h-64 object-contain" />
+                <img loading="lazy" src={productImg} alt={product.name} className="h-64 object-contain" />
               </div>
             </motion.div>
           </div>

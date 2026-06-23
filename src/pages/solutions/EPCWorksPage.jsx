@@ -4,8 +4,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import workplaceImg from "../../assets/solutions/WorkplaceCharging.png";
-import heroBg from "../../assets/home/hero-bg.png";
+import workplaceImg from "../../assets/solutions/WorkplaceCharging.webp";
+import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 

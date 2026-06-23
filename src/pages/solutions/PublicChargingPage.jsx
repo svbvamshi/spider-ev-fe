@@ -4,8 +4,8 @@ import PageLayout from "../../components/layout/PageLayout";
 import HeroBanner from "../../components/ui/HeroBanner";
 import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
-import publicImg from "../../assets/solutions/PublicCharging.png";
-import highwayImg from "../../assets/solutions/HighwayCharging.png";
+import publicImg from "../../assets/solutions/PublicCharging.webp";
+import highwayImg from "../../assets/solutions/HighwayCharging.webp";
 import SEO from "../../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
@@ -83,7 +83,7 @@ const PublicChargingPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-lg"
             >
-              <img src={publicImg} alt="Public Charging" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={publicImg} alt="Public Charging" className="w-full h-80 object-cover" />
             </motion.div>
           </div>
         </div>
@@ -135,7 +135,7 @@ const PublicChargingPage = () => {
               viewport={viewport}
               className="rounded-2xl overflow-hidden shadow-lg"
             >
-              <img src={publicImg} alt="Highway Charging" className="w-full h-80 object-cover" />
+              <img loading="lazy" src={publicImg} alt="Highway Charging" className="w-full h-80 object-cover" />
             </motion.div>
             <motion.div
               variants={staggerContainer}

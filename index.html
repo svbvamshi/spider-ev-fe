@@ -27,17 +27,27 @@
     <meta name="twitter:description" content="India's trusted EV charging infrastructure company — manufacturing and deploying AC & DC chargers across homes, businesses, and highways." />
     <meta name="twitter:image" content="https://spiderenergy.in/og-image.jpg" />
     <title>Spider Energy — EV Charger Manufacturer & Charging Solutions India</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JP647L2M3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5JP647L2M3');
-    </script>
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Google Analytics (deferred to avoid render-blocking) -->
+    <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5JP647L2M3';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5JP647L2M3');
+        };
+      });
+    </script>
   </body>
 </html>

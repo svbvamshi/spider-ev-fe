@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer, viewport } from "../../utils/animationConfig";
 import { appliances, getRecommendation } from "../../data/bessAppliances";
 import { bessProducts } from "../../data/bessProducts";
-import spiderpower3 from "../../assets/bess/spiderpower-3.0.png";
-import spiderpower5 from "../../assets/bess/spiderpower-5.0.png";
-import spiderpower12 from "../../assets/bess/spiderpower-12.0.png";
-import spiderpower20 from "../../assets/bess/spiderpower-20.0-2.png";
+import spiderpower3 from "../../assets/bess/spiderpower-3.0.webp";
+import spiderpower5 from "../../assets/bess/spiderpower-5.0.webp";
+import spiderpower12 from "../../assets/bess/spiderpower-12.0.webp";
+import spiderpower20 from "../../assets/bess/spiderpower-20.0-2.webp";
 
 const productImages = {
   "spidervault-3": spiderpower3,

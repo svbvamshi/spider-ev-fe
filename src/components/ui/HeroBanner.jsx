@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroBg from "../../assets/home/hero-bg.png";
+import heroBg from "../../assets/home/hero-bg.webp";
 
 const HeroBanner = ({ title, subtitle, bgImage }) => {
   const bg = bgImage || heroBg;

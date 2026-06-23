@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeLeft, fadeRight, fadeUp, staggerContainer, viewport } from "../../utils/animationConfig";
-import spiderConnectImg from "../../assets/home/SpiderConnect.png";
+import spiderConnectImg from "../../assets/home/SpiderConnect.webp";
 
 const SpiderConnectCTA = () => (
   <section className="bg-gray-50 py-16 sm:py-20">
@@ -14,7 +14,7 @@ const SpiderConnectCTA = () => (
           viewport={viewport}
           className="rounded-2xl overflow-hidden shadow-lg"
         >
-          <img src={spiderConnectImg} alt="Spider Connect Dashboard" className="w-full h-52 sm:h-60 lg:h-72 object-cover" />
+          <img loading="lazy" src={spiderConnectImg} alt="Spider Connect Dashboard" className="w-full h-52 sm:h-60 lg:h-72 object-cover" />
         </motion.div>
 
         <motion.div

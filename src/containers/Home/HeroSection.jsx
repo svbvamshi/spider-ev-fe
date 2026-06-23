@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import heroBg from "../../assets/home/hero-bg.png";
-import heroImage1 from "../../assets/home/heroImage1.jpeg";
-import heroImage2 from "../../assets/home/heroImage2.jpeg";
-import heroImage3 from "../../assets/home/heroImage3.jpeg";
+import heroBg from "../../assets/home/hero-bg.webp";
+import heroImage1 from "../../assets/home/heroImage1.webp";
+import heroImage2 from "../../assets/home/heroImage2.webp";
+import heroImage3 from "../../assets/home/heroImage3.webp";
 
 
 const AUTO_SLIDE_INTERVAL_MS = 8000;

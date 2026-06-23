@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import useScrollDirection from "../../hooks/useScrollDirection";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/home/spider-ev-logo.png";
+import logo from "../../assets/home/spider-ev-logo.webp";
 
 const HERO_HEIGHT = 100;
 

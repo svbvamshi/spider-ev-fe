@@ -3,16 +3,16 @@ import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import HeroBanner from "../components/ui/HeroBanner";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
 import { organizationSchema, getBreadcrumbSchema } from "../seo/schemas";
-import spiderEvLogo from "../assets/home/spider-ev-logo.png";
-import tataMotorsLogo from "../assets/brand-logos/Tata-Motors.png";
-import indianRailwayLogo from "../assets/brand-logos/Indian-Railway.png";
-import delhiMetroLogo from "../assets/brand-logos/Delhi-Metro.png";
-import amazonLogo from "../assets/brand-logos/Amazon.png";
-import flipkartLogo from "../assets/brand-logos/flipkart.png";
-import bpclLogo from "../assets/brand-logos/BPCL.png";
+import spiderEvLogo from "../assets/home/spider-ev-logo.webp";
+import tataMotorsLogo from "../assets/brand-logos/Tata-Motors.webp";
+import indianRailwayLogo from "../assets/brand-logos/Indian-Railway.webp";
+import delhiMetroLogo from "../assets/brand-logos/Delhi-Metro.webp";
+import amazonLogo from "../assets/brand-logos/Amazon.webp";
+import flipkartLogo from "../assets/brand-logos/flipkart.webp";
+import bpclLogo from "../assets/brand-logos/BPCL.webp";
 
 const stats = [
   { num: "30+", label: "Years of expertise in power electronics" },

@@ -8,10 +8,10 @@ import Accordion from "../components/ui/Accordion";
 import SpiderConnectCTA from "../components/ui/SpiderConnectCTA";
 import { getFAQSchema, getItemListSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import dcChargerImg from "../assets/home/DcCharger.png";
-import sparkDcImg from "../assets/chargers/spark.jpeg";
-import surgeDcImg from "../assets/chargers/surge.jpeg";
-import ultraDcImg from "../assets/chargers/ultra.jpeg";
+import dcChargerImg from "../assets/home/DcCharger.webp";
+import sparkDcImg from "../assets/chargers/spark.webp";
+import surgeDcImg from "../assets/chargers/surge.webp";
+import ultraDcImg from "../assets/chargers/ultra.webp";
 
 const cardImages = {
   "spider-spark": sparkDcImg,
@@ -51,7 +51,7 @@ const ProductCard = ({ product }) => {
       className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col"
     >
       <div className="bg-gray-50 p-5 sm:p-8 flex items-center justify-center h-40 sm:h-52">
-        <img src={img} alt={product.name} className="h-full object-contain" />
+        <img loading="lazy" src={img} alt={product.name} className="h-full object-contain" />
       </div>
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-2 mb-4">
@@ -133,7 +133,7 @@ const DCChargersPage = () => {
               className="flex justify-center"
             >
               <div className="bg-gray-50 rounded-2xl p-10">
-                <img src={dcChargerImg} alt="DC Charger" className="h-56 object-contain" />
+                <img loading="lazy" src={dcChargerImg} alt="DC Charger" className="h-56 object-contain" />
               </div>
             </motion.div>
             <motion.div

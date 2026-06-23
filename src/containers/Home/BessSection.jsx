@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeUp, scaleUp, staggerContainer, staggerFast } from "../../utils/animationConfig";
-import img3kw from "../../assets/bess/spiderpower-3.0.png";
-import img5kw from "../../assets/bess/spiderpower-5.0.png";
-import img12kw from "../../assets/bess/spiderpower-12.0.png";
-import img20kw from "../../assets/bess/spiderpower-20.0-2.png";
+import img3kw from "../../assets/bess/spiderpower-3.0.webp";
+import img5kw from "../../assets/bess/spiderpower-5.0.webp";
+import img12kw from "../../assets/bess/spiderpower-12.0.webp";
+import img20kw from "../../assets/bess/spiderpower-20.0-2.webp";
 
 const products = [
   {

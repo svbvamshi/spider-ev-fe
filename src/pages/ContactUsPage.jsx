@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
 import { localBusinessSchema, getBreadcrumbSchema } from "../seo/schemas";
 

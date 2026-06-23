@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import PageLayout from "../components/layout/PageLayout";
 import AppStoreButtons from "../components/ui/AppStoreButtons";
 import { fadeUp, staggerContainer, viewport } from "../utils/animationConfig";
-import heroBg from "../assets/home/hero-bg.png";
+import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
 import { getSoftwareAppSchema, getBreadcrumbSchema } from "../seo/schemas";
 

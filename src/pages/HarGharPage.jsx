@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import { fadeUp, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import acImg from "../assets/home/AcCharger.jpeg";
-import heroBg from "../assets/home/hero-bg.png";
+import acImg from "../assets/home/AcCharger.webp";
+import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
 import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 
@@ -116,7 +116,7 @@ const HarGharPage = () => {
               className="flex justify-center"
             >
               <div className="bg-gray-50 rounded-2xl p-10">
-                <img src={acImg} alt="SpiderEV Charger" className="h-64 object-contain" />
+                <img loading="lazy" src={acImg} alt="SpiderEV Charger" className="h-64 object-contain" />
               </div>
             </motion.div>
           </div>

@@ -8,7 +8,7 @@ import Accordion from "../components/ui/Accordion";
 import AppDownloadCTA from "../components/ui/AppDownloadCTA";
 import { getFAQSchema, getItemListSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
-import acChargerImg from "../assets/home/AcCharger.jpeg";
+import acChargerImg from "../assets/home/AcCharger.webp";
 
 const acProducts = [
   { id: "spider-mini",   name: "Spider Mini",   power: "3.3 kW", connector: "IEC 60309",  phase: "Single Phase", current: "16 A",      ocpp: true },
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => (
     className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col"
   >
     <div className="bg-gray-50 p-5 sm:p-8 flex items-center justify-center h-40 sm:h-52">
-      <img src={acChargerImg} alt={product.name} className="h-full object-contain" />
+      <img loading="lazy" src={acChargerImg} alt={product.name} className="h-full object-contain" />
     </div>
     <div className="p-6 flex flex-col flex-1">
       <div className="flex items-start justify-between gap-2 mb-4">
@@ -136,7 +136,7 @@ const ACChargersPage = () => {
               className="flex justify-center"
             >
               <div className="bg-gray-50 rounded-2xl p-6 sm:p-10">
-                <img src={acChargerImg} alt="AC Charger" className="h-40 sm:h-48 lg:h-56 object-contain" />
+                <img loading="lazy" src={acChargerImg} alt="AC Charger" className="h-40 sm:h-48 lg:h-56 object-contain" />
               </div>
             </motion.div>
           </div>

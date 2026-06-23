@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeUp, staggerContainer } from "../../utils/animationConfig";
-import acChargerImg from "../../assets/home/AcCharger.jpeg";
-import dcChargerImg from "../../assets/home/heroImage2.jpeg";
+import acChargerImg from "../../assets/home/AcCharger.webp";
+import dcChargerImg from "../../assets/home/heroImage2.webp";
 
 const chargerCards = [
   {
