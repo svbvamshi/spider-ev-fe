@@ -98,7 +98,7 @@ const dcProductList = [
 const dcFAQSchema = getFAQSchema(faqItems);
 const dcItemListSchema = getItemListSchema(dcProductList, "SpiderEV DC Fast Charger Range");
 const dcBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "DC Chargers" },
 ]);
 

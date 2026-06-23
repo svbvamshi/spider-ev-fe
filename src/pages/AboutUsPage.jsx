@@ -30,7 +30,7 @@ const partners = [
 ];
 
 const aboutBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "About Us" },
 ]);
 

@@ -23,7 +23,7 @@ const bessSchema = getServiceSchema({
   serviceType: "Battery Energy Storage System (BESS)",
 });
 const bessBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "BESS" },
 ]);
 

@@ -177,7 +177,7 @@ const franchiseSchema = getServiceSchema({
   serviceType: "EV Charging Franchise Opportunity",
 });
 const franchiseBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "Franchise" },
 ]);
 

@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.spiderenergy.in/sitemap.xml
+Sitemap: https://spiderenergy.in/sitemap.xml

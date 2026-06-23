@@ -18,7 +18,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "..", "dist");
-const BASE_URL = "https://www.spiderenergy.in";
+const BASE_URL = "https://spiderenergy.in";
 
 function e(str) {
   return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -53,8 +53,9 @@ const ORG_JSONLD = JSON.stringify({
   ]
 });
 
-function buildMeta({ path, title, description }) {
+function buildMeta({ path, title, description, ogImage }) {
   const url = `${BASE_URL}${path}`;
+  const image = ogImage ? `${BASE_URL}${ogImage}` : OG_IMAGE;
   return [
     `  <title>${e(title)}</title>`,
     `  <meta name="description" content="${e(description)}" />`,
@@ -64,14 +65,14 @@ function buildMeta({ path, title, description }) {
     `  <meta property="og:url" content="${url}" />`,
     `  <meta property="og:type" content="website" />`,
     `  <meta property="og:site_name" content="Spider Energy" />`,
-    `  <meta property="og:image" content="${OG_IMAGE}" />`,
+    `  <meta property="og:image" content="${image}" />`,
     `  <meta property="og:image:width" content="1200" />`,
     `  <meta property="og:image:height" content="630" />`,
     `  <meta property="og:locale" content="en_IN" />`,
     `  <meta name="twitter:card" content="summary_large_image" />`,
     `  <meta name="twitter:title" content="${e(title)}" />`,
     `  <meta name="twitter:description" content="${e(description)}" />`,
-    `  <meta name="twitter:image" content="${OG_IMAGE}" />`,
+    `  <meta name="twitter:image" content="${image}" />`,
     `  <link rel="canonical" href="${url}" />`,
     `  <script type="application/ld+json">${ORG_JSONLD}</script>`,
   ].join("\n");
@@ -80,6 +81,11 @@ function buildMeta({ path, title, description }) {
 function inject(template, meta) {
   return template
     .replace(/<title>[^<]*<\/title>/, "")
+    .replace(/<link rel="canonical"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="description"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="robots"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta property="og:[^"]*"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="twitter:[^"]*"[^>]*\/?>[\s]*/g, "")
     .replace("</head>", `${meta}\n</head>`);
 }
 

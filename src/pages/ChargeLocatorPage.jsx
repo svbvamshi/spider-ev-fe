@@ -153,7 +153,7 @@ const locatorSchema = getSoftwareAppSchema({
   operatingSystem: "Web Browser",
 });
 const locatorBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "Station Locator" },
 ]);
 

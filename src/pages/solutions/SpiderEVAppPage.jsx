@@ -29,8 +29,8 @@ const pageSchema = getSoftwareAppSchema({
   operatingSystem: "Android, iOS",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/ev-charging-station-app" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/ev-charging-station-app" },
   { name: "SpiderEV App" },
 ]);
 

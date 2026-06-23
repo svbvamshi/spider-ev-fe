@@ -82,7 +82,7 @@ const acProductList = [
 const acFAQSchema = getFAQSchema(faqItems);
 const acItemListSchema = getItemListSchema(acProductList, "SpiderEV AC Charger Range");
 const acBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "AC Chargers" },
 ]);
 

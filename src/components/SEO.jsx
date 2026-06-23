@@ -1,20 +1,34 @@
 /**
  * SEO.jsx
  *
- * Reusable component that injects JSON-LD structured data and Twitter Card
- * meta tags via react-helmet-async. Use alongside the existing <Helmet>
- * title/description already on each page.
+ * Reusable component that injects JSON-LD structured data, Open Graph image,
+ * and Twitter Card meta tags via react-helmet-async.
+ * Use alongside the existing <Helmet> title/description already on each page.
+ *
+ * Props:
+ *   - schema: JSON-LD object for structured data
+ *   - breadcrumbs: BreadcrumbList JSON-LD object
+ *   - ogImage: Custom OG image URL (defaults to logo-based og-image.jpg)
+ *              For blog/news posts, pass the post's featured image URL.
  */
 import { Helmet } from "react-helmet-async";
 
-const DEFAULT_OG_IMAGE = "https://www.spiderenergy.in/og-image.jpg";
+const BASE_URL = "https://spiderenergy.in";
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 export function SEO({ schema, breadcrumbs, ogImage }) {
+  const image = ogImage || DEFAULT_OG_IMAGE;
+
   return (
     <Helmet>
-      {/* Twitter Card tags (complements existing OG tags from prerender) */}
+      {/* Open Graph image (overrides prerender default when a custom image is passed) */}
+      <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+
+      {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={ogImage || DEFAULT_OG_IMAGE} />
+      <meta name="twitter:image" content={image} />
 
       {/* Primary JSON-LD Structured Data */}
       {schema && (

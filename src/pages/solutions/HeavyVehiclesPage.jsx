@@ -28,8 +28,8 @@ const pageSchema = getServiceSchema({
   serviceType: "Heavy Duty EV Charging Infrastructure",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/heavy-duty-ev-charging-station" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/heavy-duty-ev-charging-station" },
   { name: "Heavy Vehicles" },
 ]);
 
