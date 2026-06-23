@@ -46,8 +46,8 @@ const pageSchema = getServiceSchema({
   serviceType: "Residential Community EV Charging",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/community-ev-charging-stations" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/community-ev-charging-stations" },
   { name: "Community Charging" },
 ]);
 

@@ -5,7 +5,7 @@
  * All schemas follow https://schema.org/ and Google's structured data guidelines.
  */
 
-const BASE_URL = "https://www.spiderenergy.in";
+const BASE_URL = "https://spiderenergy.in";
 
 // ─── Organization + WebSite (used on every page) ─────────────────────────────
 

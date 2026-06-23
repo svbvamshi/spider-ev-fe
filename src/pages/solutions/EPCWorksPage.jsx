@@ -49,8 +49,8 @@ const pageSchema = getServiceSchema({
   serviceType: "EV Charging Station EPC (Engineering, Procurement, Construction)",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/ev-charging-epc-services" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/ev-charging-epc-services" },
   { name: "EPC Works" },
 ]);
 

@@ -18,7 +18,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = join(__dirname, "..", "dist");
-const BASE_URL = "https://www.spiderenergy.in";
+const BASE_URL = "https://spiderenergy.in";
 
 function e(str) {
   return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -80,6 +80,11 @@ function buildMeta({ path, title, description }) {
 function inject(template, meta) {
   return template
     .replace(/<title>[^<]*<\/title>/, "")
+    .replace(/<link rel="canonical"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="description"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="robots"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta property="og:[^"]*"[^>]*\/?>[\s]*/g, "")
+    .replace(/<meta name="twitter:[^"]*"[^>]*\/?>[\s]*/g, "")
     .replace("</head>", `${meta}\n</head>`);
 }
 

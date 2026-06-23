@@ -31,8 +31,8 @@ const pageSchema = getServiceSchema({
   serviceType: "Public EV Charging Infrastructure",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/public-ev-charging-stations" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/public-ev-charging-stations" },
   { name: "Public Charging" },
 ]);
 

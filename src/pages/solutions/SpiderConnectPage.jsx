@@ -31,8 +31,8 @@ const pageSchema = getServiceSchema({
   serviceType: "EV Charging Point Management Software",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/cpms-ev-charging-point-management-system" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/cpms-ev-charging-point-management-system" },
   { name: "CPMS" },
 ]);
 

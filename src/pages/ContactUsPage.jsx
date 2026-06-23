@@ -15,7 +15,7 @@ const contactDetails = [
 ];
 
 const contactBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "Contact Us" },
 ]);
 

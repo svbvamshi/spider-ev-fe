@@ -354,10 +354,10 @@ const ProductDetailPage = () => {
   const typeLabel = category === "ac" ? "AC EV Charger" : "DC Fast EV Charger";
   const productSchema = getProductSchema(product, category, productId);
   const breadcrumbs = getBreadcrumbSchema([
-    { name: "Home", url: "https://www.spiderenergy.in" },
+    { name: "Home", url: "https://spiderenergy.in" },
     {
       name: category === "ac" ? "AC Chargers" : "DC Chargers",
-      url: `https://www.spiderenergy.in/${category === "ac" ? "electric-vehicle-ev-ac-charger" : "electric-vehicle-ev-dc-charger"}`,
+      url: `https://spiderenergy.in/${category === "ac" ? "electric-vehicle-ev-ac-charger" : "electric-vehicle-ev-dc-charger"}`,
     },
     { name: product.name },
   ]);

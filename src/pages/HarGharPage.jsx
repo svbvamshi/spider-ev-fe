@@ -21,7 +21,7 @@ const harGharSchema = getServiceSchema({
   serviceType: "Home EV Charging Program",
 });
 const harGharBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
+  { name: "Home", url: "https://spiderenergy.in" },
   { name: "Har Ghar Charger" },
 ]);
 

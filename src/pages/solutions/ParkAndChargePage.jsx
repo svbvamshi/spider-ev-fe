@@ -23,8 +23,8 @@ const pageSchema = getServiceSchema({
   serviceType: "Park and Charge EV Infrastructure",
 });
 const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://www.spiderenergy.in" },
-  { name: "Solutions", url: "https://www.spiderenergy.in/park-and-charge-electric-vehicle-ev-charging-station" },
+  { name: "Home", url: "https://spiderenergy.in" },
+  { name: "Solutions", url: "https://spiderenergy.in/park-and-charge-electric-vehicle-ev-charging-station" },
   { name: "Park & Charge" },
 ]);
 

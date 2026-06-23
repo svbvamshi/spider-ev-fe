@@ -7,7 +7,7 @@
  */
 import { Helmet } from "react-helmet-async";
 
-const DEFAULT_OG_IMAGE = "https://www.spiderenergy.in/og-image.jpg";
+const DEFAULT_OG_IMAGE = "https://spiderenergy.in/og-image.jpg";
 
 export function SEO({ schema, breadcrumbs, ogImage }) {
   return (
