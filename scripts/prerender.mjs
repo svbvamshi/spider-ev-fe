@@ -78,7 +78,33 @@ function buildMeta({ path, title, description, ogImage }) {
   ].join("\n");
 }
 
-function inject(template, meta) {
+// Internal navigation links injected into pre-rendered HTML for crawlers
+const NAV_LINKS = [
+  { href: "/electric-vehicle-ev-ac-charger", text: "AC Chargers" },
+  { href: "/electric-vehicle-ev-dc-charger", text: "DC Chargers" },
+  { href: "/park-and-charge-electric-vehicle-ev-charging-station", text: "Park & Charge" },
+  { href: "/community-ev-charging-stations", text: "Community Charging" },
+  { href: "/public-ev-charging-stations", text: "Public Charging" },
+  { href: "/heavy-duty-ev-charging-station", text: "Heavy Duty Charging" },
+  { href: "/cpms-ev-charging-point-management-system", text: "CPMS" },
+  { href: "/ev-charging-station-app", text: "SpiderEV App" },
+  { href: "/ev-charging-epc-services", text: "EPC Services" },
+  { href: "/about-us", text: "About Us" },
+  { href: "/contact-us", text: "Contact Us" },
+  { href: "/ev-charging-station-franchise", text: "Franchise" },
+  { href: "/ev-charging-station-roi-calculator", text: "ROI Calculator" },
+  { href: "/bess-battery-backup-for-ev-charging-stations", text: "BESS" },
+  { href: "/ev-charging-station-locator", text: "Station Locator" },
+  { href: "/news", text: "News" },
+  { href: "/blog", text: "Blog" },
+];
+
+function buildNoscrollContent(title, description) {
+  const links = NAV_LINKS.map(l => `<a href="${l.href}">${l.text}</a>`).join(" | ");
+  return `<h1>${e(title)}</h1><p>${e(description)}</p><nav>${links}</nav>`;
+}
+
+function inject(template, meta, noscrollContent) {
   return template
     .replace(/<title>[^<]*<\/title>/, "")
     .replace(/<link rel="canonical"[^>]*\/?>[\s]*/g, "")
@@ -86,7 +112,8 @@ function inject(template, meta) {
     .replace(/<meta name="robots"[^>]*\/?>[\s]*/g, "")
     .replace(/<meta property="og:[^"]*"[^>]*\/?>[\s]*/g, "")
     .replace(/<meta name="twitter:[^"]*"[^>]*\/?>[\s]*/g, "")
-    .replace("</head>", `${meta}\n</head>`);
+    .replace("</head>", `${meta}\n</head>`)
+    .replace('<div id="root"></div>', `<div id="root">${noscrollContent}</div>`);
 }
 
 function write(html, path) {
@@ -296,7 +323,8 @@ const template = readFileSync(join(distDir, "index.html"), "utf-8");
 let count = 0;
 for (const route of routes) {
   const meta = buildMeta(route);
-  const html = inject(template, meta);
+  const noscrollContent = buildNoscrollContent(route.title, route.description);
+  const html = inject(template, meta, noscrollContent);
   write(html, route.path);
   count++;
   console.log(`  ✓ ${route.path}`);
