@@ -1,24 +1,16 @@
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
-import { fadeUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
+import { fadeUp, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
+import allBlogPosts from "../data/blog-posts.json";
 
-/**
- * Blog post data.
- * Each post has an `image` field for the OG image shown when shared on social media.
- * When a blog detail page is built, pass `post.image` as the `ogImage` prop to <SEO />.
- * For now, the listing page uses the default logo-based OG image.
- */
-const blogPosts = [
-  { id: 1, category: "Technology", title: "How EV Chargers Work: A Complete Guide for Indian EV Owners", date: "28 Feb 2026", readTime: "8 min read", excerpt: "From AC home chargers to 240 kW DC ultra-rapid stations — understand the technology behind every charge.", slug: "how-ev-chargers-work", image: "/blog/how-ev-chargers-work.jpg" },
-  { id: 2, category: "Business", title: "How to Start an EV Charging Business in India — 2026 Guide", date: "15 Feb 2026", readTime: "12 min read", excerpt: "Step-by-step guide to launching a profitable EV charging station — from site selection to software management.", slug: "start-ev-charging-business-india", image: "/blog/start-ev-charging-business-india.jpg" },
-  { id: 3, category: "Technology", title: "AC vs DC Charging: Which is Right for Your EV?", date: "01 Feb 2026", readTime: "6 min read", excerpt: "Comparing Level 1, Level 2, and DC fast charging — speeds, costs, and the best use cases for Indian EV drivers.", slug: "ac-vs-dc-ev-charging", image: "/blog/ac-vs-dc-ev-charging.jpg" },
-  { id: 4, category: "Infrastructure", title: "India's EV Charging Infrastructure: Where We Are and Where We're Headed", date: "20 Jan 2026", readTime: "10 min read", excerpt: "India needs 400,000+ charging stations by 2030. Analyzing the current state, policy landscape, and private sector opportunities.", slug: "india-ev-charging-infrastructure-2026", image: "/blog/india-ev-charging-infrastructure-2026.jpg" },
-  { id: 5, category: "Business", title: "EV Charging Franchise: The Complete Investment Guide", date: "10 Jan 2026", readTime: "15 min read", excerpt: "ROI calculations, investment tiers, timeline, and everything you need to know before investing in an EV charging franchise in India.", slug: "ev-charging-franchise-investment-guide", image: "/blog/ev-charging-franchise-investment-guide.jpg" },
-  { id: 6, category: "Technology", title: "What is OCPP and Why Does It Matter for EV Charging?", date: "01 Jan 2026", readTime: "7 min read", excerpt: "Open Charge Point Protocol explained — why it ensures interoperability and what to look for when buying EV chargers.", slug: "what-is-ocpp-ev-charging", image: "/blog/what-is-ocpp-ev-charging.jpg" },
-];
+// Filter published posts and sort by date descending
+const blogPosts = allBlogPosts
+  .filter((post) => post.published)
+  .sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const BlogCard = ({ post }) => (
   <motion.div
@@ -39,10 +31,10 @@ const BlogCard = ({ post }) => (
         <span className="text-gray-400 text-xs">{post.readTime}</span>
       </div>
       <h3 className="text-gray-900 font-bold leading-snug mb-3 flex-1">{post.title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+      <p className="text-gray-500 text-sm leading-relaxed mb-4">{post.description}</p>
       <div className="flex items-center justify-between mt-auto">
         <span className="text-gray-400 text-xs">{post.date}</span>
-        <a href={`/blog/${post.slug}`} className="text-primary text-sm font-semibold hover:underline">Read More →</a>
+        <Link to={`/blog/${post.slug}`} className="text-primary text-sm font-semibold hover:underline">Read More →</Link>
       </div>
     </div>
   </motion.div>
@@ -88,7 +80,7 @@ const BlogPage = () => {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {blogPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
+              <BlogCard key={post.slug} post={post} />
             ))}
           </motion.div>
         </div>

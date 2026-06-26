@@ -2,3 +2,6 @@ node_modules/
 dist/
 .DS_Store/
 .claude
+
+# Generated blog content (rebuilt from content/blog/*.md at build time)
+src/data/blog-content/

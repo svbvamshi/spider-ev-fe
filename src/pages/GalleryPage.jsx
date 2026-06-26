@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 
@@ -34,6 +35,7 @@ const GalleryPage = () => {
         <title>EV Charging Station Gallery | SpiderEV</title>
         <meta name="description" content="Browse SpiderEV's gallery of EV charging installations, products, events and partnerships across Andhra Pradesh and Telangana." />
       </Helmet>
+      <SEO />
       <section className="relative overflow-hidden py-16 sm:py-20" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
         <div className="relative max-w-330 mx-auto px-4 sm:px-6 lg:px-10">

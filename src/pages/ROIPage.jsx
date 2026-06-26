@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
+import SEO from "../components/SEO";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 
 const chargerTypes = [
@@ -76,6 +77,7 @@ const ROIPage = () => {
         <title>EV Charging Station ROI Calculator in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Find Best Estimate EV Charging Business Profits in Andhra Pradesh and Telangana Using Smart Revenue and ROI Calculators for Accurate Charging Station Investment Planning." />
       </Helmet>
+      <SEO />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
