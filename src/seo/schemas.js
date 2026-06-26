@@ -333,6 +333,50 @@ export const localBusinessSchema = {
 
 // ─── ItemList Schema (for product listing pages) ─────────────────────────────
 
+// ─── Article / BlogPosting Schema ───────────────────────────────────────────
+
+/**
+ * Generate BlogPosting schema for blog detail pages.
+ * @param {object} opts
+ * @param {string} opts.title - Post headline
+ * @param {string} opts.description - Post excerpt/description
+ * @param {string} opts.slug - URL slug
+ * @param {string} opts.datePublished - ISO date string
+ * @param {string} [opts.dateModified] - ISO date string (defaults to datePublished)
+ * @param {string} opts.author - Author name
+ * @param {string} opts.image - Image path (relative, e.g. "/blog/my-post.jpg")
+ * @param {string} opts.category - Article section/category
+ */
+export function getArticleSchema({
+  title,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  author,
+  image,
+  category,
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description,
+    image: `${BASE_URL}${image}`,
+    datePublished,
+    dateModified: dateModified || datePublished,
+    author: { "@type": "Person", name: author },
+    publisher: { "@id": `${BASE_URL}/#organization` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${slug}`,
+    },
+    articleSection: category,
+  };
+}
+
+// ─── ItemList Schema (for product listing pages) ─────────────────────────────
+
 /**
  * Generate ItemList schema for product catalog pages.
  * @param {Array<{name: string, url: string, position?: number}>} items

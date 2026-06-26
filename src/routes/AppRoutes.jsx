@@ -29,6 +29,7 @@ const HarGharPage = lazy(() => import("../pages/HarGharPage"));
 const ChargeLocatorPage = lazy(() => import("../pages/ChargeLocatorPage"));
 const NewsPage = lazy(() => import("../pages/NewsPage"));
 const BlogPage = lazy(() => import("../pages/BlogPage"));
+const BlogDetailPage = lazy(() => import("../pages/BlogDetailPage"));
 const GalleryPage = lazy(() => import("../pages/GalleryPage"));
 const PartnerWithUsPage = lazy(() => import("../pages/PartnerWithUsPage"));
 
@@ -76,6 +77,7 @@ const AppRoutes = () => {
         {/* ── Unchanged routes ── */}
         <Route path="/har-ghar" element={<HarGharPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/partner-withus" element={<PartnerWithUsPage />} />
 

@@ -1,0 +1,68 @@
+[
+  {
+    "title": "How EV Chargers Work: A Complete Guide for Indian EV Owners",
+    "slug": "how-ev-chargers-work",
+    "description": "From AC home chargers to 240 kW DC ultra-rapid stations — understand the technology behind every charge.",
+    "date": "2026-02-28",
+    "author": "Spider Energy Team",
+    "category": "Technology",
+    "readTime": "8 min read",
+    "image": "/blog/how-ev-chargers-work.jpg",
+    "published": true
+  },
+  {
+    "title": "How to Start an EV Charging Business in India — 2026 Guide",
+    "slug": "start-ev-charging-business-india",
+    "description": "Step-by-step guide to launching a profitable EV charging station — from site selection to software management.",
+    "date": "2026-02-15",
+    "author": "Spider Energy Team",
+    "category": "Business",
+    "readTime": "12 min read",
+    "image": "/blog/start-ev-charging-business-india.jpg",
+    "published": true
+  },
+  {
+    "title": "AC vs DC Charging: Which is Right for Your EV?",
+    "slug": "ac-vs-dc-ev-charging",
+    "description": "Comparing Level 1, Level 2, and DC fast charging — speeds, costs, and the best use cases for Indian EV drivers.",
+    "date": "2026-02-01",
+    "author": "Spider Energy Team",
+    "category": "Technology",
+    "readTime": "6 min read",
+    "image": "/blog/ac-vs-dc-ev-charging.jpg",
+    "published": true
+  },
+  {
+    "title": "India's EV Charging Infrastructure: Where We Are and Where We're Headed",
+    "slug": "india-ev-charging-infrastructure-2026",
+    "description": "India needs 400,000+ charging stations by 2030. Analyzing the current state, policy landscape, and private sector opportunities.",
+    "date": "2026-01-20",
+    "author": "Spider Energy Team",
+    "category": "Infrastructure",
+    "readTime": "10 min read",
+    "image": "/blog/india-ev-charging-infrastructure-2026.jpg",
+    "published": true
+  },
+  {
+    "title": "EV Charging Franchise: The Complete Investment Guide",
+    "slug": "ev-charging-franchise-investment-guide",
+    "description": "ROI calculations, investment tiers, timeline, and everything you need to know before investing in an EV charging franchise in India.",
+    "date": "2026-01-10",
+    "author": "Spider Energy Team",
+    "category": "Business",
+    "readTime": "15 min read",
+    "image": "/blog/ev-charging-franchise-investment-guide.jpg",
+    "published": true
+  },
+  {
+    "title": "What is OCPP and Why Does It Matter for EV Charging?",
+    "slug": "what-is-ocpp-ev-charging",
+    "description": "Open Charge Point Protocol explained — why it ensures interoperability and what to look for when buying EV chargers.",
+    "date": "2026-01-01",
+    "author": "Spider Energy Team",
+    "category": "Technology",
+    "readTime": "7 min read",
+    "image": "/blog/what-is-ocpp-ev-charging.jpg",
+    "published": true
+  }
+]
