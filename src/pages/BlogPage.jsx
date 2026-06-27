@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
 import { fadeUp, staggerFast, viewport } from "../utils/animationConfig";
@@ -9,7 +9,7 @@ import heroBg from "../assets/home/hero-bg.webp";
 import allBlogPosts from "../data/blog-posts.json";
 
 // Filter published posts and sort by date descending
-const blogPosts = allBlogPosts
+const publishedPosts = allBlogPosts
   .filter((post) => post.published)
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -58,10 +58,18 @@ const BlogCard = ({ post }) => {
 };
 
 const BlogPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTag = searchParams.get("tag") || "";
+
+  // Filter by tag if present
+  const blogPosts = activeTag
+    ? publishedPosts.filter((p) => (p.tags || []).includes(activeTag))
+    : publishedPosts;
+
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charging Blog — Tips, Guides &amp; News | SpiderEV</title>
+        <title>{activeTag ? `${activeTag} — SpiderEV Blog` : "EV Charging Blog — Tips, Guides & News | SpiderEV"}</title>
         <meta name="description" content="Read the latest EV charging guides, industry news and business insights from SpiderEV — your expert resource for electric vehicle charging in India." />
       </Helmet>
       <SEO />{/* Uses default logo OG image for listing page */}
@@ -89,6 +97,19 @@ const BlogPage = () => {
 
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Active tag filter indicator */}
+          {activeTag && (
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-gray-600 text-sm">Filtered by:</span>
+              <span className="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">#{activeTag}</span>
+              <button
+                onClick={() => setSearchParams({})}
+                className="text-gray-400 hover:text-gray-600 text-sm underline"
+              >
+                Clear filter
+              </button>
+            </div>
+          )}
           <motion.div
             variants={staggerFast}
             initial="hidden"
@@ -100,6 +121,9 @@ const BlogPage = () => {
               <BlogCard key={post.slug} post={post} />
             ))}
           </motion.div>
+          {blogPosts.length === 0 && (
+            <p className="text-center text-gray-500 py-12">No posts found for this tag.</p>
+          )}
         </div>
       </section>
     </PageLayout>

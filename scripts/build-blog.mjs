@@ -70,6 +70,7 @@ for (const file of files) {
     category: frontmatter.category,
     readTime: frontmatter.readTime || "",
     image: frontmatter.image,
+    tags: frontmatter.tags || [],
     published: frontmatter.published !== false, // default true
   };
 
