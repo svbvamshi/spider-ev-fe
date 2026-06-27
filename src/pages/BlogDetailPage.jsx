@@ -77,7 +77,7 @@ const BlogDetailPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>{postMeta.title} | SpiderEV Blog</title>
+        <title>{postMeta.title}</title>
         <meta name="description" content={postMeta.description} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={postMeta.date} />

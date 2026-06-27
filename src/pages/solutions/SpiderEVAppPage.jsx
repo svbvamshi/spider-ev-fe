@@ -21,16 +21,15 @@ const appFeatures = [
   { icon: "📊", title: "Live Power Monitor", desc: "Track live power usage and energy consumed per session." },
 ];
 
-const pageSchema = getSoftwareAppSchema({
-  name: "SpiderEV App",
-  description: "Smart EV charging app to locate nearby stations, access charging networks and manage EV charging anytime, anywhere across Andhra Pradesh and Telangana.",
+const appSchema = getSoftwareAppSchema({
+  name: "SpiderEV Charging App",
+  description: "Find nearby EV charging stations, start sessions, pay digitally and track charging history across India",
   url: "/ev-charging-station-app",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Android, iOS",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/ev-charging-station-app" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
   { name: "SpiderEV App" },
 ]);
 
@@ -41,7 +40,7 @@ const SpiderEVAppPage = () => {
         <title>EV Charging Station App in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Discover a Smart EV Charging App in Andhra Pradesh and Telangana to Locate Nearby Stations, Access Charging Networks and Manage Your EV Charging Anytime, Anywhere." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={appSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="EV Charging Station App in Andhra Pradesh & Telangana"
         subtitle="Find EV charging stations near you. A seamless experience that lets you power up quickly and pay effortlessly."

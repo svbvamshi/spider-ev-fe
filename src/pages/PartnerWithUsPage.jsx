@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 
@@ -24,6 +25,17 @@ const whyPoints = [
   "Dedicated partner support team",
 ];
 
+const partnerServiceSchema = getServiceSchema({
+  name: "Partner With SpiderEV",
+  description: "Partner with Spider Energy as a site owner, fleet operator, fuel station or real estate developer to deploy EV charging",
+  url: "/partner-withus",
+  serviceType: "EV Charging Partnership",
+});
+const partnerBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "Partner With Us" },
+]);
+
 const PartnerWithUsPage = () => {
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", type: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -31,10 +43,10 @@ const PartnerWithUsPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>Partner With SpiderEV — EV Charging Opportunities in India</title>
+        <title>Partner With SpiderEV — EV Charging Opportunities India</title>
         <meta name="description" content="Partner with SpiderEV as a site owner, fleet operator, fuel station or real estate developer. Build India's EV charging future together." />
       </Helmet>
-      <SEO />
+      <SEO schema={partnerServiceSchema} breadcrumbs={partnerBreadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden py-20 sm:py-28" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
@@ -45,7 +57,7 @@ const PartnerWithUsPage = () => {
             animate="visible"
           >
             <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-white leading-tight max-w-2xl">
-              Partner With SpiderEV — Build India's EV Future Together
+              Partner With SpiderEV — Earn from EV Charging in Telangana & AP
             </motion.h1>
             <motion.p variants={fadeUp} className="mt-5 text-white/80 text-xl max-w-xl">
               Become a SpiderEV partner and tap into India's thriving EV industry with our profitable,

@@ -24,15 +24,14 @@ const features = [
   "Automated maintenance scheduling",
 ];
 
-const pageSchema = getServiceSchema({
+const serviceSchema = getServiceSchema({
   name: "Public EV Charging Stations",
-  description: "Spider Energy offers public EV charging stations across Andhra Pradesh and Telangana, delivering fast charging for cars with a strong and connected EV charging network.",
+  description: "Public EV fast charging network for cars across fuel stations, retail locations and parking areas in AP & Telangana",
   url: "/public-ev-charging-stations",
-  serviceType: "Public EV Charging Infrastructure",
+  serviceType: "Public EV Charging Network",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/public-ev-charging-stations" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Public Charging" },
 ]);
 
@@ -43,7 +42,7 @@ const PublicChargingPage = () => {
         <title>Public EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy offers Public EV Charging Stations in Andhra Pradesh and Telangana, Delivering Fast Charging for Cars with a Strong & Connected EV Charging Network." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Public EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Deliver dependable service with our Charger Management System, ensuring seamless reliability for cities and highways."

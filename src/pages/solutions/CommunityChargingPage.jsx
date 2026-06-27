@@ -39,15 +39,14 @@ const pillars = [
   },
 ];
 
-const pageSchema = getServiceSchema({
+const serviceSchema = getServiceSchema({
   name: "Community EV Charging Stations",
-  description: "Spider Energy provides community EV charging stations for apartments and housing societies with residential charging solutions in Andhra Pradesh and Telangana.",
+  description: "Shared EV charging solutions for apartments, housing societies and gated communities in AP & Telangana",
   url: "/community-ev-charging-stations",
-  serviceType: "Residential Community EV Charging",
+  serviceType: "Community EV Charging",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/community-ev-charging-stations" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Community Charging" },
 ]);
 
@@ -58,7 +57,7 @@ const CommunityChargingPage = () => {
         <title>Community EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Community EV Charging Stations in Andhra Pradesh (AP) & Telangana(TG) for Apartments and Housing Societies with Residential Charging Solutions." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Community EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Transform your neighborhood into a vibrant EV-friendly community with convenient on-site charging."

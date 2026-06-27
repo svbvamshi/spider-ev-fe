@@ -38,12 +38,12 @@ const AboutUsPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charger Manufacturing Company in Telangana & Andhra Pradesh</title>
+        <title>EV Charger Manufacturer in Telangana & AP | SpiderEV</title>
         <meta name="description" content="Discover EV Charging Systems Manufacturers in Andhra Pradesh and Telangana Offering Electric Car Chargers, EV Home Charger Installation & EV Charging Equipment." />
       </Helmet>
       <SEO schema={organizationSchema} breadcrumbs={aboutBreadcrumbs} />
       <HeroBanner
-        title="EV Charger Manufacturing Company in Telangana & Andhra Pradesh"
+        title="About Spider Energy — EV Charger Manufacturer in Telangana & Andhra Pradesh"
         bgImage={heroBg}
       />
 

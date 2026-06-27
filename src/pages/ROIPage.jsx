@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
+import { getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 
 const chargerTypes = [
@@ -74,10 +75,19 @@ const ROIPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charging Station ROI Calculator in Andhra Pradesh & Telangana</title>
+        <title>EV Charging ROI Calculator | AP & TG | SpiderEV</title>
         <meta name="description" content="Find Best Estimate EV Charging Business Profits in Andhra Pradesh and Telangana Using Smart Revenue and ROI Calculators for Accurate Charging Station Investment Planning." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "EV Charging Station ROI Calculator",
+          "description": "Estimate EV charging business profits and ROI in Andhra Pradesh & Telangana",
+          "url": "https://spiderenergy.in/ev-charging-station-roi-calculator",
+          "applicationCategory": "FinanceApplication",
+          "provider": {"@id": "https://spiderenergy.in/#organization"}
+        })}</script>
       </Helmet>
-      <SEO />
+      <SEO breadcrumbs={getBreadcrumbSchema([{name: "Home", url: "https://spiderenergy.in/"}, {name: "ROI Calculator"}])} />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
@@ -88,7 +98,7 @@ const ROIPage = () => {
           className="text-center mb-12"
         >
           <motion.h1 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold text-gray-900">
-            EV Charging Station ROI Calculator in Andhra Pradesh & Telangana
+            Calculate Your EV Charging Station ROI & Profits in Telangana & AP
           </motion.h1>
           <motion.p variants={fadeUp} className="text-gray-500 mt-3 max-w-2xl mx-auto">
             Model your investment returns from EV charging infrastructure. Adjust parameters and get real-time profit projections.

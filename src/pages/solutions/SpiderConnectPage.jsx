@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, vi
 import connectImg from "../../assets/home/SpiderConnect.webp";
 import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getSoftwareAppSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const features = [
   { icon: "📍", title: "Locate Stations", desc: "Find nearby charging stations on an interactive map — real-time availability and directions." },
@@ -24,16 +24,16 @@ const steps = [
   { num: "03", title: "Manage & Optimize", desc: "Set custom tariffs, manage schedules, control power usage, and receive maintenance alerts — all from one intelligent platform." },
 ];
 
-const pageSchema = getServiceSchema({
-  name: "Spider Connect — EV Charging Point Management System (CPMS)",
-  description: "Smart EV charging management platform for monitoring, remote diagnostics, dynamic pricing, and seamless network operations across Andhra Pradesh and Telangana.",
+const cpmsSchema = getSoftwareAppSchema({
+  name: "SpiderConnect CPMS",
+  description: "Cloud-based Charging Point Management System for monitoring, controlling and managing EV charging networks across India",
   url: "/cpms-ev-charging-point-management-system",
-  serviceType: "EV Charging Point Management Software",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web, Android, iOS",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/cpms-ev-charging-point-management-system" },
-  { name: "CPMS" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "SpiderConnect CPMS" },
 ]);
 
 const SpiderConnectPage = () => {
@@ -43,7 +43,7 @@ const SpiderConnectPage = () => {
         <title>EV Charging Management System in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Explore Smart EV Charging Solutions in Andhra Pradesh and Telangana with Advanced Platforms and Efficient Network Management for Seamless Charging Operations." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={cpmsSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="EV Charging Management System in Andhra Pradesh & Telangana"
         subtitle="An advanced cloud-based platform to deploy, manage, and expand your EV charging network from anywhere."

@@ -16,15 +16,14 @@ const benefits = [
 
 const customers = ["Malls", "Hotels", "Office Parks", "Restaurants", "Hospitals", "Airports"];
 
-const pageSchema = getServiceSchema({
+const serviceSchema = getServiceSchema({
   name: "Park and Charge EV Stations",
-  description: "Spider Energy provides park and charge electric vehicle stations in Andhra Pradesh and Telangana with easy installation and best parking solutions for EVs.",
+  description: "Smart parking-based EV charging solutions for malls, offices and commercial complexes in AP & Telangana",
   url: "/park-and-charge-electric-vehicle-ev-charging-station",
-  serviceType: "Park and Charge EV Infrastructure",
+  serviceType: "EV Charging Station Installation",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/park-and-charge-electric-vehicle-ev-charging-station" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Park & Charge" },
 ]);
 
@@ -35,7 +34,7 @@ const ParkAndChargePage = () => {
         <title>Park and Charge EV Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Top Park & Charge Electric Vehicle Stations in Andhra Pradesh(AP) and Telangana(TG), with Easy Installation & Best Parking Solutions for EVs." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Park and Charge EV Stations in Telangana & Andhra Pradesh"
         subtitle="Give your customers the gift of convenient EV charging while they shop, dine, or work."

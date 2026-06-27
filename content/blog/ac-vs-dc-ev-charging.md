@@ -1,7 +1,7 @@
 ---
-title: "AC vs DC Charging: Which is Right for Your EV?"
+title: "AC vs DC EV Charging — Which is Right for You India"
 slug: "ac-vs-dc-ev-charging"
-description: "Comparing Level 1, Level 2, and DC fast charging — speeds, costs, and the best use cases for Indian EV drivers."
+description: "Comparing AC Level 2 and DC fast charging — speeds, costs, and the best use cases for Indian EV drivers, fleet operators and charging businesses."
 date: "2026-02-01"
 author: "Spider Energy Team"
 category: "Technology"

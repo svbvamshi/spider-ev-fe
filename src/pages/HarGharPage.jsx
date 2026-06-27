@@ -32,8 +32,8 @@ const HarGharPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>Har Ghar Charger — Home EV Charging for Every Indian | SpiderEV</title>
-        <meta name="description" content="SpiderEV's Har Ghar Charger initiative brings affordable home EV charging to every Indian household. Register your interest and earn from your own charging station." />
+        <title>Har Ghar Charger — Affordable Home EV Charging India</title>
+        <meta name="description" content="Har Ghar Charger — affordable home EV charging for every Indian household. Register and earn from your own EV charging station." />
       </Helmet>
       <SEO schema={harGharSchema} breadcrumbs={harGharBreadcrumbs} />
       {/* Hero */}

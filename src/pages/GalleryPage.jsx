@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
+import { getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 
@@ -23,6 +24,11 @@ const galleryItems = [
   { id: 12, category: "Events", label: "Customer Training — SpiderEV App", caption: "App training session for franchise partners" },
 ];
 
+const galleryBreadcrumbs = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "Gallery" },
+]);
+
 const GalleryPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightboxItem, setLightboxItem] = useState(null);
@@ -32,10 +38,10 @@ const GalleryPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charging Station Gallery | SpiderEV</title>
+        <title>SpiderEV Gallery | EV Charger Installations in India</title>
         <meta name="description" content="Browse SpiderEV's gallery of EV charging installations, products, events and partnerships across Andhra Pradesh and Telangana." />
       </Helmet>
-      <SEO />
+      <SEO breadcrumbs={galleryBreadcrumbs} />
       <section className="relative overflow-hidden py-16 sm:py-20" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
         <div className="relative max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
@@ -45,7 +51,7 @@ const GalleryPage = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-4xl sm:text-5xl font-bold text-white"
           >
-            Gallery
+            SpiderEV Gallery — EV Charger Installations Across Telangana & Andhra Pradesh
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}

@@ -21,28 +21,27 @@ const featuredProducts = [
   { name: "Spider Ultra", power: "240 kW", id: "spider-ultra", desc: "India's most powerful charger — 4-gun system for ultra-rapid fleet depot charging." },
 ];
 
-const pageSchema = getServiceSchema({
+const serviceSchema = getServiceSchema({
   name: "Heavy Duty EV Charging Stations",
-  description: "Spider Energy provides heavy duty EV charging stations for trucks, buses and fleets with EV charging infrastructure and electric vehicle charging solutions.",
+  description: "High-power EV charging infrastructure for electric trucks, buses and fleet depots in AP & Telangana",
   url: "/heavy-duty-ev-charging-station",
-  serviceType: "Heavy Duty EV Charging Infrastructure",
+  serviceType: "Heavy Duty EV Charging",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/heavy-duty-ev-charging-station" },
-  { name: "Heavy Vehicles" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "Heavy Duty Charging" },
 ]);
 
 const HeavyVehiclesPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>Heavy Duty EV Charging Stations in Telangana & Andhra Pradesh</title>
+        <title>Heavy Duty EV Charging for Buses & Trucks | AP & TG</title>
         <meta name="description" content="Spider Energy Provides Heavy Duty EV Charging Stations in AP & Telangana for Trucks, Buses & Fleets, with EV Charging Infrastructure & Electric Vehicle Charging Solutions." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
-        title="Heavy Duty EV Charging Stations in Telangana & Andhra Pradesh"
+        title="Heavy Duty EV Charging Stations for Buses, Trucks & Fleets in AP & TG"
         subtitle="Electrify your heavy-duty fleet with powerful charging systems built for optimal performance, rapid charging, and maximum efficiency."
         bgImage={fleetImg}
       />

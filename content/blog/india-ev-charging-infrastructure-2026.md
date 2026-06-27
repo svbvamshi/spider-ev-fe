@@ -1,7 +1,7 @@
 ---
-title: "India's EV Charging Infrastructure: Where We Are and Where We're Headed"
+title: "India EV Charging Infrastructure 2026 — Complete Guide"
 slug: "india-ev-charging-infrastructure-2026"
-description: "India needs 400,000+ charging stations by 2030. Analyzing the current state, policy landscape, and private sector opportunities."
+description: "India needs 400,000+ charging stations by 2030. Analysing the current state, policy landscape, and private sector opportunities for EV charging."
 date: "2026-01-20"
 author: "Spider Energy Team"
 category: "Infrastructure"

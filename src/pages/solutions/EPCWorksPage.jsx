@@ -42,28 +42,27 @@ const whyPoints = [
   "5,000+ chargers deployed across India",
 ];
 
-const pageSchema = getServiceSchema({
-  name: "EV Charging EPC Services",
-  description: "End-to-end EV charging station installation with EPC services, construction support and infrastructure solutions for commercial and public spaces.",
+const serviceSchema = getServiceSchema({
+  name: "EV Charging Station EPC Services",
+  description: "End-to-end EPC services for EV charging station installation — site survey, design, construction and commissioning in AP & Telangana",
   url: "/ev-charging-epc-services",
-  serviceType: "EV Charging Station EPC (Engineering, Procurement, Construction)",
+  serviceType: "EV Station EPC & Installation",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/ev-charging-epc-services" },
-  { name: "EPC Works" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "EPC Services" },
 ]);
 
 const EPCWorksPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charging Station Installation Service in Telangana & Andhra Pradesh</title>
+        <title>EV Station EPC & Installation Services | AP & TG</title>
         <meta name="description" content="We provides EV charging station installation in Andhra Pradesh & Telangana with EPC services, construction support & infrastructure solutions for commercial and public spaces." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
-        title="EV Charging Station Installation Service in Telangana & Andhra Pradesh"
+        title="End-to-End EV Charging Station EPC & Installation Services Across AP & TG"
         subtitle="Engineering, Procurement, and Construction — end-to-end EV charging solutions designed, procured, and installed by our expert team."
         bgImage={workplaceImg}
       />

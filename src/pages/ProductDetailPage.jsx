@@ -383,7 +383,7 @@ const ProductDetailPage = () => {
                 {category === "ac" ? "AC Charger" : "DC Fast Charger"}
               </motion.span>
               <motion.h1 variants={fadeUp} className="mt-3 text-4xl sm:text-5xl font-bold text-white">
-                {product.name}
+                {product.name} — {product.power} {typeLabel}
               </motion.h1>
               <motion.p variants={fadeUp} className="mt-4 text-white/80 text-xl">{product.tagline}</motion.p>
               <motion.div variants={fadeUp} className="mt-6 flex flex-wrap gap-3">

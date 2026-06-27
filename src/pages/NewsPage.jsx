@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
+import { getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 
@@ -57,7 +58,7 @@ const NewsPage = () => {
         <title>Latest EV Charging News in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Stay updated with the latest electric vehicle charging news, EV infrastructure trends and technology insights across Andhra Pradesh and Telangana." />
       </Helmet>
-      <SEO />{/* Uses default logo OG image for listing page */}
+      <SEO breadcrumbs={getBreadcrumbSchema([{name: "Home", url: "https://spiderenergy.in/"}, {name: "News"}])} />
       <section className="relative overflow-hidden py-16 sm:py-20" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
         <div className="relative max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
