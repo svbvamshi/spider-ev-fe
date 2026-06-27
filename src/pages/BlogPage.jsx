@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -12,17 +13,32 @@ const blogPosts = allBlogPosts
   .filter((post) => post.published)
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-const BlogCard = ({ post }) => (
+const BlogCard = ({ post }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
   <motion.div
     variants={fadeUp}
     whileHover={{ y: -6, transition: { duration: 0.2 } }}
     className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col"
   >
-    <div className="bg-gray-50 h-48 flex items-center justify-center">
-      <div className="text-center text-gray-400">
-        <div className="text-3xl mb-1">📝</div>
-        <p className="text-xs">Blog Image</p>
-      </div>
+    <div className="bg-gray-50 h-48 overflow-hidden">
+      {!imgError ? (
+        <img
+          src={post.image}
+          alt={post.title}
+          loading="lazy"
+          onError={() => setImgError(true)}
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5">
+          <div className="text-center px-4">
+            <div className="text-3xl mb-2">⚡</div>
+            <p className="text-xs text-gray-400 font-medium">{post.category}</p>
+          </div>
+        </div>
+      )}
     </div>
     <div className="p-6 flex flex-col flex-1">
       <div className="flex items-center gap-3 mb-3">
@@ -38,7 +54,8 @@ const BlogCard = ({ post }) => (
       </div>
     </div>
   </motion.div>
-);
+  );
+};
 
 const BlogPage = () => {
   return (
