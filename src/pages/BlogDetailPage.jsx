@@ -98,12 +98,12 @@ const BlogDetailPage = () => {
           <span>{postMeta.title}</span>
         </nav>
 
-        {/* Hero Banner Image */}
-        <div className="w-full h-64 sm:h-80 lg:h-96 overflow-hidden bg-gray-100">
+        {/* Hero Banner Image — extra height to account for navbar overlay */}
+        <div className="w-full h-80 sm:h-96 lg:h-[28rem] overflow-hidden bg-gray-100">
           <img
             src={postMeta.image}
             alt={postMeta.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
 

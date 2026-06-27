@@ -143,6 +143,10 @@ function buildNoscrollContent(route) {
 }
 
 function inject(template, meta, jsonLd, noscrollContent) {
+  // Wrap noscroll content in a visually-hidden container that crawlers can read
+  // but users never see (prevents FOUC before React hydrates)
+  const hiddenContent = `<div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">${noscrollContent}</div>`;
+
   return template
     .replace(/<title>[^<]*<\/title>/, "")
     .replace(/<link rel="canonical"[^>]*\/?>[\s]*/g, "")
@@ -151,8 +155,8 @@ function inject(template, meta, jsonLd, noscrollContent) {
     .replace(/<meta property="og:[^"]*"[^>]*\/?>[\s]*/g, "")
     .replace(/<meta name="twitter:[^"]*"[^>]*\/?>[\s]*/g, "")
     .replace("</head>", `${meta}\n${jsonLd}\n</head>`)
-    .replace('<div id="root"></div>', `<div id="root">${noscrollContent}</div>`)
-    .replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${noscrollContent}</div>`);
+    .replace('<div id="root"></div>', `<div id="root">${hiddenContent}</div>`)
+    .replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${hiddenContent}</div>`);
 }
 
 function write(html, path) {
