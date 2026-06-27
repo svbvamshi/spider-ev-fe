@@ -117,20 +117,25 @@ const NAV_LINKS = [
 ];
 
 function buildNoscrollContent(route) {
-  const { title, description, subtopics, bodyText } = route;
+  const { title, description, subtopics, bodyText, articleHtml } = route;
   const links = NAV_LINKS.map(l => `<a href="${l.href}">${l.text}</a>`).join(" | ");
 
   let html = `<h1>${e(title)}</h1>`;
   html += `<p>${e(description)}</p>`;
 
-  // Add H2 subtopics for richer content
-  if (subtopics && subtopics.length > 0) {
-    html += subtopics.map(h2 => `<h2>${e(h2)}</h2>`).join("");
-  }
+  // For blog posts: inject the full article HTML (already rendered from markdown)
+  if (articleHtml) {
+    html += `<article>${articleHtml}</article>`;
+  } else {
+    // Add H2 subtopics for richer content
+    if (subtopics && subtopics.length > 0) {
+      html += subtopics.map(h2 => `<h2>${e(h2)}</h2>`).join("");
+    }
 
-  // Add additional body text for word count
-  if (bodyText) {
-    html += `<p>${e(bodyText)}</p>`;
+    // Add additional body text for word count
+    if (bodyText) {
+      html += `<p>${e(bodyText)}</p>`;
+    }
   }
 
   html += `<nav>${links}</nav>`;
@@ -404,10 +409,24 @@ const routes = [
 // ─── Dynamically add blog post routes ────────────────────────────────────────
 
 const BLOG_DATA_PATH = join(ROOT, "src", "data", "blog-posts.json");
+const BLOG_CONTENT_DIR = join(ROOT, "src", "data", "blog-content");
 if (existsSync(BLOG_DATA_PATH)) {
   const blogPosts = JSON.parse(readFileSync(BLOG_DATA_PATH, "utf-8"));
   for (const post of blogPosts) {
     if (!post.published) continue;
+
+    // Read full article HTML from blog-content JSON
+    let articleHtml = "";
+    const contentPath = join(BLOG_CONTENT_DIR, `${post.slug}.json`);
+    if (existsSync(contentPath)) {
+      try {
+        const contentData = JSON.parse(readFileSync(contentPath, "utf-8"));
+        articleHtml = contentData.html || "";
+      } catch (err) {
+        console.warn(`  ⚠ Could not read blog content for ${post.slug}: ${err.message}`);
+      }
+    }
+
     routes.push({
       path: `/blog/${post.slug}`,
       title: `${post.title} | SpiderEV Blog`,
@@ -416,6 +435,7 @@ if (existsSync(BLOG_DATA_PATH)) {
       ogType: "article",
       subtopics: [],
       bodyText: post.description,
+      articleHtml, // full article HTML for crawler-visible content
       schema: {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
