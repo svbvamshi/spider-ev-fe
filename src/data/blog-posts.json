@@ -8,6 +8,13 @@
     "category": "Infrastructure",
     "readTime": "15 min read",
     "image": "/blog/ev-ready-homes-india-smart-charging-bess-2026.webp",
+    "tags": [
+      "EV-Ready Homes",
+      "Smart EV Charging",
+      "BESS",
+      "Solar Storage",
+      "EV Charging Infrastructure"
+    ],
     "published": true
   },
   {
@@ -19,6 +26,7 @@
     "category": "Technology",
     "readTime": "8 min read",
     "image": "/blog/how-ev-chargers-work.jpg",
+    "tags": [],
     "published": true
   },
   {
@@ -30,6 +38,7 @@
     "category": "Business",
     "readTime": "12 min read",
     "image": "/blog/start-ev-charging-business-india.jpg",
+    "tags": [],
     "published": true
   },
   {
@@ -41,6 +50,7 @@
     "category": "Technology",
     "readTime": "6 min read",
     "image": "/blog/ac-vs-dc-ev-charging.jpg",
+    "tags": [],
     "published": true
   },
   {
@@ -52,6 +62,7 @@
     "category": "Infrastructure",
     "readTime": "10 min read",
     "image": "/blog/india-ev-charging-infrastructure-2026.jpg",
+    "tags": [],
     "published": true
   },
   {
@@ -63,6 +74,7 @@
     "category": "Business",
     "readTime": "15 min read",
     "image": "/blog/ev-charging-franchise-investment-guide.jpg",
+    "tags": [],
     "published": true
   },
   {
@@ -74,6 +86,7 @@
     "category": "Technology",
     "readTime": "7 min read",
     "image": "/blog/what-is-ocpp-ev-charging.jpg",
+    "tags": [],
     "published": true
   }
 ]

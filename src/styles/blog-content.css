@@ -9,6 +9,7 @@
   color: #1f2937; /* gray-800 */
   line-height: 1.8;
   font-size: 1.0625rem; /* ~17px */
+  text-align: left;
 }
 
 .blog-content h2 {
@@ -119,28 +120,48 @@
   margin: 1.5rem 0;
 }
 
+/* Table — horizontally scrollable on mobile */
+.blog-content .table-wrapper,
+.blog-content table {
+  margin: 1.5rem 0;
+}
+
 .blog-content table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
   font-size: 0.9375rem;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
 }
 
 .blog-content thead th {
-  background: #f9fafb;
+  background: #293180;
+  color: #ffffff;
   font-weight: 600;
   text-align: left;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1.25rem;
   border-bottom: 2px solid #e5e7eb;
+  white-space: normal;
+  min-width: 180px;
 }
 
 .blog-content tbody td {
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1.25rem;
   border-bottom: 1px solid #f3f4f6;
+  white-space: normal;
+  min-width: 180px;
 }
 
 .blog-content tbody tr:hover {
   background: #f9fafb;
+}
+
+.blog-content tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .blog-content hr {

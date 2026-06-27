@@ -49,6 +49,9 @@ const BlogDetailPage = () => {
 
   if (!postMeta) return null;
 
+  // Tags for this post (from frontmatter) — show top 5
+  const tags = (postMeta.tags || []).slice(0, 5);
+
   // Related posts (same category, exclude current)
   const relatedPosts = blogPosts
     .filter((p) => p.category === postMeta.category && p.slug !== slug && p.published)
@@ -84,42 +87,50 @@ const BlogDetailPage = () => {
       </Helmet>
       <SEO schema={articleSchema} breadcrumbs={breadcrumbSchema} ogImage={postMeta.image} />
 
-      {/* Article Header */}
+      {/* Article */}
       <article className="bg-white">
-        <header className="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 sm:py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="mb-6 text-sm text-gray-500">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-              <span className="mx-2">/</span>
-              <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
-              <span className="mx-2">/</span>
-              <span className="text-gray-700">{postMeta.title}</span>
-            </nav>
+        {/* Breadcrumb — hidden visually, present for SEO crawlers */}
+        <nav className="sr-only" aria-label="Breadcrumb">
+          <Link to="/">Home</Link>
+          <span>/</span>
+          <Link to="/blog">Blog</Link>
+          <span>/</span>
+          <span>{postMeta.title}</span>
+        </nav>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="bg-secondary/10 text-secondary text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
-                  {postMeta.category}
-                </span>
-                <span className="text-gray-400 text-sm">{postMeta.readTime}</span>
-              </div>
+        {/* Hero Banner Image */}
+        <div className="w-full h-64 sm:h-80 lg:h-96 overflow-hidden bg-gray-100">
+          <img
+            src={postMeta.image}
+            alt={postMeta.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-                {postMeta.title}
-              </h1>
+        {/* Article Header */}
+        <header className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-secondary/10 text-secondary text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
+                {postMeta.category}
+              </span>
+              <span className="text-gray-400 text-sm">{postMeta.readTime}</span>
+            </div>
 
-              <div className="flex items-center gap-4 text-gray-500 text-sm">
-                <span>By {postMeta.author}</span>
-                <span className="text-gray-300">|</span>
-                <time dateTime={postMeta.date}>{postMeta.date}</time>
-              </div>
-            </motion.div>
-          </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+              {postMeta.title}
+            </h1>
+
+            <div className="flex items-center gap-4 text-gray-500 text-sm">
+              <span>By {postMeta.author}</span>
+              <span className="text-gray-300">|</span>
+              <time dateTime={postMeta.date}>{postMeta.date}</time>
+            </div>
+          </motion.div>
         </header>
 
         {/* Article Body */}
@@ -139,6 +150,23 @@ const BlogDetailPage = () => {
             />
           ) : null}
         </div>
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+            <div className="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <Link
+                  key={tag}
+                  to={`/blog?tag=${encodeURIComponent(tag)}`}
+                  className="inline-block bg-gray-100 hover:bg-primary/10 text-gray-700 hover:text-primary text-sm font-medium px-4 py-1.5 rounded-full transition-colors"
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
