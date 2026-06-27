@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, vi
 import appImg from "../../assets/home/SpiderApp.webp";
 import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
-import { getSoftwareAppSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getBreadcrumbSchema } from "../../seo/schemas";
 
 const appFeatures = [
   { icon: "📍", title: "Locate Stations", desc: "Find EV charging stations near you on an interactive map." },
@@ -21,13 +21,17 @@ const appFeatures = [
   { icon: "📊", title: "Live Power Monitor", desc: "Track live power usage and energy consumed per session." },
 ];
 
-const appSchema = getSoftwareAppSchema({
-  name: "SpiderEV Charging App",
-  description: "Find nearby EV charging stations, start sessions, pay digitally and track charging history across India",
-  url: "/ev-charging-station-app",
-  applicationCategory: "UtilitiesApplication",
-  operatingSystem: "Android, iOS",
-});
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "SpiderEV Charging App",
+  "description": "Find nearby EV charging stations, start sessions, pay digitally and track charging history across India",
+  "url": "https://spiderenergy.in/ev-charging-station-app",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Android, iOS",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+  "provider": { "@id": "https://spiderenergy.in/#organization" },
+};
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
   { name: "SpiderEV App" },

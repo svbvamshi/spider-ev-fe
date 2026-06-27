@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } 
 import publicImg from "../../assets/solutions/PublicCharging.webp";
 import highwayImg from "../../assets/solutions/HighwayCharging.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const useCases = [
   { title: "City Charging Hubs", desc: "Multi-charger stations in commercial zones, government parking, and civic centers for daily urban EV users.", icon: "🏙️" },
@@ -34,6 +34,11 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Public Charging" },
 ]);
+const faqSchema = getFAQSchema([
+  { question: "How do public EV charging stations generate revenue?", answer: "Public stations earn through per-unit electricity sales with markup, service fees, and advertising partnerships. SpiderEV's CPMS platform enables dynamic pricing and real-time revenue tracking." },
+  { question: "What types of chargers are used at public stations?", answer: "Public stations typically use DC fast chargers (30-240 kW) for quick top-ups and AC chargers (7.4-22 kW) for longer-duration destination charging. SpiderEV offers both options." },
+  { question: "How long does it take to set up a public charging station?", answer: "From site assessment to commissioning, a typical public charging station takes 12-20 weeks depending on power availability, permits, and civil works required." },
+]);
 
 const PublicChargingPage = () => {
   return (
@@ -42,7 +47,7 @@ const PublicChargingPage = () => {
         <title>Public EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy offers Public EV Charging Stations in Andhra Pradesh and Telangana, Delivering Fast Charging for Cars with a Strong & Connected EV Charging Network." />
       </Helmet>
-      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
+      <SEO schema={serviceSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Public EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Deliver dependable service with our Charger Management System, ensuring seamless reliability for cities and highways."

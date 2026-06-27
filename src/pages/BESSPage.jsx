@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { bessFaq } from "../data/bessFaq";
 import BessHero from "../containers/Bess/BessHero";
 import BessIntro from "../containers/Bess/BessIntro";
 import BessPillars from "../containers/Bess/BessPillars";
@@ -26,6 +27,7 @@ const bessBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in" },
   { name: "BESS" },
 ]);
+const bessFAQSchema = getFAQSchema(bessFaq);
 
 const BESSPage = () => {
   const [activeSpecProduct, setActiveSpecProduct] = useState("spidervault-3");
@@ -53,7 +55,7 @@ const BESSPage = () => {
           "offers": {"@type": "Offer", "priceCurrency": "INR", "availability": "https://schema.org/InStock"}
         })}</script>
       </Helmet>
-      <SEO schema={bessSchema} breadcrumbs={bessBreadcrumbs} />
+      <SEO schema={bessSchema} schemas={[bessFAQSchema]} breadcrumbs={bessBreadcrumbs} />
       <BessHero />
       <BessIntro />
       <BessPillars />

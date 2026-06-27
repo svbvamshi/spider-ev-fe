@@ -6,7 +6,7 @@ import { fadeUp, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } f
 import acImg from "../assets/home/AcCharger.webp";
 import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 const steps = [
   { num: "01", title: "Register Your Interest", desc: "Fill out our quick form — name, location, and property type. No technical knowledge needed." },
@@ -24,6 +24,11 @@ const harGharBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in" },
   { name: "Har Ghar Charger" },
 ]);
+const harGharFAQSchema = getFAQSchema([
+  { question: "What is the Har Ghar Charger initiative?", answer: "Har Ghar Charger is SpiderEV's initiative to make home EV charging accessible to every Indian household. Install a home charger, charge your own EV, and optionally earn by sharing it with neighbours through the SpiderEV app." },
+  { question: "Can I earn money from my home EV charger?", answer: "Yes. Through the SpiderEV app, you can share your home charger with nearby EV owners when you're not using it and earn per-session revenue with automatic billing." },
+  { question: "What home charger models are available under this initiative?", answer: "The program primarily uses Spider Mini (3.3 kW) and Spider Lite (3.3 kW) AC chargers — compact, affordable single-phase chargers that work with any standard home electrical connection." },
+]);
 
 const HarGharPage = () => {
   const [form, setForm] = useState({ name: "", phone: "", city: "", type: "" });
@@ -35,7 +40,7 @@ const HarGharPage = () => {
         <title>Har Ghar Charger — Affordable Home EV Charging India</title>
         <meta name="description" content="Har Ghar Charger — affordable home EV charging for every Indian household. Register and earn from your own EV charging station." />
       </Helmet>
-      <SEO schema={harGharSchema} breadcrumbs={harGharBreadcrumbs} />
+      <SEO schema={harGharSchema} schemas={[harGharFAQSchema]} breadcrumbs={harGharBreadcrumbs} />
       {/* Hero */}
       <section className="relative overflow-hidden py-24 sm:py-32" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />

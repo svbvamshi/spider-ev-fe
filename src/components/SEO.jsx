@@ -16,7 +16,7 @@ import { Helmet } from "react-helmet-async";
 const BASE_URL = "https://spiderenergy.in";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
-export function SEO({ schema, breadcrumbs, ogImage }) {
+export function SEO({ schema, schemas, breadcrumbs, ogImage }) {
   const image = ogImage || DEFAULT_OG_IMAGE;
 
   return (
@@ -36,6 +36,13 @@ export function SEO({ schema, breadcrumbs, ogImage }) {
           {JSON.stringify(schema)}
         </script>
       )}
+
+      {/* Additional JSON-LD schemas (e.g. FAQPage alongside Service) */}
+      {schemas && schemas.map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
 
       {/* Breadcrumb JSON-LD (separate script block per Google guidelines) */}
       {breadcrumbs && (

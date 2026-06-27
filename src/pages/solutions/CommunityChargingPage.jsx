@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, vi
 import communityImg from "../../assets/solutions/CommunityCharging.webp";
 import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const pillars = [
   {
@@ -49,6 +49,11 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Community Charging" },
 ]);
+const faqSchema = getFAQSchema([
+  { question: "Can EV chargers be installed in apartment complexes?", answer: "Yes. SpiderEV's community charging solution is designed for apartments and gated societies with shared infrastructure, individual billing, load management, and resident-friendly app access." },
+  { question: "How is billing handled for shared community chargers?", answer: "Each user is billed individually based on their consumption through the SpiderEV app. The system supports UPI, cards, and wallet payments with transparent session-wise billing." },
+  { question: "What approvals are needed for apartment EV charging?", answer: "Typically you need society management approval and an electrical load assessment. SpiderEV handles DISCOM coordination, electrical planning, and installation as part of our community charging package." },
+]);
 
 const CommunityChargingPage = () => {
   return (
@@ -57,7 +62,7 @@ const CommunityChargingPage = () => {
         <title>Community EV Charging Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Community EV Charging Stations in Andhra Pradesh (AP) & Telangana(TG) for Apartments and Housing Societies with Residential Charging Solutions." />
       </Helmet>
-      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
+      <SEO schema={serviceSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Community EV Charging Stations in Telangana & Andhra Pradesh"
         subtitle="Transform your neighborhood into a vibrant EV-friendly community with convenient on-site charging."

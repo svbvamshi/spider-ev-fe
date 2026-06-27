@@ -9,7 +9,7 @@ import AppStoreButtons from "../components/ui/AppStoreButtons";
 import { fadeUp, staggerContainer, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
-import { getSoftwareAppSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { localBusinessSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 // ---------------------------------------------------------------------------
 // Station data (extracted from SpiderEV app screenshots)
@@ -145,13 +145,7 @@ function MapFlyTo({ station }) {
   return null;
 }
 
-const locatorSchema = getSoftwareAppSchema({
-  name: "Spider Energy EV Charging Station Locator",
-  description: "Find nearby EV fast charging stations in Andhra Pradesh and Telangana using a smart charge zone locator with real-time availability.",
-  url: "/ev-charging-station-locator",
-  applicationCategory: "UtilitiesApplication",
-  operatingSystem: "Web Browser",
-});
+const locatorSchema = localBusinessSchema;
 const locatorBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in" },
   { name: "Station Locator" },

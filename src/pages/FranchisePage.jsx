@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import acChargerImg from "../assets/home/AcCharger.webp";
@@ -180,6 +180,7 @@ const franchiseBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in" },
   { name: "Franchise" },
 ]);
+const franchiseFAQSchema = getFAQSchema(faqItems);
 
 // ─── Small shared components ───────────────────────────────────────────────────
 
@@ -422,7 +423,7 @@ export default function FranchisePage() {
         <title>EV Charging Station Franchise in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Start your EV Charging Franchise in Andhra Pradesh and Telangana with Dealership Support, Profitable Franchise Setup Plans and Trusted Franchise Company Guidance." />
       </Helmet>
-      <SEO schema={franchiseSchema} breadcrumbs={franchiseBreadcrumbs} />
+      <SEO schema={franchiseSchema} schemas={[franchiseFAQSchema]} breadcrumbs={franchiseBreadcrumbs} />
 
       {/* ═══════════════════════════════════════════
           HERO — dark bg, no badge, white headline

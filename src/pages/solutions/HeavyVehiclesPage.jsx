@@ -8,7 +8,7 @@ import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, vi
 import fleetImg from "../../assets/solutions/FleetCharging.webp";
 import dcImg from "../../assets/home/DcCharger.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const vehicles = [
   { label: "Electric Buses", icon: "🚌", desc: "High-power charging depots for city bus fleets, state transport corporations, and private bus operators." },
@@ -31,6 +31,11 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Heavy Duty Charging" },
 ]);
+const faqSchema = getFAQSchema([
+  { question: "What power capacity is needed for heavy-duty EV charging?", answer: "Heavy-duty EVs like buses and trucks require 120-240 kW DC fast chargers. SpiderEV's Spider Ultra (120 kW), Spider Surge (180 kW), and Spider Hulk (240 kW) are designed for fleet and depot operations." },
+  { question: "Can heavy-duty chargers handle multiple vehicles simultaneously?", answer: "Yes. SpiderEV's depot solutions support multiple charging points with intelligent load management to optimise power distribution across vehicles charging simultaneously." },
+  { question: "What is depot charging and how does it work?", answer: "Depot charging is scheduled overnight or during idle periods for fleet vehicles. SpiderEV's CPMS enables automated scheduling, priority queuing, and fleet management integration for buses and commercial vehicles." },
+]);
 
 const HeavyVehiclesPage = () => {
   return (
@@ -39,7 +44,7 @@ const HeavyVehiclesPage = () => {
         <title>Heavy Duty EV Charging for Buses & Trucks | AP & TG</title>
         <meta name="description" content="Spider Energy Provides Heavy Duty EV Charging Stations in AP & Telangana for Trucks, Buses & Fleets, with EV Charging Infrastructure & Electric Vehicle Charging Solutions." />
       </Helmet>
-      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
+      <SEO schema={serviceSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Heavy Duty EV Charging Stations for Buses, Trucks & Fleets in AP & TG"
         subtitle="Electrify your heavy-duty fleet with powerful charging systems built for optimal performance, rapid charging, and maximum efficiency."

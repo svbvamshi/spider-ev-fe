@@ -87,9 +87,14 @@ function buildJsonLd(route) {
   // Always include Organization schema
   let scripts = `  <script type="application/ld+json">${ORG_JSONLD}</script>`;
 
-  // Add page-specific schema if provided
+  // Add page-specific schema(s) if provided
   if (route.schema) {
     scripts += `\n  <script type="application/ld+json">${JSON.stringify(route.schema)}</script>`;
+  }
+  if (route.schemas) {
+    for (const s of route.schemas) {
+      scripts += `\n  <script type="application/ld+json">${JSON.stringify(s)}</script>`;
+    }
   }
 
   return scripts;
@@ -170,6 +175,68 @@ function write(html, path) {
     writeFileSync(join(dir, "index.html"), html, "utf-8");
   }
 }
+
+// ─── FAQ data for service pages (for FAQPage schema in pre-rendered HTML) ────
+
+const SERVICE_PAGE_FAQS = {
+  "/park-and-charge-electric-vehicle-ev-charging-station": [
+    { question: "What is a Park and Charge EV station?", answer: "A Park and Charge EV station combines parking convenience with EV charging, allowing vehicle owners to charge while parked at malls, offices, and commercial complexes." },
+    { question: "How much does it cost to set up a Park and Charge station?", answer: "Setup costs depend on the number of chargers, power capacity, and site requirements. SpiderEV offers turnkey packages starting from basic AC setups to high-power DC fast charging stations." },
+    { question: "Who manages the station after installation?", answer: "SpiderEV provides full operational support including remote monitoring via SpiderConnect CPMS, payment processing, maintenance, and 24/7 technical support." },
+  ],
+  "/community-ev-charging-stations": [
+    { question: "Can EV chargers be installed in apartment complexes?", answer: "Yes. SpiderEV's community charging solution is designed for apartments and gated societies with shared infrastructure, individual billing, load management, and resident-friendly app access." },
+    { question: "How is billing handled for shared community chargers?", answer: "Each user is billed individually based on their consumption through the SpiderEV app. The system supports UPI, cards, and wallet payments with transparent session-wise billing." },
+    { question: "What approvals are needed for apartment EV charging?", answer: "Typically you need society management approval and an electrical load assessment. SpiderEV handles DISCOM coordination, electrical planning, and installation as part of our community charging package." },
+  ],
+  "/public-ev-charging-stations": [
+    { question: "How do public EV charging stations generate revenue?", answer: "Public stations earn through per-unit electricity sales with markup, service fees, and advertising partnerships. SpiderEV's CPMS platform enables dynamic pricing and real-time revenue tracking." },
+    { question: "What types of chargers are used at public stations?", answer: "Public stations typically use DC fast chargers (30-240 kW) for quick top-ups and AC chargers (7.4-22 kW) for longer-duration destination charging. SpiderEV offers both options." },
+    { question: "How long does it take to set up a public charging station?", answer: "From site assessment to commissioning, a typical public charging station takes 12-20 weeks depending on power availability, permits, and civil works required." },
+  ],
+  "/heavy-duty-ev-charging-station": [
+    { question: "What power capacity is needed for heavy-duty EV charging?", answer: "Heavy-duty EVs like buses and trucks require 120-240 kW DC fast chargers. SpiderEV's Spider Ultra (120 kW), Spider Surge (180 kW), and Spider Hulk (240 kW) are designed for fleet and depot operations." },
+    { question: "Can heavy-duty chargers handle multiple vehicles simultaneously?", answer: "Yes. SpiderEV's depot solutions support multiple charging points with intelligent load management to optimise power distribution across vehicles charging simultaneously." },
+    { question: "What is depot charging and how does it work?", answer: "Depot charging is scheduled overnight or during idle periods for fleet vehicles. SpiderEV's CPMS enables automated scheduling, priority queuing, and fleet management integration for buses and commercial vehicles." },
+  ],
+  "/cpms-ev-charging-point-management-system": [
+    { question: "What is a Charging Point Management System (CPMS)?", answer: "A CPMS is cloud-based software that monitors, manages, and optimises EV charging stations. SpiderConnect CPMS handles remote diagnostics, user access, payment processing, dynamic pricing, and analytics." },
+    { question: "Is SpiderConnect CPMS compatible with third-party chargers?", answer: "Yes. SpiderConnect supports OCPP 1.6J protocol, making it compatible with any OCPP-compliant charger regardless of manufacturer." },
+    { question: "How does CPMS help station operators earn more?", answer: "CPMS enables dynamic pricing based on demand, time-of-day tariffs, and occupancy. It also reduces downtime through predictive maintenance alerts and remote troubleshooting." },
+  ],
+  "/ev-charging-epc-services": [
+    { question: "What does EPC include for EV charging stations?", answer: "EPC (Engineering, Procurement, Construction) includes site assessment, electrical design, DISCOM approvals, civil works, charger procurement, installation, testing, and commissioning — a complete turnkey solution." },
+    { question: "Does SpiderEV handle government permits and approvals?", answer: "Yes. Our EPC team manages all regulatory requirements including DISCOM applications, electrical safety certifications, and local authority permits as part of the project scope." },
+    { question: "What is the typical timeline for EV station EPC projects?", answer: "Standard projects take 12-20 weeks from agreement to commissioning. Larger or complex projects may take 20-24 weeks depending on power availability and permit timelines." },
+  ],
+  "/ev-charging-station-franchise": [
+    { question: "What are the investment options and who is this for?", answer: "We offer two models: Fast Charging (₹30L+) for passenger EVs, and Super Charging (₹1Cr+) for high-throughput sites. Ideal for landowners, retail entrepreneurs, and institutional investors." },
+    { question: "What kind of space and power connection do I need?", answer: "Fast Charging: ~1,000 sq. ft. with 50–150 kVA sanctioned load. Super Charging: larger footprint for commercial EVs with 250–1200 kVA load. We assist with site layout, DISCOM approvals, and Solar + BESS integration." },
+    { question: "How much can I earn and what's the ROI timeline?", answer: "Typical ROI is 2–4 years for Fast Charging and 3–5 years for Super Charging. Earnings depend on location, footfall, and tariff. Live revenue tracking available via Spider Connect CMS." },
+  ],
+  "/har-ghar": [
+    { question: "What is the Har Ghar Charger initiative?", answer: "Har Ghar Charger is SpiderEV's initiative to make home EV charging accessible to every Indian household. Install a home charger, charge your own EV, and optionally earn by sharing it with neighbours through the SpiderEV app." },
+    { question: "Can I earn money from my home EV charger?", answer: "Yes. Through the SpiderEV app, you can share your home charger with nearby EV owners when you're not using it and earn per-session revenue with automatic billing." },
+    { question: "What home charger models are available under this initiative?", answer: "The program primarily uses Spider Mini (3.3 kW) and Spider Lite (3.3 kW) AC chargers — compact, affordable single-phase chargers that work with any standard home electrical connection." },
+  ],
+  "/bess-battery-backup-for-ev-charging-stations": [
+    { question: "What is SpiderVault and how is it different from a regular inverter?", answer: "SpiderVault is an all-in-one Solar Hybrid Inverter + Battery + BMS. Unlike regular inverters that simply switch between grid and battery, SpiderVault integrates solar charging, a 5th Gen battery management system, and AI cloud monitoring — all automatically managed from one unit." },
+    { question: "How long does SpiderVault back up my home?", answer: "It depends on your load. SpiderVault 3.0 backs up 1 AC + geyser + regular appliances for up to 6 hours. SpiderVault 5.0 runs 2 ACs + all home appliances for up to 8 hours. SpiderVault 12.0 handles large homes for up to 12 hours." },
+    { question: "Can it connect to my existing solar panels?", answer: "Yes. All SpiderVault models have a built-in MPPT solar charger that directly connects to your rooftop solar system. It stores excess energy during the day for use at night or on cloudy days — no extra inverter or equipment needed." },
+  ],
+};
+
+// FAQ data for the ev-ready-homes blog post
+const EV_READY_HOMES_FAQS = [
+  { question: "What does an EV-ready home mean in India?", answer: "An EV-ready home is one that can support electric vehicle charging without it being a daily compromise. It means the home has the electrical planning, load support, space and energy logic to support charging in a safe and convenient manner. In 2026, the concept goes beyond placing a charger in the parking lot. It includes whether the house or flat can handle power load, whether it can charge at the right tariff times, and whether it can later integrate with solar or storage." },
+  { question: "Why is BESS becoming important for EV charging?", answer: "Battery Energy Storage Systems (BESS) are becoming important since charging is no longer simply plug-and-play. As electricity pricing becomes more time-sensitive and households want more control over when they use grid power, storage is the missing layer. A BESS can store solar energy, off-peak grid power, or excess power for later use — enabling smarter charging, backup and daily life from the same property." },
+  { question: "Why are apartments a bigger challenge than independent homes?", answer: "Apartments add friction because charging is not simply a technical problem but also a governance and space problem. Residents often need to obtain permission, plan the load, get cabling approval, and align parking. Shared meters, basements and common areas can make things feel a lot slower and more emotional than they need to be." },
+  { question: "How do time-of-day tariffs change the EV decision?", answer: "Time-of-day tariffs influence the EV decision as charging is now tied to cost timing instead of just energy consumption. Users will naturally seek off-peak windows if electricity is more expensive at certain times. Planning is now part of the EV decision, not just the purchase." },
+  { question: "Why is Telangana such a strong market for SpiderEV?", answer: "Telangana is strong for SpiderEV because the state has the policy language, infrastructure intent and urban demand profile that make EV charging a relevant topic. The Telangana Electric Vehicle & Energy Storage Policy 2020-2030 offers incentives for charging infrastructure. Hyderabad and its premium residential and commercial areas give the story a strong lifestyle angle." },
+  { question: "What is the advantage of combining solar + storage + EV charging?", answer: "Control is the greatest advantage. Solar alone provides daytime generation. EV charging has to be flexible. Storage bridges the gap between them. Solar + storage + EV charging means you can use energy from the day later, charge on your own schedule, and reduce reliance on grid timing." },
+  { question: "Is public EV charging still growing in India?", answer: "Yes. India's public charging points could rise to around 375,000 by 2030 from about 75,000 at the end of 2024 according to IEA projections. Charging is becoming a routine part of infrastructure planning." },
+  { question: "How does SpiderEnergy avoid sounding too technical in content?", answer: "The brand focuses on energy in daily life: silence, continuity, convenience, confidence and future-readiness. For SpiderEV, that means charging as a lifestyle layer. For SpiderVault, that means backup as invisible support, not a mechanical drag." },
+];
 
 // ─── Route definitions ───────────────────────────────────────────────────────
 
@@ -300,6 +367,10 @@ const routes = [
     description: "Park & Charge EV Stations in Andhra Pradesh & Telangana. Easy installation and smart parking-based EV charging solutions by Spider Energy.",
     subtopics: ["Park & Charge Solutions", "How It Works", "Benefits for Site Owners"],
     bodyText: "Transform your parking space into a revenue-generating EV charging hub. Spider Energy's Park & Charge solution covers site assessment, charger installation, software integration, and ongoing maintenance for malls, offices, and commercial complexes.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "Park and Charge EV Stations", "description": "Smart parking-based EV charging solutions for malls, offices and commercial complexes in AP & Telangana", "url": `${BASE_URL}/park-and-charge-electric-vehicle-ev-charging-station`, "serviceType": "EV Charging Station Installation", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/park-and-charge-electric-vehicle-ev-charging-station"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/community-ev-charging-stations",
@@ -307,6 +378,10 @@ const routes = [
     description: "Community EV Charging Stations in Andhra Pradesh & Telangana for apartments and housing societies. Shared residential charging solutions.",
     subtopics: ["Apartment & Society Charging", "Shared Charging Infrastructure", "Billing & Management"],
     bodyText: "Enable EV charging in your apartment complex or gated community. Our community charging solution supports shared usage with individual billing, load management, and resident-friendly mobile app access.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "Community EV Charging Stations", "description": "Shared EV charging solutions for apartments, housing societies and gated communities in AP & Telangana", "url": `${BASE_URL}/community-ev-charging-stations`, "serviceType": "Community EV Charging", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/community-ev-charging-stations"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/public-ev-charging-stations",
@@ -314,6 +389,10 @@ const routes = [
     description: "Public EV Charging Stations in Andhra Pradesh & Telangana. Fast charging for cars with a strong, connected EV charging network by Spider Energy.",
     subtopics: ["Public Charging Network", "Fast Charging Stations", "Network Coverage"],
     bodyText: "Build a public EV charging network with SpiderEV's turnkey solutions. From AC destination chargers to DC fast chargers, we provide the complete infrastructure for fuel stations, retail locations, and public parking areas.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "Public EV Charging Stations", "description": "Public EV fast charging network for cars across fuel stations, retail locations and parking areas in AP & Telangana", "url": `${BASE_URL}/public-ev-charging-stations`, "serviceType": "Public EV Charging Network", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/public-ev-charging-stations"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/heavy-duty-ev-charging-station",
@@ -321,6 +400,10 @@ const routes = [
     description: "Heavy Duty EV Charging Stations in AP & Telangana for trucks, buses & fleets. High-power EV charging infrastructure by Spider Energy.",
     subtopics: ["Heavy Duty EV Charging Stations for Buses, Trucks & Fleets in AP & TG", "High-Power DC Charging", "Depot Management"],
     bodyText: "Power your electric bus fleet and heavy-duty vehicles with SpiderEV's high-capacity DC charging solutions. Our 120-240 kW chargers are designed for depot operations with fleet management integration and scheduled charging.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "Heavy Duty EV Charging Stations", "description": "High-power EV charging infrastructure for electric trucks, buses and fleet depots in AP & Telangana", "url": `${BASE_URL}/heavy-duty-ev-charging-station`, "serviceType": "Heavy Duty EV Charging", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/heavy-duty-ev-charging-station"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/cpms-ev-charging-point-management-system",
@@ -328,6 +411,10 @@ const routes = [
     description: "Explore Smart EV Charging Solutions in Andhra Pradesh and Telangana with Advanced Platforms and Efficient Network Management for Seamless Charging Operations.",
     subtopics: ["SpiderConnect CPMS", "Remote Monitoring & Control", "Revenue Management"],
     bodyText: "SpiderConnect is our cloud-based Charging Point Management System. Monitor charger health, manage user access, process payments, configure dynamic pricing, and view analytics from a unified dashboard.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SpiderConnect CPMS", "description": "Cloud-based Charging Point Management System for monitoring, controlling and managing EV charging networks across India", "url": `${BASE_URL}/cpms-ev-charging-point-management-system`, "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Android, iOS", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "provider": { "@id": `${BASE_URL}/#organization` } },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/cpms-ev-charging-point-management-system"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/ev-charging-station-app",
@@ -335,6 +422,7 @@ const routes = [
     description: "Smart EV Charging App in AP & Telangana — locate nearby stations, access charging networks and manage your EV charging anytime, anywhere.",
     subtopics: ["Find Nearby Chargers", "Start & Pay via App", "Charging History & Wallet"],
     bodyText: "The SpiderEV mobile app helps EV drivers find nearby charging stations, start sessions remotely, pay digitally, and track charging history. Available on Android and iOS with real-time station availability.",
+    schema: { "@context": "https://schema.org", "@type": "MobileApplication", "name": "SpiderEV Charging App", "description": "Find nearby EV charging stations, start sessions, pay digitally and track charging history across India", "url": `${BASE_URL}/ev-charging-station-app`, "applicationCategory": "UtilitiesApplication", "operatingSystem": "Android, iOS", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }, "provider": { "@id": `${BASE_URL}/#organization` } },
   },
   {
     path: "/ev-charging-epc-services",
@@ -342,6 +430,10 @@ const routes = [
     description: "EV charging station installation in AP & Telangana — EPC services, construction support & infrastructure solutions for commercial and public spaces.",
     subtopics: ["End-to-End EV Charging Station EPC & Installation Services Across AP & TG", "Site Survey & Design", "Installation & Commissioning"],
     bodyText: "Our EPC (Engineering, Procurement, and Construction) team handles every aspect of charging station deployment — from electrical load assessment and civil works to charger mounting, cabling, and final commissioning.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "EV Charging Station EPC Services", "description": "End-to-end EPC services for EV charging station installation — site survey, design, construction and commissioning in AP & Telangana", "url": `${BASE_URL}/ev-charging-epc-services`, "serviceType": "EV Station EPC & Installation", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/ev-charging-epc-services"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
 
   // Company
@@ -367,6 +459,10 @@ const routes = [
     description: "Start your EV Charging Franchise in AP & Telangana — dealership support, profitable setup plans and trusted franchise guidance by SpiderEV.",
     subtopics: ["Start Your EV Charging Franchise in Telangana & AP", "Investment & ROI", "How to Apply"],
     bodyText: "Join India's EV charging revolution with a SpiderEV franchise. We provide hardware, software, installation, branding, and ongoing support. Multiple investment tiers available with payback periods of 2-4 years.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "EV Charging Station Franchise", "description": "Start your EV charging franchise in Andhra Pradesh and Telangana with dealership support, profitable franchise setup plans and trusted franchise company guidance.", "url": `${BASE_URL}/ev-charging-station-franchise`, "serviceType": "EV Charging Franchise Opportunity", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/ev-charging-station-franchise"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/ev-charging-station-roi-calculator",
@@ -380,12 +476,17 @@ const routes = [
     description: "SpiderVault BESS by Spider Energy provides battery energy storage for EV stations, solar projects & industrial backup in Andhra Pradesh & Telangana.",
     subtopics: ["SpiderVault — Battery Energy Storage System (BESS) for EV Stations & Industry", "Solar + EV Charging", "Grid Independence"],
     bodyText: "Combine Battery Energy Storage Systems (BESS) with your EV charging station to reduce demand charges, enable solar integration, and ensure uninterrupted charging even during grid outages.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "BESS — Battery Energy Storage for EV Charging Stations", "description": "Smart EV charging energy storage solutions with solar powered station setups, renewable charging and battery backup systems in Andhra Pradesh and Telangana.", "url": `${BASE_URL}/bess-battery-backup-for-ev-charging-stations`, "serviceType": "Battery Energy Storage System (BESS)", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/bess-battery-backup-for-ev-charging-stations"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/ev-charging-station-locator",
     title: "EV Charging Station Locator in Andhra Pradesh & Telangana",
     description: "Find Nearby EV Fast Charging Stations in Andhra Pradesh and Telangana using a Smart EV Charge Zone Locator and Real-time EV Charging Locator Tools.",
     subtopics: ["Find Charging Stations", "Real-Time Availability", "Navigation"],
+    schema: { "@context": "https://schema.org", "@type": "LocalBusiness", "@id": `${BASE_URL}/#localbusiness`, "name": "Spider Energy", "url": BASE_URL, "telephone": "+91-9997776080", "email": "connect@spiderenergy.in", "address": { "@type": "PostalAddress", "streetAddress": "THub, Raidurgam", "addressLocality": "Hyderabad", "addressRegion": "Telangana", "postalCode": "500081", "addressCountry": "IN" }, "geo": { "@type": "GeoCoordinates", "latitude": "17.4435", "longitude": "78.3772" }, "image": `${BASE_URL}/spider-ev-logo.png`, "priceRange": "$$" },
   },
 
   // Other
@@ -414,6 +515,10 @@ const routes = [
     description: "Har Ghar Charger — affordable home EV charging for every Indian household. Register and earn from your own EV charging station.",
     subtopics: ["Har Ghar Charger Initiative", "How It Works", "Register Now"],
     bodyText: "Har Ghar Charger makes EV charging accessible to every Indian household. Install a SpiderEV home charger, charge your own vehicle, and earn by sharing it with neighbours through our app-based platform.",
+    schemas: [
+      { "@context": "https://schema.org", "@type": "Service", "name": "Har Ghar Charger — Home EV Charging for Every Indian", "description": "SpiderEV's Har Ghar Charger initiative brings affordable home EV charging to every Indian household. Register your interest and earn from your own charging station.", "url": `${BASE_URL}/har-ghar`, "serviceType": "Home EV Charging Program", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": "IN" },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/har-ghar"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
+    ],
   },
   {
     path: "/partner-withus",
@@ -445,16 +550,8 @@ if (existsSync(BLOG_DATA_PATH)) {
       }
     }
 
-    routes.push({
-      path: `/blog/${post.slug}`,
-      title: post.title,
-      description: post.description,
-      ogImage: post.image,
-      ogType: "article",
-      subtopics: [],
-      bodyText: post.description,
-      articleHtml, // full article HTML for crawler-visible content
-      schema: {
+    const blogSchemas = [
+      {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post.title,
@@ -467,6 +564,36 @@ if (existsSync(BLOG_DATA_PATH)) {
         "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE_URL}/blog/${post.slug}` },
         "articleSection": post.category,
       },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
+          { "@type": "ListItem", "position": 3, "name": post.title },
+        ],
+      },
+    ];
+
+    // Add FAQPage schema for blog posts with FAQ sections
+    if (post.slug === "ev-ready-homes-india-smart-charging-bess-2026") {
+      blogSchemas.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": EV_READY_HOMES_FAQS.map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })),
+      });
+    }
+
+    routes.push({
+      path: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.description,
+      ogImage: post.image,
+      ogType: "article",
+      subtopics: [],
+      bodyText: post.description,
+      articleHtml, // full article HTML for crawler-visible content
+      schemas: blogSchemas,
     });
   }
   console.log(`  Added ${blogPosts.filter(p => p.published).length} blog post routes`);

@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, staggerContainer, staggerFast, viewport } 
 import workplaceImg from "../../assets/solutions/WorkplaceCharging.webp";
 import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const epcPhases = [
   {
@@ -52,6 +52,11 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
   { name: "EPC Services" },
 ]);
+const faqSchema = getFAQSchema([
+  { question: "What does EPC include for EV charging stations?", answer: "EPC (Engineering, Procurement, Construction) includes site assessment, electrical design, DISCOM approvals, civil works, charger procurement, installation, testing, and commissioning — a complete turnkey solution." },
+  { question: "Does SpiderEV handle government permits and approvals?", answer: "Yes. Our EPC team manages all regulatory requirements including DISCOM applications, electrical safety certifications, and local authority permits as part of the project scope." },
+  { question: "What is the typical timeline for EV station EPC projects?", answer: "Standard projects take 12-20 weeks from agreement to commissioning. Larger or complex projects may take 20-24 weeks depending on power availability and permit timelines." },
+]);
 
 const EPCWorksPage = () => {
   return (
@@ -60,7 +65,7 @@ const EPCWorksPage = () => {
         <title>EV Station EPC & Installation Services | AP & TG</title>
         <meta name="description" content="We provides EV charging station installation in Andhra Pradesh & Telangana with EPC services, construction support & infrastructure solutions for commercial and public spaces." />
       </Helmet>
-      <SEO schema={serviceSchema} breadcrumbs={breadcrumbSchema} />
+      <SEO schema={serviceSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="End-to-End EV Charging Station EPC & Installation Services Across AP & TG"
         subtitle="Engineering, Procurement, and Construction — end-to-end EV charging solutions designed, procured, and installed by our expert team."
