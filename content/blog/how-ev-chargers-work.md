@@ -1,7 +1,7 @@
 ---
-title: "How EV Chargers Work: A Complete Guide for Indian EV Owners"
+title: "How EV Chargers Work — Complete Guide for India 2026"
 slug: "how-ev-chargers-work"
-description: "From AC home chargers to 240 kW DC ultra-rapid stations — understand the technology behind every charge."
+description: "From 3.3 kW home AC chargers to 240 kW DC ultra-rapid stations — understand the full technology behind every charger type available in India."
 date: "2026-02-28"
 author: "Spider Energy Team"
 category: "Technology"

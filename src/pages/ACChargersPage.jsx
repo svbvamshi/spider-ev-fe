@@ -90,8 +90,8 @@ const ACChargersPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>Electric Vehicle AC Charging Station in Telangana & Andhra Pradesh</title>
-        <meta name="description" content="Explore the Best EV AC Charging Stations in Andhra Pradesh (AP) and Telangana (TG) for Efficient Home EV Charging and Reliable Electric Car Charger Solutions." />
+        <title>AC EV Chargers in Telangana & Andhra Pradesh | SpiderEV</title>
+        <meta name="description" content="SpiderEV BIS-certified AC EV chargers from 3.3 kW to 80 kW for homes, offices and commercial fleet charging in AP & Telangana. OCPP 1.6J, IP67, RFID enabled." />
       </Helmet>
       <SEO schema={acFAQSchema} breadcrumbs={acBreadcrumbs} />
       <Helmet>
@@ -100,7 +100,7 @@ const ACChargersPage = () => {
         </script>
       </Helmet>
       <HeroBanner
-        title="Electric Vehicle AC Charging Station in Telangana & Andhra Pradesh"
+        title="AC EV Chargers — From 3.3 kW to 80 kW for Homes & Fleets in AP & TG"
         subtitle="From compact home chargers to high-power commercial units — engineered for India."
         bgImage={acChargerImg}
       />

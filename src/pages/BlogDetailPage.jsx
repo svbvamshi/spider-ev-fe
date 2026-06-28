@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
-import { getArticleSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { getArticleSchema, getFAQSchema, getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, viewport } from "../utils/animationConfig";
 import blogPosts from "../data/blog-posts.json";
 import "../styles/blog-content.css";
@@ -74,10 +74,25 @@ const BlogDetailPage = () => {
     { name: postMeta.title },
   ]);
 
+  // FAQPage schema for posts with FAQ sections
+  const additionalSchemas = [];
+  if (slug === "ev-ready-homes-india-smart-charging-bess-2026") {
+    additionalSchemas.push(getFAQSchema([
+      { question: "What does an EV-ready home mean in India?", answer: "An EV-ready home is one that can support electric vehicle charging without it being a daily compromise. It means the home has the electrical planning, load support, space and energy logic to support charging in a safe and convenient manner." },
+      { question: "Why is BESS becoming important for EV charging?", answer: "Battery Energy Storage Systems (BESS) are becoming important since charging is no longer simply plug-and-play. As electricity pricing becomes more time-sensitive, storage is the missing layer that enables smarter charging and backup from the same property." },
+      { question: "Why are apartments a bigger challenge than independent homes?", answer: "Apartments add friction because charging is not simply a technical problem but also a governance and space problem. Residents need permissions, load planning, cabling approval, and parking alignment." },
+      { question: "How do time-of-day tariffs change the EV decision?", answer: "Time-of-day tariffs influence the EV decision as charging is now tied to cost timing instead of just energy consumption. Users will naturally seek off-peak windows if electricity is more expensive at certain times." },
+      { question: "Why is Telangana such a strong market for SpiderEV?", answer: "Telangana has the policy language, infrastructure intent and urban demand profile that make EV charging relevant. The Telangana EV & Energy Storage Policy 2020-2030 offers incentives for charging infrastructure." },
+      { question: "What is the advantage of combining solar + storage + EV charging?", answer: "Control is the greatest advantage. Solar + storage + EV charging means you can use energy from the day later, charge on your own schedule, and reduce reliance on grid timing." },
+      { question: "Is public EV charging still growing in India?", answer: "Yes. India's public charging points could rise to around 375,000 by 2030 from about 75,000 at the end of 2024 according to IEA projections." },
+      { question: "How does SpiderEnergy avoid sounding too technical in content?", answer: "The brand focuses on energy in daily life: silence, continuity, convenience, confidence and future-readiness. Charging as a lifestyle layer, backup as invisible support." },
+    ]));
+  }
+
   return (
     <PageLayout>
       <Helmet>
-        <title>{postMeta.title} | SpiderEV Blog</title>
+        <title>{postMeta.title}</title>
         <meta name="description" content={postMeta.description} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={postMeta.date} />
@@ -85,7 +100,7 @@ const BlogDetailPage = () => {
         <meta property="article:author" content={postMeta.author} />
         <link rel="canonical" href={`https://spiderenergy.in/blog/${slug}`} />
       </Helmet>
-      <SEO schema={articleSchema} breadcrumbs={breadcrumbSchema} ogImage={postMeta.image} />
+      <SEO schema={articleSchema} schemas={additionalSchemas.length > 0 ? additionalSchemas : undefined} breadcrumbs={breadcrumbSchema} ogImage={postMeta.image} />
 
       {/* Article */}
       <article className="bg-white">

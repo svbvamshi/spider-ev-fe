@@ -6,7 +6,7 @@ import SpiderConnectCTA from "../../components/ui/SpiderConnectCTA";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../../utils/animationConfig";
 import parkImg from "../../assets/solutions/ParkAndCharge.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const benefits = [
   { icon: "🚗", title: "Attract EV Drivers", desc: "Increase footfall and customer dwell time by offering reliable EV charging at your property. EV owners actively seek out charging-enabled destinations." },
@@ -16,16 +16,20 @@ const benefits = [
 
 const customers = ["Malls", "Hotels", "Office Parks", "Restaurants", "Hospitals", "Airports"];
 
-const pageSchema = getServiceSchema({
+const serviceSchema = getServiceSchema({
   name: "Park and Charge EV Stations",
-  description: "Spider Energy provides park and charge electric vehicle stations in Andhra Pradesh and Telangana with easy installation and best parking solutions for EVs.",
+  description: "Smart parking-based EV charging solutions for malls, offices and commercial complexes in AP & Telangana",
   url: "/park-and-charge-electric-vehicle-ev-charging-station",
-  serviceType: "Park and Charge EV Infrastructure",
+  serviceType: "EV Charging Station Installation",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/park-and-charge-electric-vehicle-ev-charging-station" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
   { name: "Park & Charge" },
+]);
+const faqSchema = getFAQSchema([
+  { question: "What is a Park and Charge EV station?", answer: "A Park and Charge EV station combines parking convenience with EV charging, allowing vehicle owners to charge while parked at malls, offices, and commercial complexes." },
+  { question: "How much does it cost to set up a Park and Charge station?", answer: "Setup costs depend on the number of chargers, power capacity, and site requirements. SpiderEV offers turnkey packages starting from basic AC setups to high-power DC fast charging stations." },
+  { question: "Who manages the station after installation?", answer: "SpiderEV provides full operational support including remote monitoring via SpiderConnect CPMS, payment processing, maintenance, and 24/7 technical support." },
 ]);
 
 const ParkAndChargePage = () => {
@@ -35,7 +39,7 @@ const ParkAndChargePage = () => {
         <title>Park and Charge EV Stations in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Spider Energy Provides Top Park & Charge Electric Vehicle Stations in Andhra Pradesh(AP) and Telangana(TG), with Easy Installation & Best Parking Solutions for EVs." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={serviceSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="Park and Charge EV Stations in Telangana & Andhra Pradesh"
         subtitle="Give your customers the gift of convenient EV charging while they shop, dine, or work."

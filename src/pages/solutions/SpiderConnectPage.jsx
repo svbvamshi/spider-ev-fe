@@ -7,7 +7,7 @@ import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, vi
 import connectImg from "../../assets/home/SpiderConnect.webp";
 import heroBg from "../../assets/home/hero-bg.webp";
 import SEO from "../../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../../seo/schemas";
+import { getSoftwareAppSchema, getFAQSchema, getBreadcrumbSchema } from "../../seo/schemas";
 
 const features = [
   { icon: "📍", title: "Locate Stations", desc: "Find nearby charging stations on an interactive map — real-time availability and directions." },
@@ -24,16 +24,21 @@ const steps = [
   { num: "03", title: "Manage & Optimize", desc: "Set custom tariffs, manage schedules, control power usage, and receive maintenance alerts — all from one intelligent platform." },
 ];
 
-const pageSchema = getServiceSchema({
-  name: "Spider Connect — EV Charging Point Management System (CPMS)",
-  description: "Smart EV charging management platform for monitoring, remote diagnostics, dynamic pricing, and seamless network operations across Andhra Pradesh and Telangana.",
+const cpmsSchema = getSoftwareAppSchema({
+  name: "SpiderConnect CPMS",
+  description: "Cloud-based Charging Point Management System for monitoring, controlling and managing EV charging networks across India",
   url: "/cpms-ev-charging-point-management-system",
-  serviceType: "EV Charging Point Management Software",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web, Android, iOS",
 });
-const pageBreadcrumbs = getBreadcrumbSchema([
-  { name: "Home", url: "https://spiderenergy.in" },
-  { name: "Solutions", url: "https://spiderenergy.in/cpms-ev-charging-point-management-system" },
-  { name: "CPMS" },
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Home", url: "https://spiderenergy.in/" },
+  { name: "SpiderConnect CPMS" },
+]);
+const faqSchema = getFAQSchema([
+  { question: "What is a Charging Point Management System (CPMS)?", answer: "A CPMS is cloud-based software that monitors, manages, and optimises EV charging stations. SpiderConnect CPMS handles remote diagnostics, user access, payment processing, dynamic pricing, and analytics." },
+  { question: "Is SpiderConnect CPMS compatible with third-party chargers?", answer: "Yes. SpiderConnect supports OCPP 1.6J protocol, making it compatible with any OCPP-compliant charger regardless of manufacturer." },
+  { question: "How does CPMS help station operators earn more?", answer: "CPMS enables dynamic pricing based on demand, time-of-day tariffs, and occupancy. It also reduces downtime through predictive maintenance alerts and remote troubleshooting." },
 ]);
 
 const SpiderConnectPage = () => {
@@ -43,7 +48,7 @@ const SpiderConnectPage = () => {
         <title>EV Charging Management System in Andhra Pradesh & Telangana</title>
         <meta name="description" content="Explore Smart EV Charging Solutions in Andhra Pradesh and Telangana with Advanced Platforms and Efficient Network Management for Seamless Charging Operations." />
       </Helmet>
-      <SEO schema={pageSchema} breadcrumbs={pageBreadcrumbs} />
+      <SEO schema={cpmsSchema} schemas={[faqSchema]} breadcrumbs={breadcrumbSchema} />
       <HeroBanner
         title="EV Charging Management System in Andhra Pradesh & Telangana"
         subtitle="An advanced cloud-based platform to deploy, manage, and expand your EV charging network from anywhere."

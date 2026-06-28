@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
-import { getServiceSchema, getBreadcrumbSchema } from "../seo/schemas";
+import { getServiceSchema, getFAQSchema, getBreadcrumbSchema } from "../seo/schemas";
 
 // ─── Assets ──────────────────────────────────────────────────────────────────
 import acChargerImg from "../assets/home/AcCharger.webp";
@@ -180,6 +180,7 @@ const franchiseBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in" },
   { name: "Franchise" },
 ]);
+const franchiseFAQSchema = getFAQSchema(faqItems);
 
 // ─── Small shared components ───────────────────────────────────────────────────
 
@@ -422,7 +423,7 @@ export default function FranchisePage() {
         <title>EV Charging Station Franchise in Telangana & Andhra Pradesh</title>
         <meta name="description" content="Start your EV Charging Franchise in Andhra Pradesh and Telangana with Dealership Support, Profitable Franchise Setup Plans and Trusted Franchise Company Guidance." />
       </Helmet>
-      <SEO schema={franchiseSchema} breadcrumbs={franchiseBreadcrumbs} />
+      <SEO schema={franchiseSchema} schemas={[franchiseFAQSchema]} breadcrumbs={franchiseBreadcrumbs} />
 
       {/* ═══════════════════════════════════════════
           HERO — dark bg, no badge, white headline
@@ -438,7 +439,7 @@ export default function FranchisePage() {
           {/* Left text */}
           <motion.div variants={stagger} initial="hidden" animate="visible" className="pt-2 lg:pt-6">
             <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-white leading-[1.08] mb-5 tracking-tight">
-              EV Charging Station Franchise in Telangana & Andhra Pradesh
+              Start Your EV Charging Franchise in Telangana & AP
             </motion.h1>
             <motion.p variants={fadeUp} className="text-white/55 text-lg leading-relaxed mb-9 max-w-md">
               Be a franchise partner with SpiderEV — India's growing EV charging network. Starting at just <span className="text-white font-semibold">₹30 Lakhs*</span>

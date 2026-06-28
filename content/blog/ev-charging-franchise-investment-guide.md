@@ -1,5 +1,5 @@
 ---
-title: "EV Charging Franchise: The Complete Investment Guide"
+title: "EV Charging Franchise Investment Guide India 2025"
 slug: "ev-charging-franchise-investment-guide"
 description: "ROI calculations, investment tiers, timeline, and everything you need to know before investing in an EV charging franchise in India."
 date: "2026-01-10"

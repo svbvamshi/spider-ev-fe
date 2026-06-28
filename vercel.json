@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/ac-ev-chargers", "destination": "/electric-vehicle-ev-ac-charger", "statusCode": 301 },
+    { "source": "/dc-ev-chargers", "destination": "/electric-vehicle-ev-dc-charger", "statusCode": 301 },
+    { "source": "/spidervault-bess-battery-energy-storage", "destination": "/bess-battery-backup-for-ev-charging-stations", "statusCode": 301 },
+    { "source": "/partner-with-us", "destination": "/partner-withus", "statusCode": 301 },
+    { "source": "/cpms-charge-point-management-system", "destination": "/cpms-ev-charging-point-management-system", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ],

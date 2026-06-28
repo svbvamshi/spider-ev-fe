@@ -78,8 +78,8 @@ const BessHero = () => {
                 transition={{ delay: 0.25, duration: 0.7 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight"
               >
-                BESS EV Charging Station Solution{" "}
-                <span className="text-secondary">in Andhra Pradesh & Telangana</span>
+                SpiderVault — Battery Energy Storage System (BESS){" "}
+                <span className="text-secondary">for EV Stations & Industry</span>
               </motion.h1>
 
               <motion.p

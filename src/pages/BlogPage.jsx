@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { Link, useSearchParams } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
+import { getBreadcrumbSchema } from "../seo/schemas";
 import { fadeUp, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 import allBlogPosts from "../data/blog-posts.json";
@@ -72,7 +73,7 @@ const BlogPage = () => {
         <title>{activeTag ? `${activeTag} — SpiderEV Blog` : "EV Charging Blog — Tips, Guides & News | SpiderEV"}</title>
         <meta name="description" content="Read the latest EV charging guides, industry news and business insights from SpiderEV — your expert resource for electric vehicle charging in India." />
       </Helmet>
-      <SEO />{/* Uses default logo OG image for listing page */}
+      <SEO breadcrumbs={getBreadcrumbSchema([{name: "Home", url: "https://spiderenergy.in/"}, {name: "Blog"}])} />
       <section className="relative overflow-hidden py-16 sm:py-20" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
         <div className="relative max-w-330 mx-auto px-4 sm:px-6 lg:px-10">

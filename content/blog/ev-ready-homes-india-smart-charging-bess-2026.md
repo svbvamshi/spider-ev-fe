@@ -1,7 +1,7 @@
 ---
-title: "EV-Ready Homes in India: Why Charging Is Becoming a Whole Energy Decision in 2026"
+title: "EV-Ready Homes India: Smart Charging & BESS Guide 2026"
 slug: "ev-ready-homes-india-smart-charging-bess-2026"
-description: "In 2026, EV charging is no longer just about the car. Learn why Indian homes, villas, and apartments are becoming EV-ready energy ecosystems with smart charging, solar storage, and BESS."
+description: "Indian homes in 2026 need integrated EV charging, solar and BESS. Here's why smart energy decisions matter more than ever for villas, apartments and new builds."
 date: "2026-06-23"
 author: "Spider Energy Team"
 category: "Infrastructure"

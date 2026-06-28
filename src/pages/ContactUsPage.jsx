@@ -26,8 +26,8 @@ const ContactUsPage = () => {
   return (
     <PageLayout>
       <Helmet>
-        <title>EV Charging Station Installation Contact in Telangana & Andhra Pradesh</title>
-        <meta name="description" content="Contact Our EV Charging Experts in Andhra Pradesh and Telangana for Fast EV Charging Installation Support, Station Enquiries and Reliable Helpline Assistance." />
+        <title>Contact SpiderEV | EV Charging Experts in AP & TG</title>
+        <meta name="description" content="Contact Spider Energy for EV charger installation, franchise enquiries, CPMS support or SpiderVault BESS consultation in Andhra Pradesh & Telangana." />
       </Helmet>
       <SEO schema={localBusinessSchema} breadcrumbs={contactBreadcrumbs} />
       {/* Hero */}
@@ -40,7 +40,7 @@ const ContactUsPage = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-4xl sm:text-5xl font-bold text-white"
           >
-            Contact Us
+            Contact Spider Energy — EV Charging Experts in Telangana & Andhra Pradesh
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 24 }}

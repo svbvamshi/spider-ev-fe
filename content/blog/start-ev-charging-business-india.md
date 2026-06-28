@@ -1,7 +1,7 @@
 ---
-title: "How to Start an EV Charging Business in India — 2026 Guide"
+title: "How to Start an EV Charging Business India 2026"
 slug: "start-ev-charging-business-india"
-description: "Step-by-step guide to launching a profitable EV charging station — from site selection to software management."
+description: "Step-by-step guide to launching a profitable EV charging station in India — site selection, DISCOM approval, hardware, software and revenue strategies."
 date: "2026-02-15"
 author: "Spider Energy Team"
 category: "Business"
