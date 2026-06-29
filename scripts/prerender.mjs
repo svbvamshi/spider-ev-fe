@@ -58,6 +58,27 @@ const ORG_JSONLD = JSON.stringify({
   ]
 });
 
+// Product schema helper for pre-rendered product pages
+function buildProductSchema({ name, description, power, connector, category, productId, chargerType }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": name,
+    "description": description,
+    "brand": { "@type": "Brand", "name": "SpiderEV" },
+    "manufacturer": { "@type": "Organization", "name": "Spider Energy", "url": BASE_URL },
+    "category": `EV Charger > ${chargerType}`,
+    "url": `${BASE_URL}/products/${category}/${productId}`,
+    "image": `${BASE_URL}/spider-ev-logo.png`,
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "areaServed": "IN" },
+    "additionalProperty": [
+      { "@type": "PropertyValue", "name": "Power Output", "value": power },
+      { "@type": "PropertyValue", "name": "Connector", "value": connector },
+      { "@type": "PropertyValue", "name": "Certification", "value": "BIS, IP67, OCPP 1.6J" },
+    ],
+  };
+}
+
 function buildMeta({ path, title, description, keywords, ogImage, ogType }) {
   const url = `${BASE_URL}${path}`;
   const image = ogImage ? `${BASE_URL}${ogImage}` : OG_IMAGE;
@@ -313,6 +334,7 @@ const routes = [
     keywords: "Spider Mini, 3.3 kW EV charger, home EV charger India, single phase EV charger, compact AC charger, IP67 EV charger, RFID charger",
     subtopics: ["Spider Mini — Compact 3.3 kW Single-Phase AC Home EV Charger", "Key Features", "Technical Specifications"],
     bodyText: "The Spider Mini is SpiderEV's most compact home EV charger, delivering 3.3 kW of single-phase AC charging. Designed for Indian homes with standard electrical connections, it features IP67 weather protection for outdoor installation, RFID authentication for secure access, and OCPP 1.6J connectivity for remote monitoring via SpiderConnect. Ideal for overnight charging of all passenger EVs including Tata Nexon EV, MG ZS EV, Hyundai Ioniq 5, and BYD Atto 3. Installation takes under 2 hours with no structural modifications needed.",
+    schema: buildProductSchema({ name: "Spider Mini — 3.3 kW AC Home EV Charger", description: "Compact single-phase 3.3 kW AC EV home charger with IP67, RFID and all-weather durability", power: "3.3 kW", connector: "IEC 60309 (Heavy Duty)", category: "ac", productId: "spider-mini", chargerType: "AC Charger" }),
   },
   {
     path: "/products/ac/spider-lite",
@@ -321,6 +343,7 @@ const routes = [
     keywords: "Spider Lite, 3.3 kW charger, affordable EV charger, home charger free installation, smart EV charger, app controlled charger",
     subtopics: ["Spider Lite — Most Affordable 3.3 kW Home AC EV Charger with Free Installation", "Key Features", "Technical Specifications"],
     bodyText: "The Spider Lite is India's most affordable smart home EV charger at 3.3 kW. It comes with free professional installation, mobile app monitoring for real-time charging status, RFID-based authentication, and scheduled charging to optimise electricity costs. Compatible with all EVs sold in India. The Spider Lite connects to your home Wi-Fi and integrates with the SpiderEV app for session tracking, energy consumption analytics, and remote start/stop control. BIS certified with IP67 all-weather protection.",
+    schema: buildProductSchema({ name: "Spider Lite — 3.3 kW AC Home EV Charger", description: "Smart 3.3 kW single-phase AC EV charger with free installation, app monitoring and RFID", power: "3.3 kW", connector: "IEC 60309 (Heavy Duty)", category: "ac", productId: "spider-lite", chargerType: "AC Charger" }),
   },
   {
     path: "/products/ac/spider-smart",
@@ -329,6 +352,7 @@ const routes = [
     keywords: "Spider Smart, 7.4 kW EV charger, Type 2 charger India, dynamic load management, smart charger, commercial AC charger",
     subtopics: ["Spider Smart — 7.4 kW Type 2 AC EV Charger", "Key Features", "Technical Specifications", "Dynamic Load Management"],
     bodyText: "The Spider Smart delivers 7.4 kW of Type 2 AC charging with intelligent load management. It automatically adjusts charging power based on your home or office electricity load, preventing circuit overloads. Features include app-based scheduling, energy metering, RFID access control, and OCPP 1.6J cloud connectivity. Charges a typical EV (40 kWh battery) from 20% to 100% in approximately 6-7 hours. Ideal for homes with higher power availability and small offices wanting dedicated EV charging for employees.",
+    schema: buildProductSchema({ name: "Spider Smart — 7.4 kW Type 2 AC EV Charger", description: "7.4 kW Type 2 AC EV charger with smart app control and dynamic load management", power: "7.4 kW", connector: "Type 2 (IEC 62196)", category: "ac", productId: "spider-smart", chargerType: "AC Charger" }),
   },
   {
     path: "/products/ac/spider-blaze",
@@ -337,6 +361,7 @@ const routes = [
     keywords: "Spider Blaze, 22 kW EV charger, three phase charger, commercial EV charger, fleet charger, workplace charger, OCPP charger",
     subtopics: ["Spider Blaze — 22 kW Three-Phase AC EV Charger", "Key Features", "Technical Specifications", "Commercial Applications"],
     bodyText: "The Spider Blaze is a 22 kW three-phase AC charger designed for commercial and fleet charging environments. It delivers full-speed Type 2 charging for vehicles that support 22 kW AC input, reducing charge times to approximately 2-3 hours for a typical EV. Built for workplace parking lots, fleet depots, and commercial premises, the Spider Blaze features OCPP 1.6J connectivity for centralised management, IP67 outdoor protection, dynamic load balancing across multiple units, RFID and app-based authentication, and integrated energy metering for billing.",
+    schema: buildProductSchema({ name: "Spider Blaze — 22 kW Three-Phase AC EV Charger", description: "22 kW three-phase AC EV charger for fleet and commercial EV charging installations", power: "22 kW", connector: "Type 2 (IEC 62196)", category: "ac", productId: "spider-blaze", chargerType: "AC Charger" }),
   },
   {
     path: "/products/ac/spider-strike",
@@ -345,6 +370,7 @@ const routes = [
     keywords: "Spider Strike, 40 kW EV charger, high power AC charger, fleet charging, commercial EV infrastructure, three phase charger India",
     subtopics: ["Spider Strike — 40 kW Three-Phase AC EV Charger", "Key Features", "Technical Specifications", "Fleet & Commercial Use"],
     bodyText: "The Spider Strike is SpiderEV's 40 kW high-power three-phase AC charger, engineered for demanding commercial fleet charging operations. It supports simultaneous high-current delivery for rapid AC charging of fleet vehicles, reducing turnaround time significantly. BIS certified with IP67 all-weather protection, OCPP 1.6J cloud connectivity, RFID + app-based user management, and integrated load balancing. Ideal for taxi and ride-hailing fleets, corporate campuses, logistics companies, and high-utilisation commercial parking facilities.",
+    schema: buildProductSchema({ name: "Spider Strike — 40 kW Three-Phase AC EV Charger", description: "40 kW high-power three-phase AC EV charger for commercial fleet charging", power: "40 kW", connector: "Type 2 (IEC 62196)", category: "ac", productId: "spider-strike", chargerType: "AC Charger" }),
   },
   {
     path: "/products/ac/spider-dash",
@@ -353,6 +379,7 @@ const routes = [
     keywords: "Spider Dash, 80 kW AC charger, dual gun charger, high throughput charger, commercial EV station, simultaneous charging",
     subtopics: ["Spider Dash — 80 kW Dual-Gun AC EV Charger", "Key Features", "Technical Specifications", "High-Throughput Charging"],
     bodyText: "The Spider Dash is SpiderEV's flagship AC charger — an 80 kW dual-gun three-phase unit that charges two vehicles simultaneously at 55 A per gun. Designed for high-throughput commercial environments like shopping malls, office complexes, and parking garages where multiple EVs need efficient charging during working hours. Features include intelligent load distribution between both guns, OCPP 1.6J integration with SpiderConnect CPMS, IP67 protection for outdoor deployment, integrated payment processing via RFID and mobile app, and real-time energy analytics per session.",
+    schema: buildProductSchema({ name: "Spider Dash — 80 kW Dual-Gun AC EV Charger", description: "80 kW dual-gun three-phase AC EV charger for high-throughput commercial sites", power: "80 kW", connector: "Type 2 Dual-Gun", category: "ac", productId: "spider-dash", chargerType: "AC Charger" }),
   },
 
   // DC product detail pages
@@ -363,6 +390,7 @@ const routes = [
     keywords: "Spider Base, 3 kW DC charger, 2 wheeler EV charger, electric scooter charger, light EV charger India, IS 17017, BIS DC charger",
     subtopics: ["Spider Base — 3–12 kW DC EV Charger for Two-Wheelers & Light EVs", "Key Features", "Technical Specifications"],
     bodyText: "The Spider Base is a modular 3-12 kW DC charger purpose-built for India's booming 2-wheeler and light EV market. Compliant with IS 17017-2-6 standards, it supports electric scooters like Ola S1 Pro, Ather 450X, TVS iQube, and Bajaj Chetak along with e-rickshaws and light commercial EVs. Features include BIS certification, OCPP 1.6J cloud connectivity, IP67 weather protection, modular power scaling from 3 kW to 12 kW, and integrated billing via SpiderConnect. Ideal for public charging spots near metro stations, markets, and residential areas.",
+    schema: buildProductSchema({ name: "Spider Base — 3-12 kW DC Charger for 2-Wheelers", description: "Modular 3-12 kW DC EV charger with IS 17017-2-6 for 2-wheelers and light EVs", power: "3-12 kW", connector: "GB/T", category: "dc", productId: "spider-base", chargerType: "DC Charger" }),
   },
   {
     path: "/products/dc/spider-fast",
@@ -371,6 +399,7 @@ const routes = [
     keywords: "Spider Fast, 30 kW DC charger, CCS2 charger, CHAdeMO charger India, public EV charger, fast charger AP Telangana",
     subtopics: ["Spider Fast — 30 kW DC Fast EV Charger", "Key Features", "Technical Specifications", "Connector Types"],
     bodyText: "The Spider Fast is a 30 kW DC fast charger with dual CCS2 and CHAdeMO connectors for public 4-wheeler EV charging. It charges a typical 40 kWh EV battery from 20% to 80% in approximately 45-60 minutes. Designed for public locations like fuel stations, retail parking, and office complexes. Features include IP67 outdoor protection, OCPP 1.6J connectivity, integrated payment via RFID/UPI/app, real-time availability on the SpiderEV app, and remote diagnostics. A cost-effective entry point for businesses wanting to offer DC fast charging.",
+    schema: buildProductSchema({ name: "Spider Fast — 30 kW DC Fast EV Charger", description: "30 kW rapid DC fast EV charger with CCS2 and CHAdeMO connectors for public 4-wheeler charging", power: "30 kW", connector: "CCS2, CHAdeMO", category: "dc", productId: "spider-fast", chargerType: "DC Fast Charger" }),
   },
   {
     path: "/products/dc/spider-spark",
@@ -379,6 +408,7 @@ const routes = [
     keywords: "Spider Spark, 60 kW DC charger, dual connector charger, commercial EV charger, public charging station, fast charger India",
     subtopics: ["Spider Spark — 60 kW Dual-Connector DC Fast EV Charger", "Key Features", "Technical Specifications"],
     bodyText: "The Spider Spark delivers 60 kW DC fast charging with both CCS2 and CHAdeMO connectors, serving virtually all 4-wheeler EVs on Indian roads. Charges a 40 kWh battery from 20% to 80% in approximately 25-35 minutes. Built for public charging stations, commercial hubs, and high-traffic locations. Features intelligent power sharing between connectors, OCPP 1.6J cloud management, IP67 protection, integrated energy metering, and multiple payment options. Ideal for businesses wanting a versatile DC fast charger that serves both CCS2 and CHAdeMO vehicles simultaneously.",
+    schema: buildProductSchema({ name: "Spider Spark — 60 kW DC Fast EV Charger", description: "60 kW DC fast EV charger with CCS2 and CHAdeMO connectors for public and commercial charging stations", power: "60 kW", connector: "CCS2, CHAdeMO", category: "dc", productId: "spider-spark", chargerType: "DC Fast Charger" }),
   },
   {
     path: "/products/dc/spider-falcon",
@@ -387,6 +417,7 @@ const routes = [
     keywords: "Spider Falcon, 60 kW CCS2 charger, dedicated CCS2 charger, public network charger, high speed EV charger, commercial charger India",
     subtopics: ["Spider Falcon — 60 kW CCS2 DC Fast EV Charger", "Key Features", "Technical Specifications"],
     bodyText: "The Spider Falcon is a dedicated 60 kW CCS2 DC fast charger optimised for maximum throughput on India's most common EV connector standard. With full 60 kW delivered to a single CCS2 vehicle, it provides the fastest possible charge for cars like Tata Nexon EV, MG ZS EV, Hyundai Ioniq 5, and BYD Atto 3. Features include OCPP 1.6J connectivity, IP67 protection, integrated RFID and app payment, automatic connector detection, and SpiderConnect CPMS integration for remote monitoring and dynamic pricing.",
+    schema: buildProductSchema({ name: "Spider Falcon — 60 kW CCS2 DC Fast EV Charger", description: "60 kW high-speed CCS2 DC fast EV charger for public charging networks and commercial hubs", power: "60 kW", connector: "CCS2", category: "dc", productId: "spider-falcon", chargerType: "DC Fast Charger" }),
   },
   {
     path: "/products/dc/spider-ultra",
@@ -395,6 +426,7 @@ const routes = [
     keywords: "Spider Ultra, 120 kW DC charger, high power charger, highway charger, fleet depot charger, ultra fast EV charger India",
     subtopics: ["Spider Ultra — 120 kW DC Fast EV Charger", "Key Features", "Technical Specifications", "Highway & Fleet Applications"],
     bodyText: "The Spider Ultra is a 120 kW DC fast charger designed for highway corridors and fleet depot operations. It delivers 20% to 80% charge in approximately 15-25 minutes for most passenger EVs, making it ideal for highway rest stops and transit charging. Dual CCS2 and CHAdeMO connectors with intelligent power distribution. Features include heavy-duty industrial enclosure, OCPP 1.6J management, IP67 protection, active thermal management for consistent performance in Indian summers, integrated payment processing, and fleet management API integration for depot scheduling.",
+    schema: buildProductSchema({ name: "Spider Ultra — 120 kW DC Fast EV Charger", description: "120 kW high-speed DC fast EV charger with CCS2 and CHAdeMO for public networks, fleets and commercial hubs", power: "120 kW", connector: "CCS2, CHAdeMO", category: "dc", productId: "spider-ultra", chargerType: "DC Fast Charger" }),
   },
   {
     path: "/products/dc/spider-surge",
@@ -403,6 +435,7 @@ const routes = [
     keywords: "Spider Surge, 180 kW DC charger, rapid charger, highway EV charger, fleet operator charger, high power charging India",
     subtopics: ["Spider Surge — 180 kW DC Fast EV Charger", "Key Features", "Technical Specifications", "Highway & Depot Deployment"],
     bodyText: "The Spider Surge delivers 180 kW of DC fast charging power for highway and depot applications where minimal downtime is critical. Capable of adding 200+ km of range in just 15 minutes for compatible vehicles. Designed for national highway charging corridors, bus depots, and fleet hubs. Features include liquid-cooled cable for sustained high-power delivery, dual CCS2/CHAdeMO connectors, OCPP 1.6J connectivity, IP67 protection, active thermal management, and remote diagnostics via SpiderConnect CPMS.",
+    schema: buildProductSchema({ name: "Spider Surge — 180 kW DC Fast EV Charger", description: "180 kW rapid DC fast EV charger delivering powerful charging for highways, depots and fleet operators", power: "180 kW", connector: "CCS2, CHAdeMO", category: "dc", productId: "spider-surge", chargerType: "DC Fast Charger" }),
   },
   {
     path: "/products/dc/spider-hulk",
@@ -411,6 +444,7 @@ const routes = [
     keywords: "Spider Hulk, 240 kW charger, ultra rapid charger, heavy duty EV charger, bus charger India, truck charger, highway fast charger",
     subtopics: ["Spider Hulk — 240 kW Ultra-Rapid DC Fast EV Charger", "Key Features", "Technical Specifications", "Heavy-Duty & Highway Applications"],
     bodyText: "The Spider Hulk is SpiderEV's most powerful charger at 240 kW — designed for heavy-duty electric buses, trucks, and ultra-rapid highway charging. It delivers a full charge for electric buses in under 60 minutes and adds 300+ km range to passenger EVs in just 10-15 minutes. 4-gun system for simultaneous charging of multiple vehicles. Features include liquid-cooled dispensing cables, advanced thermal management for 24/7 operation, OCPP 1.6J + OCPP 2.0 ready, IP67 protection, fleet management API, automated scheduling via SpiderConnect CPMS, and remote firmware updates.",
+    schema: buildProductSchema({ name: "Spider Hulk — 240 kW Ultra-Rapid DC EV Charger", description: "240 kW ultra-rapid DC EV charger — SpiderEV's flagship fast charger for highway charging hubs, large fleets and heavy-duty EV applications", power: "240 kW", connector: "CCS2, CHAdeMO", category: "dc", productId: "spider-hulk", chargerType: "DC Fast Charger" }),
   },
 
   // Solutions
@@ -534,6 +568,7 @@ const routes = [
     keywords: "EV charging ROI calculator, EV station profit calculator, charging business investment, EV charging revenue estimate, ROI EV charger India",
     subtopics: ["Calculate Your EV Charging Station ROI & Profits in Telangana & AP", "Revenue Projections", "Investment Planning", "Cost Breakdown"],
     bodyText: "Use SpiderEV's ROI calculator to estimate your potential earnings from an EV charging station business. Input your investment amount, location type, expected footfall, and electricity tariff to get projected monthly revenue, operating costs, and payback period. The calculator factors in charger utilisation rates based on location type (highway, commercial, residential), electricity costs including demand charges, maintenance expenses, SpiderConnect CPMS subscription, and seasonal demand variations. Typical ROI for EV charging stations in Telangana and Andhra Pradesh ranges from 2-4 years depending on charger power level, location footfall, and pricing strategy.",
+    schema: { "@context": "https://schema.org", "@type": "WebApplication", "name": "EV Charging Station ROI Calculator", "description": "Calculate EV charging station profits in Telangana & AP. Free ROI calculator for accurate investment planning.", "url": `${BASE_URL}/ev-charging-station-roi-calculator`, "applicationCategory": "FinanceApplication", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" } },
   },
   {
     path: "/bess-battery-backup-for-ev-charging-stations",
