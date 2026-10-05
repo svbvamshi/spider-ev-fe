@@ -56,7 +56,8 @@ Spider Energy serves individual EV owners seeking home charging, franchise partn
 - [How to Start an EV Charging Business in India](https://spiderenergy.in/blog/start-ev-charging-business-india): Site selection, DISCOM approval, hardware, software
 - [EV Charging Franchise Investment Guide](https://spiderenergy.in/blog/ev-charging-franchise-investment-guide): ROI, investment tiers, timeline
 - [How EV Chargers Work](https://spiderenergy.in/blog/how-ev-chargers-work): AC vs DC technology explained
-- [AC vs DC EV Charging](https://spiderenergy.in/blog/ac-vs-dc-ev-charging): Speed, cost, and use-case comparison
+- [AC vs DC EV Chargers in India](https://spiderenergy.in/guides/ac-vs-dc-ev-charger-india): Speed, connectors and use-case comparison
+- [Home EV Charger Guide for Telangana & Andhra Pradesh](https://spiderenergy.in/guides/home-ev-charger-buying-guide-telangana-andhra): 3.3 kW vs 7.4 kW, apartment parking and home charger selection
 - [What is OCPP?](https://spiderenergy.in/blog/what-is-ocpp-ev-charging): Open Charge Point Protocol explained
 
 ## Sitemap

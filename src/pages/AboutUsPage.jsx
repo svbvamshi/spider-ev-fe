@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
 import HeroBanner from "../components/ui/HeroBanner";
 import { fadeUp, fadeLeft, fadeRight, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
 import SEO from "../components/SEO";
-import { getBreadcrumbSchema } from "../seo/schemas";
+import { getBreadcrumbSchema, getFAQSchema } from "../seo/schemas";
+import Accordion from "../components/ui/Accordion";
 import spiderEvLogo from "../assets/home/spider-ev-logo.webp";
 import tataMotorsLogo from "../assets/brand-logos/Tata-Motors.webp";
 import indianRailwayLogo from "../assets/brand-logos/Indian-Railway.webp";
@@ -34,6 +36,17 @@ const aboutBreadcrumbs = getBreadcrumbSchema([
   { name: "About Us" },
 ]);
 
+const brandFaqs = [
+  {
+    question: "What is the difference between Spider Energy and SpiderEV?",
+    answer: "Spider Energy is the parent company. SpiderEV is its EV charging line for AC and DC chargers, SpiderConnect CPMS and the driver app.",
+  },
+  {
+    question: "Where is Spider Energy based?",
+    answer: "Spider Energy is based at T-Hub, Raidurgam, Hyderabad, with primary service coverage across Telangana and Andhra Pradesh.",
+  },
+];
+
 const AboutUsPage = () => {
   return (
     <PageLayout>
@@ -42,7 +55,7 @@ const AboutUsPage = () => {
         <meta name="description" content="Learn how Spider Energy builds SpiderEV chargers for Telangana and Andhra Pradesh. Office: T-Hub, Raidurgam, Hyderabad." />
         <meta name="keywords" content="EV charger manufacturer Telangana, electric vehicle manufacturer AP, BIS certified charger India, SpiderEV company Hyderabad, EVSE manufacturer India" />
       </Helmet>
-      <SEO breadcrumbs={aboutBreadcrumbs} title="About Spider Energy | EV Charging from Hyderabad" description="Learn how Spider Energy builds SpiderEV chargers for Telangana and Andhra Pradesh. Office: T-Hub, Raidurgam, Hyderabad." />
+      <SEO schemas={[getFAQSchema(brandFaqs)]} breadcrumbs={aboutBreadcrumbs} title="About Spider Energy | EV Charging from Hyderabad" description="Learn how Spider Energy builds SpiderEV chargers for Telangana and Andhra Pradesh. Office: T-Hub, Raidurgam, Hyderabad." />
       <HeroBanner
         title="About Spider Energy"
         bgImage={heroBg}
@@ -60,7 +73,7 @@ const AboutUsPage = () => {
           >
             {/* Introduction */}
             <motion.p variants={fadeUp} className="text-gray-600 text-lg leading-relaxed mb-12">
-              Spider Energy was started on a simple premise. India's transition to EVs needs charging infrastructure made for Indian conditions, not repurposed from elsewhere. That means locally built and serviced chargers rated for monsoon humidity and grid voltage fluctuation, not imported.
+              Spider Energy is the company. SpiderEV is its product line for charging hardware and software. SpiderEV appears on charger badges and the @spider.ev social account, but it is not a separate employer or legal parent. Spider Energy was started on a simple premise: India&apos;s transition to EVs needs charging infrastructure made for Indian conditions, not repurposed from elsewhere.
             </motion.p>
 
             {/* Section 1: Our Mission */}
@@ -128,6 +141,17 @@ const AboutUsPage = () => {
               </p>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl font-bold text-center mb-9">About our brands</h2>
+          <Accordion items={brandFaqs} />
+          <div className="flex flex-wrap justify-center gap-3 mt-9">
+            <Link to="/spiderev" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">View SpiderEV</Link>
+            <Link to="/contact-us" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Contact sales</Link>
+          </div>
         </div>
       </section>
 

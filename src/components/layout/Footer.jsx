@@ -124,7 +124,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/40">
-          <span>© {new Date().getFullYear()} SpiderEV. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Spider Energy. All rights reserved.</span>
           <div className="flex flex-wrap gap-6 justify-center">
             <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <a href="/llms.txt" className="hover:text-white transition-colors">AI &amp; Crawler Information</a>

@@ -1,6 +1,7 @@
 import Navbar from "../../components/layout/Navbar";
 import PageContainer from "../../components/layout/PageContainer";
 import HeroSection from "./HeroSection";
+import BrandArchitectureSection from "./BrandArchitectureSection";
 import StatsSection from "./StatsSection";
 import ChargersSection from "./ChargersSection";
 import ChargingSolutionsSection from "./ChargingSolutionsSection";
@@ -15,6 +16,7 @@ const Home = () => {
     <PageContainer>
       <Navbar />
       <HeroSection />
+      <BrandArchitectureSection />
       <StatsSection />
       <ChargersSection />
       <ChargingSolutionsSection />

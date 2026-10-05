@@ -182,6 +182,18 @@ const BlogDetailPage = () => {
           ) : null}
         </div>
 
+        <aside className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12" aria-label="About SpiderEV products">
+          <div className="rounded-2xl bg-gray-50 border border-gray-100 p-6 sm:p-8">
+            <h2 className="text-2xl font-bold text-gray-900">Continue with SpiderEV</h2>
+            <p className="mt-3 text-gray-600 leading-relaxed">SpiderEV is Spider Energy&apos;s EV charging product line, covering AC and DC chargers, SpiderConnect CPMS and the SpiderEV driver app.</p>
+            <div className="flex flex-wrap gap-3 mt-6">
+              <Link to="/products/ac/spider-smart" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">Spider Smart home charger</Link>
+              <Link to="/products/dc/spider-fast" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Spider Fast DC charger</Link>
+              <Link to="/spiderev" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Explore SpiderEV</Link>
+            </div>
+          </div>
+        </aside>
+
         {/* Tags */}
         {tags.length > 0 && (
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">

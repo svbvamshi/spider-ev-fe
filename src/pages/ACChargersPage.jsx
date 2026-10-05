@@ -152,6 +152,19 @@ const ACChargersPage = () => {
         </div>
       </section>
 
+      <section className="pb-16 bg-white">
+        <div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Compare the SpiderEV AC range</h2>
+          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+            <table className="w-full min-w-3xl text-left border-collapse">
+              <thead><tr className="bg-primary text-white"><th className="p-4">Model</th><th className="p-4">Power</th><th className="p-4">Connector</th><th className="p-4">Supply</th><th className="p-4">Typical starting point</th></tr></thead>
+              <tbody>{acProducts.map((product) => <tr key={product.id} className="border-b border-gray-100 last:border-0"><th className="p-4"><Link to={`/products/ac/${product.id}`} className="text-primary hover:underline">{product.name}</Link></th><td className="p-4">{product.power}</td><td className="p-4">{product.connector}</td><td className="p-4">{product.phase}</td><td className="p-4 text-gray-600">{product.power === "3.3 kW" ? "Overnight home charging" : product.power === "7.4 kW" ? "Faster home wallbox" : product.power === "22 kW" ? "Workplace and destination charging" : "Commercial and fleet charging"}</td></tr>)}</tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-gray-500">Final charging speed is limited by the vehicle&apos;s onboard charger and the electrical supply available at the site.</p>
+        </div>
+      </section>
+
       <section className="pb-16 bg-white"><div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10 flex flex-wrap gap-3"><Link to="/spiderev" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">About SpiderEV</Link><Link to="/guides/home-ev-charger-buying-guide-telangana-andhra" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Home charger buying guide</Link><Link to="/contact-us" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">Request quote</Link></div></section>
 
       {/* Product Grid */}

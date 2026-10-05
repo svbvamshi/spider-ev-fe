@@ -25,6 +25,10 @@ const navDropdowns = {
     { label: "About Us", href: "/about-us" },
     { label: "Contact Us", href: "/contact-us" },
   ],
+  Guides: [
+    { label: "AC vs DC Chargers", href: "/guides/ac-vs-dc-ev-charger-india" },
+    { label: "Home Charger Guide", href: "/guides/home-ev-charger-buying-guide-telangana-andhra" },
+  ],
 };
 
 const directLinks = [

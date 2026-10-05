@@ -844,6 +844,7 @@ const ProductDetailPage = () => {
               <motion.span variants={fadeUp} className="text-secondary font-semibold text-sm uppercase tracking-wider">
                 {category === "ac" ? "AC Charger" : "DC Fast Charger"}
               </motion.span>
+              <motion.p variants={fadeUp} className="mt-2 text-white/70 text-sm">Part of <Link to="/spiderev" className="text-white font-semibold underline underline-offset-4">SpiderEV by Spider Energy</Link></motion.p>
               <motion.h1 variants={fadeUp} className="mt-3 text-4xl sm:text-5xl font-bold text-white">
                 {product.name} — {product.power} {typeLabel}
               </motion.h1>

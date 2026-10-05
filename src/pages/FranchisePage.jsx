@@ -58,7 +58,7 @@ const whyCards = [
   {
     icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>,
     title: "Turnkey EV Infrastructure",
-    desc: "From site survey and equipment supply to installation and commissioning — SpiderEV handles it all end-to-end. Zero operational headaches.",
+    desc: "Site survey, equipment, electrical work, installation and commissioning responsibilities are documented in the agreed project scope.",
   },
   {
     icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>,
@@ -83,7 +83,7 @@ const whyCards = [
   {
     icon: <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
     title: "Own Part of India's EV Grid",
-    desc: "India needs 4 lakh+ chargers by 2030. With SpiderEV, you don't just believe in the future — you own a piece of it and profit from it.",
+    desc: "Build a charging business around a reviewed site, suitable hardware, SpiderConnect operations and a site-specific commercial model.",
   },
 ];
 
@@ -98,15 +98,15 @@ const investmentModels = [
     specs: [
       { label: "Charger Options", value: "30, 60, 120 kW DC (Single/Dual Gun)" },
       { label: "Vehicle Type",   value: "4-wheeler passenger EVs (CCS2 compatible)" },
-      { label: "Space Needed",   value: "~1,000 sq. ft. (2–3 car parks)" },
-      { label: "Power Setup",    value: "Direct grid connection, plug-and-play" },
+      { label: "Space Needed",   value: "Confirmed from parking layout and access" },
+      { label: "Power Setup",    value: "Three-phase supply subject to site study" },
       { label: "Ideal For",      value: "Highways, office parks, malls, societies" },
     ],
     support: [
       "Spider Connect CMS dashboard access",
-      "24×7 technical support",
-      "Marketing assistance & app listing",
-      "Site survey & EPC works",
+      "Technical support as agreed in the package",
+      "Marketing and app-listing scope confirmation",
+      "Site survey and EPC scope confirmation",
     ],
   },
   {
@@ -117,17 +117,17 @@ const investmentModels = [
     imageWidth: 1536,
     imageHeight: 1024,
     specs: [
-      { label: "Charger Options", value: "240 kW & 360 kW DC" },
-      { label: "Scalability",     value: "Up to 1.2 MW with multi-gun setup" },
+      { label: "Charger Options", value: "High-power DC mix selected for the fleet" },
+      { label: "Scalability",     value: "Additional guns subject to load study" },
       { label: "Vehicles",        value: "4-wheelers, e-buses & electric trucks" },
       { label: "Power Setup",     value: "Grid capacity and electrical installation" },
       { label: "Ideal For",       value: "Highways, transport hubs, city centres" },
     ],
     support: [
       "Central CMS access & analytics",
-      "24×7 customer experience team",
-      "Marketing & visibility campaigns",
-      "Full EPC & DISCOM approvals support",
+      "Customer-support scope confirmation",
+      "Marketing and visibility scope confirmation",
+      "EPC and approvals responsibilities documented",
     ],
   },
 ];
@@ -150,13 +150,13 @@ const brandPartners = [
 
 const faqItems = [
   { question: "How much does an EV charging franchise cost with SpiderEV in India?",
-    answer: "Investment will vary depending on the charger type and site. The lowest tier is AC-only installations in a home or office. Full DC fast-charge stations for public or highway locations have a higher upfront cost but can make more revenue per session. Use the ROI Calculator on this site for a figure specific to your location." },
+    answer: "Investment depends on the charger mix, electrical work, site layout and agreed operating scope. Share the city, address and available load for a site-specific model rather than relying on a generic investment band." },
   { question: "What support does SpiderEV provide to franchise partners?",
-    answer: "All hardware is developed in-house. SpiderEV also offers ongoing technical support, SpiderConnect software for remote monitoring and takes care of DISCOM liaison and electrical approvals during the onboarding process." },
+    answer: "Hardware, SpiderConnect access, training, commissioning, approvals support and ongoing service are confirmed in the commercial proposal for the specific site." },
   { question: "How long does it take to break even on an EV charging franchise?",
-    answer: "Payback depends on the site, charger type, traffic, tariff and operating costs. Use the ROI calculator as a starting point, then review the assumptions with Spider Energy for the specific location." },
+    answer: "Payback depends on traffic, tariff, charger utilisation, operating costs and the final project scope. Use the ROI calculator as a starting point and review every assumption with Spider Energy." },
   { question: "Do I need prior experience to run an EV charging franchise?",
-    answer: "No. Franchise package includes training and continual support. SpiderEV will help with DISCOM approvals, installation, and daily operations via the SpiderConnect platform." },
+    answer: "Prior charging experience is not required to enquire. The training and operating support included in the final package are confirmed with sales before commitment." },
 ];
 
 const STATES = [
@@ -348,14 +348,14 @@ const FranchiseForm = () => {
               <div>
                 <p className={`${labelCls} mb-2`}>Business Turnover *</p>
                 <div className="flex flex-wrap gap-2">
-                  {["₹1L–50L","₹50L–1Cr","₹1Cr–5Cr","₹5Cr+"].map(o => <PillBtn key={o} active={form.turnover === o} onClick={() => f("turnover", o)}>{o}</PillBtn>)}
+                  {["Early-stage", "Established local business", "Multi-site operator", "Prefer to discuss"].map(o => <PillBtn key={o} active={form.turnover === o} onClick={() => f("turnover", o)}>{o}</PillBtn>)}
                 </div>
               </div>
             )}
             <div>
-              <p className={`${labelCls} mb-2`}>Investment Budget *</p>
+              <p className={`${labelCls} mb-2`}>Preferred Project Scope *</p>
               <div className="flex flex-wrap gap-2">
-                {["₹30L–₹60L","₹60L–₹1Cr","₹1Cr–₹5Cr","₹5Cr+"].map(o => <PillBtn key={o} active={form.budget === o} onClick={() => f("budget", o)}>{o}</PillBtn>)}
+                {["AC destination charging", "Public DC site", "Fleet or depot", "Need a site assessment"].map(o => <PillBtn key={o} active={form.budget === o} onClick={() => f("budget", o)}>{o}</PillBtn>)}
               </div>
             </div>
             <div>
@@ -384,7 +384,7 @@ const FranchiseForm = () => {
                 ["Mobile", `+91 ${form.mobile}`],
                 ["Location", `${form.city}, ${form.state} – ${form.pincode}`],
                 ["Type", form.type],
-                ["Budget", form.budget],
+                ["Project scope", form.budget],
                 ["Land", form.landAvailable],
                 ["Webinar", form.webinar],
               ].map(([k, v]) => (
@@ -421,7 +421,7 @@ export default function FranchisePage() {
         <meta name="description" content="Partner with Spider Energy for SpiderEV charging franchises in Telangana & Andhra Pradesh. Hardware, CPMS and playbooks. Enquire: +91-9997776080." />
         <meta name="keywords" content="EV charging franchise Telangana, EV franchise investment India, EV charger dealership AP, SpiderEV franchise cost, charging station franchise Hyderabad, EV business opportunity Andhra Pradesh" />
       </Helmet>
-      <SEO schema={franchiseSchema} schemas={[franchiseFAQSchema]} breadcrumbs={franchiseBreadcrumbs} />
+      <SEO schema={franchiseSchema} schemas={[franchiseFAQSchema]} breadcrumbs={franchiseBreadcrumbs} title="EV Charging Station Franchise | Spider Energy" description="Partner with Spider Energy for SpiderEV charging franchises in Telangana & Andhra Pradesh. Hardware, CPMS and site-specific planning. Enquire: +91-9997776080." />
 
       {/* ═══════════════════════════════════════════
           HERO — dark bg, no badge, white headline
@@ -485,7 +485,7 @@ export default function FranchisePage() {
                 India is Charging Ahead.<br />Are you?
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-5 text-gray-500 text-base sm:text-lg leading-relaxed max-w-md">
-                With India targeting 30% EV penetration by 2030, demand for fast, reliable and accessible charging infrastructure is skyrocketing. Now is the perfect time to ride the EV wave — not just as a believer, but as an owner of the future.
+                Charging demand is growing, but a viable site still depends on traffic, dwell time, available power, tariff and local competition. Spider Energy reviews those inputs before recommending a charger mix or commercial model.
               </motion.p>
               <motion.a variants={fadeUp} href="#register-form"
                 className="mt-8 inline-flex items-center gap-2 text-primary font-bold text-sm border-b-2 border-primary pb-px hover:opacity-70 transition-opacity">
@@ -493,15 +493,15 @@ export default function FranchisePage() {
               </motion.a>
             </motion.div>
 
-            {/* 2 huge raw numbers — no card containers */}
+            {/* Site qualification principles */}
             <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={vp} className="space-y-0">
               <motion.div variants={fadeRight} className="pb-10 border-b border-gray-100">
-                <div className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-primary tracking-tight leading-none">₹4,000+cr</div>
-                <div className="text-gray-400 text-base mt-4 leading-snug">allocated to EV infra under PM E-Drive Scheme</div>
+                <div className="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight leading-none">Load before hardware</div>
+                <div className="text-gray-500 text-base mt-4 leading-snug">Confirm the electrical connection and vehicle demand before selecting charger power.</div>
               </motion.div>
               <motion.div variants={fadeRight} className="pt-10">
-                <div className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-primary tracking-tight leading-none">44%</div>
-                <div className="text-gray-400 text-base mt-4 leading-snug">CAGR growth of India's EV market (2020–2027)</div>
+                <div className="text-4xl sm:text-5xl font-extrabold text-primary tracking-tight leading-none">Model before commitment</div>
+                <div className="text-gray-500 text-base mt-4 leading-snug">Review traffic, tariff, uptime, operating costs and sensitivity before approving the site.</div>
               </motion.div>
             </motion.div>
 
@@ -743,10 +743,10 @@ export default function FranchisePage() {
             </motion.div>
             <motion.div variants={fadeUp} className="prose prose-lg max-w-none">
               <p className="text-gray-600 leading-relaxed mb-5">
-                SpiderEV's vision of an EV charging franchise is not simply to lease a location on a network, but to own a business that is driven by hardware we manufacture ourselves. That difference counts when something needs servicing, we're not waiting on an overseas supplier, neither are you. The size of your franchise investment depends on the type of charger you install. The AC-only configuration for a home or office starts at a lower entry point, while a full DC fast-charging station for a public or highway location requires more upfront capital but earns faster per session. We'll talk you through the numbers for your site before you make any commitments.
+                SpiderEV's franchise model starts with an operating site, not a headline investment number. The hardware, electrical works, software, commissioning and support scope depend on the location and charger mix. AC destination charging and public DC charging have different traffic, power and operating requirements. Spider Energy reviews the inputs and prepares a site-specific proposal before any commitment.
               </p>
               <p className="text-gray-600 leading-relaxed mb-5">
-                All our franchise partners are provided with our charge point management software, SpiderConnect, allowing you to remotely monitor usage, revenue and uptime from day one. Onboarding also involves dealing with DISCOM liaison and electrical approvals, which is often where new operators get stuck, and that's something we take care of directly. Payback depends on location and charger mix, but public DC stations in high-traffic corridors tend to have better returns per unit than residential AC installs. Before applying, use the ROI Calculator on this site to model your specific scenario.
+                SpiderConnect is planned as the management layer for supported networked chargers, with the final access and support package documented in the commercial proposal. Electrical approvals, EPC work, training and commissioning responsibilities must also be confirmed for the site. Use the ROI calculator only as a starting model, then test its traffic, tariff, utilisation and operating assumptions with the Spider Energy team.
               </p>
             </motion.div>
             <motion.div variants={fadeUp} className="text-center mt-10">
@@ -759,7 +759,24 @@ export default function FranchisePage() {
         </div>
       </section>
 
-      <section className="bg-white py-14"><div className="max-w-5xl mx-auto px-4"><h2 className="text-3xl font-bold text-center">Plan your franchise site</h2><div className="flex flex-wrap justify-center gap-3 mt-7"><Link to="/ev-charging-station-roi-calculator" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">ROI calculator</Link><Link to="/partner-with-us" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Partner with us</Link><Link to="/electric-vehicle-ev-dc-charger" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">View DC chargers</Link><Link to="/contact-us" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Contact sales</Link></div></div></section>
+      <section className="bg-gray-50 py-16 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center">From enquiry to a live charging site</h2>
+          <ol className="grid md:grid-cols-4 gap-5 mt-9">
+            {[
+              ["1", "Share the site", "Send the city, site address, parking layout and available electrical load."],
+              ["2", "Review demand", "Map the vehicle mix, expected dwell time, charger mix and CPMS requirements."],
+              ["3", "Approve the model", "Review site-specific hardware, EPC scope, operating assumptions and the payback model."],
+              ["4", "Install and commission", "Complete approvals, electrical works, commissioning, training and SpiderConnect setup."],
+            ].map(([number, heading, body]) => <li key={number} className="bg-white rounded-2xl p-6 border border-gray-100"><span className="text-secondary font-extrabold text-2xl">{number}</span><h3 className="mt-3 font-bold text-lg">{heading}</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">{body}</p></li>)}
+          </ol>
+          <p className="mt-6 text-center text-gray-600">Package contents, territories, investment and timing are confirmed with sales for the specific site.</p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14"><div className="max-w-5xl mx-auto px-4"><h2 className="text-3xl font-bold text-center">Plan your franchise site</h2><div className="flex flex-wrap justify-center gap-3 mt-7"><Link to="/ev-charging-station-roi-calculator" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">ROI calculator</Link><Link to="/partner-with-us" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Partner with us</Link><Link to="/electric-vehicle-ev-dc-charger" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">View DC chargers</Link><Link to="/blog/start-ev-charging-business-india" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Start-a-business guide</Link><Link to="/contact-us" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Contact sales</Link></div></div></section>
+
+      <section className="bg-gray-50 py-14"><div className="max-w-5xl mx-auto px-4"><h2 className="text-3xl font-bold text-center">Review regional charging demand</h2><p className="mt-3 text-center text-gray-600">Use the city pages as planning context, then submit the actual site address and load.</p><div className="flex flex-wrap justify-center gap-3 mt-7">{[["Hyderabad", "/ev-chargers-hyderabad"], ["Vijayawada", "/ev-chargers-vijayawada"], ["Visakhapatnam", "/ev-chargers-visakhapatnam"]].map(([city, href]) => <Link key={href} to={href} className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">EV chargers in {city}</Link>)}</div></div></section>
 
       {/* ═══════════════════════════════════════════
           BRAND PARTNERS — logo row

@@ -1,28 +1,10 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import SEO from "../components/SEO";
 import { getBreadcrumbSchema } from "../seo/schemas";
-import { fadeUp, scaleUp, staggerContainer, staggerFast, viewport } from "../utils/animationConfig";
 import heroBg from "../assets/home/hero-bg.webp";
-
-const galleryCategories = ["All", "Installations", "Products", "Events", "Partnerships"];
-
-const galleryItems = [
-  { id: 1, category: "Installations", label: "DC Fast Charger — Vadodara Station", caption: "60 kW DC installation at commercial complex" },
-  { id: 2, category: "Products", label: "Spider Smart AC Charger", caption: "7.4 kW home charger — elegant design" },
-  { id: 3, category: "Events", label: "EV India Expo 2025", caption: "SpiderEV booth at EV India Expo, Delhi" },
-  { id: 4, category: "Partnerships", label: "India Post MoU Signing", caption: "Strategic partnership with India Post" },
-  { id: 5, category: "Installations", label: "Highway Charging Hub — NH48", caption: "120 kW DC charging hub on NH-48" },
-  { id: 6, category: "Products", label: "Spider Ultra — 240 kW", caption: "Flagship DC charger product shoot" },
-  { id: 7, category: "Events", label: "SpiderEV Franchise Launch", caption: "Franchise model launch event, Mumbai" },
-  { id: 8, category: "Installations", label: "Community Charging — Vadodara Society", caption: "AC chargers at residential complex" },
-  { id: 9, category: "Partnerships", label: "Delhi Metro Partnership", caption: "Charger installation at metro parking" },
-  { id: 10, category: "Products", label: "Spider Hulk — 120 kW", caption: "Heavy-vehicle DC charger" },
-  { id: 11, category: "Installations", label: "Fleet Depot — Logistics Partner", caption: "Depot charging for electric fleet" },
-  { id: 12, category: "Events", label: "Customer Training — SpiderEV App", caption: "App training session for franchise partners" },
-];
 
 const galleryBreadcrumbs = getBreadcrumbSchema([
   { name: "Home", url: "https://spiderenergy.in/" },
@@ -30,11 +12,6 @@ const galleryBreadcrumbs = getBreadcrumbSchema([
 ]);
 
 const GalleryPage = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [lightboxItem, setLightboxItem] = useState(null);
-
-  const filtered = activeCategory === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeCategory);
-
   return (
     <PageLayout>
       <Helmet>
@@ -63,127 +40,29 @@ const GalleryPage = () => {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             className="mt-3 text-white/80 text-lg"
           >
-            Our installations, products, events, and partnerships.
+            Home charging, public and fleet infrastructure projects.
           </motion.p>
         </div>
       </section>
 
       <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
-          {/* Filter */}
-          <motion.div
-            variants={staggerFast}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}
-            className="flex flex-wrap gap-2 mb-6"
-          >
-            {galleryCategories.map((c) => (
-              <motion.button
-                key={c}
-                variants={scaleUp}
-                onClick={() => setActiveCategory(c)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${activeCategory === c ? "bg-primary text-white" : "bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary"}`}
-              >
-                {c}
-              </motion.button>
-            ))}
-          </motion.div>
-
-          {/* Category Description */}
-          <motion.div
-            key={`desc-${activeCategory}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mb-8 text-gray-600 text-sm sm:text-base leading-relaxed"
-          >
-            {activeCategory === "All" && (
-              <p>Explore SpiderEV's complete portfolio — from installations across Hyderabad to franchise events and product deployments in Telangana and Andhra Pradesh.</p>
-            )}
-            {activeCategory === "Installations" && (
-              <p>SpiderEV's installations across Hyderabad — home, commercial and public charging locations. Our charging infrastructure serves residential complexes, highways, and commercial hubs throughout the region.</p>
-            )}
-            {activeCategory === "Products" && (
-              <p>SpiderEV product range in the field — AC & DC chargers deployed across our service area. From 7.4 kW home chargers to 240 kW ultra-fast DC units, our products power India's EV transition.</p>
-            )}
-            {activeCategory === "Events" && (
-              <p>Franchise Launch Events in Telangana and Andhra Pradesh. Showcasing SpiderEV's participation in industry expos, partner training sessions, and milestone celebrations across the region.</p>
-            )}
-            {activeCategory === "Partnerships" && (
-              <p>Strategic collaborations driving EV adoption — partnerships with India Post, Delhi Metro, logistics fleets, and municipal bodies. Together we're building India's charging backbone.</p>
-            )}
-          </motion.div>
-
-          {/* Grid */}
-          <motion.div
-            key={activeCategory}
-            variants={staggerFast}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
-            {filtered.map((item) => (
-              <motion.button
-                key={item.id}
-                variants={scaleUp}
-                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-                onClick={() => setLightboxItem(item)}
-                className="group relative rounded-2xl overflow-hidden bg-gray-100 aspect-square shadow-sm hover:shadow-lg transition-shadow"
-              >
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <div className="text-center text-gray-400 group-hover:text-gray-500 transition-colors">
-                    <div className="text-3xl mb-1">🖼️</div>
-                    <p className="text-xs px-2 leading-tight">{item.label}</p>
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                  <div className="p-3">
-                    <p className="text-white text-xs font-medium leading-tight">{item.caption}</p>
-                  </div>
-                </div>
-              </motion.button>
-            ))}
-          </motion.div>
+          <div className="max-w-3xl mx-auto rounded-2xl bg-white border border-gray-100 p-8 sm:p-10 text-center shadow-sm">
+            <h2 className="text-3xl font-bold text-gray-900">Verified project gallery in preparation</h2>
+            <p className="mt-4 text-gray-600 leading-relaxed">We publish an installation only after its project record confirms the photograph, charger model and location. Unverified stock images and invented city captions have been removed from this page.</p>
+            <p className="mt-3 text-gray-600 leading-relaxed">The next gallery update will group confirmed work into home AC and public or fleet DC installations. Until those records are approved, contact the site team for relevant references.</p>
+          </div>
         </div>
       </section>
 
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxItem && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-            onClick={() => setLightboxItem(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="bg-white rounded-2xl overflow-hidden max-w-lg w-full shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="bg-gray-100 h-64 flex items-center justify-center">
-                <div className="text-center text-gray-400">
-                  <div className="text-5xl mb-2">🖼️</div>
-                  <p className="text-sm">{lightboxItem.label}</p>
-                </div>
-              </div>
-              <div className="p-5">
-                <span className="text-secondary text-xs font-semibold uppercase tracking-wider">{lightboxItem.category}</span>
-                <h3 className="text-gray-900 font-bold mt-1">{lightboxItem.label}</h3>
-                <p className="text-gray-500 text-sm mt-1">{lightboxItem.caption}</p>
-                <button onClick={() => setLightboxItem(null)} className="mt-4 text-sm text-gray-400 hover:text-gray-600">
-                  Close ✕
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <section className="py-14 bg-white text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold">Request a similar site survey</h2>
+          <p className="mt-3 text-gray-600">Share your location, available load and vehicle mix with Spider Energy.</p>
+          <Link to="/contact-us" className="inline-block mt-6 bg-primary text-white px-6 py-3 rounded-xl font-semibold">Contact the site team</Link>
+        </div>
+      </section>
+
     </PageLayout>
   );
 };

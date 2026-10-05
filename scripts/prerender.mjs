@@ -257,6 +257,8 @@ const NAV_LINKS = [
   { href: "/news", text: "News" },
   { href: "/blog", text: "Blog" },
   { href: "/gallery", text: "Gallery" },
+  { href: "/guides/ac-vs-dc-ev-charger-india", text: "AC vs DC Guide" },
+  { href: "/guides/home-ev-charger-buying-guide-telangana-andhra", text: "Home EV Charger Guide" },
   { href: "/privacy-policy", text: "Privacy Policy" },
 ];
 
@@ -386,10 +388,10 @@ const SERVICE_PAGE_FAQS = {
     { question: "What is the typical timeline for EV station EPC projects?", answer: "Standard projects take 12-20 weeks from agreement to commissioning. Larger or complex projects may take 20-24 weeks depending on power availability and permit timelines." },
   ],
   "/ev-charging-station-franchise": [
-    { question: "How much does an EV charging franchise cost with SpiderEV in India?", answer: "Investment will vary depending on the charger type and site. The lowest tier is AC-only installations in a home or office. Full DC fast-charge stations for public or highway locations have a higher upfront cost but can make more revenue per session. Use the ROI Calculator on this site for a figure specific to your location." },
-    { question: "What support does SpiderEV provide to franchise partners?", answer: "All hardware is developed in-house. SpiderEV also offers ongoing technical support, SpiderConnect software for remote monitoring and takes care of DISCOM liaison and electrical approvals during the onboarding process." },
-    { question: "How long does it take to break even on an EV charging franchise?", answer: "How long it takes to pay back depends on charger type and traffic at the location. Public DC fast-charging stations along heavily travelled corridors sometimes break even faster than residential AC installations. Model your specific site with the ROI Calculator." },
-    { question: "Do I need prior experience to run an EV charging franchise?", answer: "No. Franchise package includes training and continual support. SpiderEV will help with DISCOM approvals, installation, and daily operations via the SpiderConnect platform." },
+    { question: "How much does an EV charging franchise cost with SpiderEV in India?", answer: "Investment depends on the charger mix, electrical work, site layout and agreed operating scope. Share the city, address and available load for a site-specific model rather than relying on a generic investment band." },
+    { question: "What support does SpiderEV provide to franchise partners?", answer: "Hardware, SpiderConnect access, training, commissioning, approvals support and ongoing service are confirmed in the commercial proposal for the specific site." },
+    { question: "How long does it take to break even on an EV charging franchise?", answer: "Payback depends on traffic, tariff, charger utilisation, operating costs and the final project scope. Use the ROI calculator as a starting point and review every assumption with Spider Energy." },
+    { question: "Do I need prior experience to run an EV charging franchise?", answer: "Prior charging experience is not required to enquire. The training and operating support included in the final package are confirmed with sales before commitment." },
   ],
   "/har-ghar": [
     { question: "What is the Har Ghar Charger initiative?", answer: "Har Ghar Charger is SpiderEV's initiative to make home EV charging accessible to every Indian household. Install a home charger, charge your own EV, and optionally earn by sharing it with neighbours through the SpiderEV app." },
@@ -407,8 +409,8 @@ const routes = [
     title: "Spider Energy | EV Charger Manufacturer in Telangana & AP",
     description: "Spider Energy builds SpiderEV chargers in Hyderabad for Telangana, Andhra Pradesh and India. Explore AC, DC, CPMS and franchise solutions.",
     keywords: "EV charger manufacturer Telangana, EV charging station AP, electric vehicle charger India, AC DC charger Hyderabad, SpiderEV India",
-    subtopics: ["Spider Energy — Connected EV Charging Infrastructure", "AC & DC EV Chargers for Every Need — Home to Highway", "SpiderEV — Connected EV Charging Infrastructure", "EV Charging Franchise Opportunities in Telangana & AP", "Why Choose Spider Energy — BIS Certified, Locally Manufactured"],
-    bodyText: "Spider Energy is developing and installing EV charging infrastructure in Telangana and Andhra Pradesh, ranging from 3.3 kW home AC chargers to 240 kW ultra-rapid DC fast chargers. All our chargers are BIS-certified, OCPP compliant and designed for Indian grid conditions and weather. SpiderEV offers the full range of charging hardware for homes, apartments, commercial fleets and highway corridors, together with SpiderConnect charge point management software and the SpiderEV driver app. Businesses can join through a direct EV charging franchise or a partner model for site hosts, fleet operators and fuel station owners. Homeowners can access affordable home charging through our Har Ghar Charger initiative.",
+    subtopics: ["Spider Energy - EV Charging from Hyderabad", "SpiderEV charging products", "AC & DC EV Chargers for Every Need - Home to Highway", "SpiderConnect CPMS & SpiderEV App", "Serving Telangana & Andhra Pradesh", "Get in touch"],
+    bodyText: "Spider Energy designs and manufactures EV charging hardware in India, with headquarters at T-Hub, Raidurgam, Hyderabad. SpiderEV covers chargers, SpiderConnect CPMS and the driver app. The SpiderEV range runs from 3.3 kW home AC chargers to 240 kW ultra-rapid DC fast chargers.",
     schemas: [
       {
         "@context": "https://schema.org",
@@ -431,7 +433,7 @@ const routes = [
     description: "SpiderEV is Spider Energy's EV charging line: BIS-ready AC & DC chargers, SpiderConnect CPMS and the SpiderEV App for Telangana, AP and India.",
     keywords: "SpiderEV, AC EV chargers, DC fast chargers, SpiderConnect CPMS, SpiderEV app, EV charging India",
     subtopics: ["SpiderEV — EV Charging Hardware, Software & Driver App", "AC EV Chargers for Homes, Workplaces & Fleets", "DC Fast Chargers for Public Networks & Depots", "SpiderConnect Charge Point Management System", "SpiderEV Driver App"],
-    bodyText: "SpiderEV is Spider Energy's connected EV charging product line. It includes AC chargers from 3.3 kW to 80 kW, DC fast chargers from 3 kW to 240 kW, SpiderConnect software for monitoring and operating charging networks, and the SpiderEV app for station discovery, charging sessions, and digital payments.",
+    bodyText: "SpiderEV is Spider Energy's connected EV charging product line, not a separate company. It includes AC chargers from 3.3 kW to 80 kW, DC fast chargers from 3 kW to 240 kW, SpiderConnect software for monitoring and operating charging networks, and the SpiderEV app for station discovery, charging sessions and digital payments. Charger selection starts with the vehicle connector, daily energy requirement, parking duration and electrical capacity. Homeowners can compare Mini, Lite and Smart; workplaces can review Blaze and Strike; public and fleet sites can start with Fast and scale according to vehicle demand and dwell time. Product pages state the model-specific connector, OCPP capability, ingress protection and certifications. Installation scope is confirmed after reviewing the phase, sanctioned load, cable route, earthing and protection. Spider Energy coordinates sales and service from T-Hub, Raidurgam, Hyderabad, with primary commercial focus in Telangana and Andhra Pradesh.",
     schemas: [
       { "@context": "https://schema.org", "@type": "CollectionPage", "@id": `${BASE_URL}/spiderev#collection`, "name": "SpiderEV Charging Products and Software", "url": `${BASE_URL}/spiderev`, "isPartOf": { "@id": `${BASE_URL}/#website` }, "about": { "@id": `${BASE_URL}/#brand-spiderev` }, "mainEntity": { "@type": "ItemList", "numberOfItems": 4, "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "AC EV Chargers", "url": `${BASE_URL}/electric-vehicle-ev-ac-charger` },
@@ -441,8 +443,10 @@ const routes = [
       ] } },
       { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${BASE_URL}/spiderev#faq`, "mainEntity": [
         { "@type": "Question", "name": "What does the SpiderEV product line include?", "acceptedAnswer": { "@type": "Answer", "text": "SpiderEV includes AC and DC chargers, SpiderConnect CPMS, and the SpiderEV app for drivers and charging-station operators." } },
-        { "@type": "Question", "name": "What products are included in SpiderEV?", "acceptedAnswer": { "@type": "Answer", "text": "SpiderEV includes home and commercial AC chargers, DC fast chargers for public and fleet use, SpiderConnect charging management software, and the SpiderEV driver app." } },
-        { "@type": "Question", "name": "Where does Spider Energy operate?", "acceptedAnswer": { "@type": "Answer", "text": "Spider Energy is based at T-Hub, Raidurgam, Hyderabad, with primary service coverage across Telangana and Andhra Pradesh." } }
+        { "@type": "Question", "name": "Is SpiderEV a different company from Spider Energy?", "acceptedAnswer": { "@type": "Answer", "text": "No. Spider Energy is the parent company, and SpiderEV is its product line for EV chargers, SpiderConnect CPMS and the SpiderEV driver app." } },
+        { "@type": "Question", "name": "Where does Spider Energy operate?", "acceptedAnswer": { "@type": "Answer", "text": "Spider Energy is based at T-Hub, Raidurgam, Hyderabad, with primary service coverage across Telangana and Andhra Pradesh." } },
+        { "@type": "Question", "name": "Which standards and protocols do SpiderEV chargers support?", "acceptedAnswer": { "@type": "Answer", "text": "The listed connected models use OCPP 1.6J. Connector, BIS and protection specifications vary by model and should be confirmed on the product page and quotation." } },
+        { "@type": "Question", "name": "Can I open a SpiderEV charging franchise?", "acceptedAnswer": { "@type": "Answer", "text": "Spider Energy reviews franchise enquiries using the site address, available electrical load, vehicle mix, dwell time and proposed operating model." } }
       ] }
     ],
   },
@@ -786,10 +790,11 @@ const routes = [
     title: "About Spider Energy | EV Charging from Hyderabad",
     description: "Learn how Spider Energy builds SpiderEV chargers for Telangana and Andhra Pradesh. Office: T-Hub, Raidurgam, Hyderabad.",
     keywords: "EV charger manufacturer Telangana, electric vehicle manufacturer AP, BIS certified charger India, SpiderEV company Hyderabad, EVSE manufacturer India",
-    subtopics: ["About Spider Energy — EV Charger Manufacturer in Telangana & Andhra Pradesh", "Our Mission — Making EV Charging Accessible Across India", "Manufacturing Capabilities — BIS-Certified AC & DC EV Chargers", "SpiderEV — Connected Charging Hardware and Software", "Our Presence in Telangana & Andhra Pradesh", "Certifications & Compliance — BIS, OCPP, IP67, IS 17017"],
-    bodyText: "Spider Energy was started on a simple premise. India's transition to EVs needs charging infrastructure made for Indian conditions, not repurposed from elsewhere. We build everything in-house — from 3.3 kW AC chargers for homes to 80 kW dual-gun commercial chargers, and from 30 kW to our flagship 240 kW DC fast chargers for highways and fleet depots. SpiderEV combines the charging hardware with SpiderConnect, our charge point management platform, and the SpiderEV driver app. We are located in Hyderabad and provide services across Telangana and Andhra Pradesh, backed by local installation and maintenance support.",
+    subtopics: ["About Spider Energy", "Who we are", "SpiderEV product line", "Where we work", "Contact"],
+    bodyText: "Spider Energy is the company and SpiderEV is its EV charging product line. SpiderEV combines AC and DC charging hardware with SpiderConnect CPMS and the SpiderEV driver app. Spider Energy is based at T-Hub, Raidurgam, Hyderabad and primarily serves Telangana and Andhra Pradesh.",
     schemas: [
       { "@context": "https://schema.org", "@type": "Organization", "name": "Spider Energy", "url": BASE_URL, "logo": `${BASE_URL}/spider-ev-logo.png`, "address": { "@type": "PostalAddress", "streetAddress": "T-Hub, Raidurgam", "addressLocality": "Hyderabad", "addressRegion": "Telangana", "postalCode": "500081", "addressCountry": "IN" }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{ "@type": "Question", "name": "What is the difference between Spider Energy and SpiderEV?", "acceptedAnswer": { "@type": "Answer", "text": "Spider Energy is the parent company, and SpiderEV is its product line for EV chargers, SpiderConnect CPMS and the SpiderEV driver app." } }] },
     ],
   },
   {
@@ -805,12 +810,12 @@ const routes = [
   {
     path: "/ev-charging-station-franchise",
     title: "EV Charging Station Franchise | Spider Energy",
-    description: "Partner with Spider Energy for SpiderEV charging franchises in Telangana & Andhra Pradesh. Hardware, CPMS and playbooks. Enquire: +91-9997776080.",
+    description: "Partner with Spider Energy for SpiderEV charging franchises in Telangana & Andhra Pradesh. Hardware, CPMS and site-specific planning. Enquire: +91-9997776080.",
     keywords: "EV charging station franchise Telangana, EV franchise business AP, electric vehicle franchise investment India, SpiderEV franchise cost, EV charger dealership Hyderabad",
-    subtopics: ["Start Your EV Charging Franchise in Telangana & AP", "Why Choose SpiderEV for Your EV Charging Franchise in AP & Telangana", "Franchise Investment Tiers — What Does It Cost to Start?", "ROI & Payback Period — How Long Until Your Franchise Is Profitable?", "Support & Training — What SpiderEV Provides to Franchise Partners", "How to Apply for an EV Charging Franchise in Telangana & AP"],
+    subtopics: ["Start Your EV Charging Franchise in Telangana & AP", "Who the franchise is for", "Site-specific hardware and operating scope", "Steps from enquiry to a live site", "ROI calculator and assumption review", "Support and training confirmed by package"],
     bodyText: "Spider Energy franchises SpiderEV charging sites with hardware, SpiderConnect CPMS access and commissioning support. Territories centre on Telangana and Andhra Pradesh first. Bring your site address and power availability so the team can map charger guns and a site-specific payback model. Hardware, CPMS, training and support details are confirmed for the agreed package. Use the ROI calculator as a starting point, then review the assumptions with Spider Energy before making an investment decision.",
     schemas: [
-      { "@context": "https://schema.org", "@type": "Service", "name": "EV Charging Station Franchise", "description": "Start your EV charging franchise in Andhra Pradesh and Telangana with dealership support, profitable franchise setup plans and trusted franchise company guidance.", "url": `${BASE_URL}/ev-charging-station-franchise`, "serviceType": "EV Charging Franchise Opportunity", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
+      { "@context": "https://schema.org", "@type": "Service", "name": "EV Charging Station Franchise", "description": "Site-specific SpiderEV charging franchise planning for Andhra Pradesh and Telangana, including hardware, CPMS and commissioning scope.", "url": `${BASE_URL}/ev-charging-station-franchise`, "serviceType": "EV Charging Franchise Opportunity", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": [{ "@type": "State", "name": "Telangana" }, { "@type": "State", "name": "Andhra Pradesh" }] },
       { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": SERVICE_PAGE_FAQS["/ev-charging-station-franchise"].map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) },
     ],
   },
@@ -854,9 +859,9 @@ const routes = [
     path: "/gallery",
     title: "Project Gallery | SpiderEV Installations",
     description: "Photos of SpiderEV charger installations across Telangana and Andhra Pradesh. Homes, fleets and public sites.",
-    keywords: "SpiderEV gallery, EV charger installation photos, charging station images, SpiderEV events, EV infrastructure India photos",
-    subtopics: ["SpiderEV Gallery — EV Charger Installations Across Telangana & Andhra Pradesh", "EV Charger Installations Across Telangana & Andhra Pradesh", "SpiderEV Product Range — AC & DC Chargers in Action", "Franchise Launches & Partnership Events — Spider Energy India"],
-    bodyText: "Browse our gallery showcasing SpiderEV charger installations at malls, corporate offices, highways, and residential communities across Telangana and Andhra Pradesh. See our product range from the compact Spider Mini home charger to the powerful Spider Hulk 240 kW heavy-duty charger in real-world deployments. Also featuring event coverage from industry conferences, partner meets, and product launch events. SpiderEV's installations across Hyderabad – home, commercial and public charging locations. Franchise Launch Events in Telangana and Andhra Pradesh. SpiderEV product range in the field – AC & DC chargers deployed across our service area.",
+    keywords: "SpiderEV installations, Spider Energy projects, EV charger installation photos",
+    subtopics: ["Installation Gallery", "Home AC installs", "Public & fleet DC", "Request a similar site survey"],
+    bodyText: "Project captions identify the model and city only when confirmed in the project record. Unverified project locations are not published as facts. Contact Spider Energy to request a similar site survey.",
   },
   {
     path: "/har-ghar",
@@ -893,8 +898,8 @@ const routes = [
     schema: { "@context": "https://schema.org", "@type": "Service", "name": `EV charger supply and installation in ${city}`, "url": `${BASE_URL}/ev-chargers-${slug}`, "serviceType": "EV charger supply and installation", "provider": { "@id": `${BASE_URL}/#organization` }, "areaServed": { "@type": "City", "name": city } },
   })),
   ...[
-    ["ac-vs-dc-ev-charger-india", "AC vs DC EV Chargers in India - Which Do You Need?", "Clear AC vs DC EV charging guide for India. Power ranges, connectors, home vs public use, and which SpiderEV models fit each job.", "AC vs DC EV Chargers in India - A Practical Guide", "AC chargers feed the vehicle's onboard charger. DC chargers bypass it and send power directly to the battery. If vehicles sit for hours, AC is usually the practical choice; if drivers stop briefly, consider DC."],
-    ["home-ev-charger-buying-guide-telangana-andhra", "Home EV Charger Guide for Telangana & Andhra Pradesh", "How to choose a home EV charger in TG & AP: 3.3 vs 7.4 kW, single-phase limits, apartment parking, and SpiderEV Mini, Lite and Smart.", "Buying a Home EV Charger in Telangana & Andhra Pradesh", "Start with the supply available at the parking bay, the vehicle's AC input limit and the distance driven each day. Confirm parking, cable route, earthing and property requirements before installation."],
+    ["ac-vs-dc-ev-charger-india", "AC vs DC EV Chargers in India - Which Do You Need?", "Clear AC vs DC EV charging guide for India. Power ranges, connectors, home vs public use, and which SpiderEV models fit each job.", "AC vs DC EV Chargers in India - A Practical Guide", "AC chargers feed the vehicle's onboard charger, so the car's AC input limit controls the session. DC chargers perform conversion outside the vehicle and supply the battery directly. AC usually fits homes, offices and destinations where vehicles remain parked for hours. DC fits public sites, corridors and fleets where dwell time is short. Check Type 2, CCS2, CHAdeMO or IS 17017-2-6 compatibility before selecting hardware. Compare Spider Mini and Smart for homes, Blaze and Strike for workplaces, Spider Fast and higher-power models for public sites, and Spider Base for supported light-EV fleets. Site design must also account for phase, sanctioned load, cable route, simultaneous sessions, access control and CPMS requirements."],
+    ["home-ev-charger-buying-guide-telangana-andhra", "Home EV Charger Guide for Telangana & Andhra Pradesh", "How to choose a home EV charger in TG & AP: 3.3 vs 7.4 kW, single-phase limits, apartment parking, and SpiderEV Mini, Lite and Smart.", "Buying a Home EV Charger in Telangana & Andhra Pradesh", "Start with the vehicle's AC input limit, typical daily distance and overnight parking window. A 3.3 kW charger can theoretically deliver about 26 kWh in eight hours, while 7.4 kW can deliver about 59 kWh before charging losses and vehicle limits. For a 40 kWh battery arriving at 30%, adding 20 kWh may take roughly six to seven hours at 3.3 kW or around three hours at 7.4 kW; these are planning examples, not guarantees. Confirm the assigned parking bay, cable route, metering, phase, sanctioned load, earthing and protection. Compare Spider Mini and Lite at 3.3 kW with Spider Smart at 7.4 kW, then request an electrical assessment before installation."],
   ].map(([slug, title, description, heading, bodyText]) => ({
     path: `/guides/${slug}`,
     title,
@@ -977,6 +982,7 @@ if (existsSync(BLOG_DATA_PATH)) {
       try {
         const contentData = JSON.parse(readFileSync(contentPath, "utf-8"));
         articleHtml = contentData.html || "";
+        articleHtml += `<aside><h2>Continue with SpiderEV</h2><p>SpiderEV is Spider Energy's EV charging product line, covering AC and DC chargers, SpiderConnect CPMS and the SpiderEV driver app.</p><p><a href="/products/ac/spider-smart">Spider Smart home charger</a> · <a href="/products/dc/spider-fast">Spider Fast DC charger</a> · <a href="/spiderev">Explore SpiderEV</a></p></aside>`;
       } catch (err) {
         console.warn(`  ⚠ Could not read blog content for ${post.slug}: ${err.message}`);
       }

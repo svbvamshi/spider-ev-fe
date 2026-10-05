@@ -172,6 +172,18 @@ const DCChargersPage = () => {
         </div>
       </section>
 
+      <section className="pb-16 bg-white"><div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10 flex flex-wrap gap-3"><Link to="/spiderev" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">About SpiderEV</Link><Link to="/heavy-duty-ev-charging-station" className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">Heavy-duty charging</Link><Link to="/contact-us" className="bg-primary text-white px-5 py-3 rounded-xl font-semibold">Request a site review</Link></div></section>
+
+      <section className="pb-16 sm:pb-20 bg-white"><div className="max-w-330 mx-auto px-4 sm:px-6 lg:px-10">
+        <h2 className="text-3xl font-bold text-gray-900">Plan the DC site, not only the charger</h2>
+        <div className="grid md:grid-cols-3 gap-6 mt-7">
+          <article className="rounded-2xl bg-gray-50 p-7"><h3 className="text-xl font-bold">Light-EV charging</h3><p className="mt-3 text-gray-600 leading-relaxed">Spider Base covers supported two- and three-wheeler use cases using IS 17017-2-6 configurations. Confirm vehicle voltage, connector and fleet schedule before selection. A light-EV depot may value several available connectors and scheduled overnight charging more than one high-power passenger-car charger.</p></article>
+          <article className="rounded-2xl bg-gray-50 p-7"><h3 className="text-xl font-bold">Public and corridor sites</h3><p className="mt-3 text-gray-600 leading-relaxed">Start with expected arrivals, connector mix and acceptable waiting time. Spider Fast is the 30 kW entry point; higher-power models reduce dwell time only when the vehicle accepts the rate and the site can supply it. Include bay layout, signage, payment, lighting and customer support in the operating plan.</p></article>
+          <article className="rounded-2xl bg-gray-50 p-7"><h3 className="text-xl font-bold">Fleet and depot sites</h3><p className="mt-3 text-gray-600 leading-relaxed">Map when vehicles return, how much energy each route consumes and when each vehicle must leave again. Several scheduled sessions may require load management instead of every gun drawing maximum power simultaneously. Record existing building loads and future fleet growth before finalising the electrical design.</p></article>
+        </div>
+        <div className="mt-10 rounded-2xl border border-gray-100 p-7"><h2 className="text-2xl font-bold">Information needed for a DC recommendation</h2><ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-5 text-gray-700">{["Vehicle models and connector inlets", "Daily sessions and dwell time", "Simultaneous charging target", "Sanctioned load and transformer data", "Cable route and parking layout", "Public, fleet or private access", "Tariff and operating hours", "CPMS, payment and reporting needs", "Expansion plan for additional guns"].map(item => <li key={item} className="rounded-xl bg-gray-50 p-4">✓ {item}</li>)}</ul><p className="mt-5 text-gray-600 leading-relaxed">Charging time varies with vehicle capability, battery state, temperature and power sharing. Treat a quoted peak rate as an equipment limit, not a guaranteed session average. The installed proposal should identify the charger, connector, protection, electrical work, commissioning and software scope separately.</p></div>
+      </div></section>
+
 
       {/* Product Grid */}
       <section className="pb-16 sm:pb-20 bg-white">

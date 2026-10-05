@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "../components/layout/PageLayout";
@@ -29,7 +30,7 @@ const ContactUsPage = () => {
         <title>Contact SpiderEV | EV Charging Experts in AP & TG</title>
         <meta name="description" content="Contact Spider Energy for EV charger installation, franchise enquiries and CPMS support in Andhra Pradesh and Telangana." />
       </Helmet>
-      <SEO breadcrumbs={contactBreadcrumbs} />
+      <SEO breadcrumbs={contactBreadcrumbs} title="Contact Spider Energy | EV Charging Experts in AP & TG" description="Contact Spider Energy for EV charger installation, franchise enquiries and CPMS support in Andhra Pradesh and Telangana." />
       {/* Hero */}
       <section className="relative overflow-hidden py-20 sm:py-28" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-primary/80" />
@@ -154,6 +155,8 @@ const ContactUsPage = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-14 bg-gray-50"><div className="max-w-5xl mx-auto px-4 sm:px-6"><h2 className="text-3xl font-bold text-gray-900">Regional sales coverage</h2><p className="mt-3 text-gray-600">Review the local planning pages before sharing your site details.</p><div className="flex flex-wrap gap-3 mt-6">{[["Hyderabad", "/ev-chargers-hyderabad"], ["Vijayawada", "/ev-chargers-vijayawada"], ["Visakhapatnam", "/ev-chargers-visakhapatnam"]].map(([city, href]) => <Link key={href} to={href} className="border border-primary text-primary px-5 py-3 rounded-xl font-semibold">EV chargers in {city}</Link>)}</div></div></section>
     </PageLayout>
   );
 };
